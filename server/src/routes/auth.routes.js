@@ -15,6 +15,4 @@ userRouter.post("/login", login);
 userRouter.post("/logout", logout);
 userRouter.get("/profile", profile);
 
-
-
 export default userRouter;

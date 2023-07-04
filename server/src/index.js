@@ -3,12 +3,12 @@ import { dbConnection } from "./config/mongo.js";
 import express from "express";
 import morgan from "morgan";
 import userRouter from "./routes/auth.routes.js";
-
+import cookieParser from "cookie-parser";
 const app = express();
 
 // Enable incoming JSON data
 app.use(express.json());
-
+app.use(cookieParser());
 // Enable incoming Form-Data
 app.use(express.urlencoded({ extended: true }));
 
