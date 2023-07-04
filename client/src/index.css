@@ -1,4 +1,9 @@
-body {
-  background-color: #0d032b;
-  color: antiquewhite;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
