@@ -1,4 +1,3 @@
-import "./App.css";
 import { Route, Link, BrowserRouter, Routes } from "react-router-dom";
 import Logout from "./Components/Logout/Logout";
 import Login from "./Components/Login/Login";
@@ -29,5 +28,4 @@ const App = () => {
   );
 };
 
-export default App;
 export default App;
