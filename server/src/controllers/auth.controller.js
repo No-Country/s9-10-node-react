@@ -90,33 +90,29 @@ export const profile = async (req, res) => {
 
 export const editProfile = async (req, res) => {
   try {
-    const { email, username, password, role } = req.body;
-    const user = await User.findById(req.user.id);
+    const { id } = req.params; 
+    const { email, username, password} = req.body;
+    const user = await User.findById(id);
 
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
 
-    // Actualiza los campos de perfil modificables
+ 
     user.email = email || user.email;
     user.username = username || user.username;
-    user.role = role || user.role;
 
-    // Si se proporciona una nueva contraseña, la encripta y la actualiza
+    
     if (password) {
       const hashedPassword = await bcrypt.hash(password, 10);
       user.password = hashedPassword;
     }
 
-    // Guarda los cambios en la base de datos
     const updatedUser = await user.save();
 
     res.status(200).json({
-      
       email: updatedUser.email,
-      username: updatedUser.username,
-      role: updatedUser.role,
-      
+      username: updatedUser.username
     });
   } catch (error) {
     res.status(500).json({
@@ -124,4 +120,3 @@ export const editProfile = async (req, res) => {
     });
   }
 };
-
