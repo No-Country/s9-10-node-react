@@ -1,6 +1,6 @@
 import { Suspense, lazy } from 'react';
 import { Route, BrowserRouter, Routes } from 'react-router-dom';
-import { NavbarScreen } from './components';
+import { NavbarScreen } from './Components';
 
 //add lazy loading to all pages
 const Home = lazy(() => import('./pages/Home/Home'));
