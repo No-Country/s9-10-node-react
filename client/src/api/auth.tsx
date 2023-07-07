@@ -23,7 +23,7 @@ export const loginRequest = async (email: string, password: string) => {
     const response = await axios.post("http://localhost:8000/api/users/login", {
       email,
       password
-    });
+    },{withCredentials: true});
     return response.data;
   } catch (error: unknown) {
     if (axios.isAxiosError(error)) {
@@ -36,7 +36,7 @@ export const loginRequest = async (email: string, password: string) => {
 
 export const profileRequest = async () => {
   try {
-    const response = await axios.get("http://localhost:8000/api/users/profile");
+    const response = await axios.get("http://localhost:8000/api/users/profile",{ withCredentials: true });
     return response.data;
   } catch (error: unknown) {
     if (axios.isAxiosError(error)) {
