@@ -11,7 +11,7 @@ const app = express();
 // Enable incoming JSON data
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors());
+app.use(cors({ origin: true, credentials: true }));
 // Enable incoming Form-Data
 app.use(express.urlencoded({ extended: true }));
 
