@@ -4,6 +4,7 @@ import {
   logout,
   profile,
   register,
+  verifyToken,
 } from "../controllers/auth.controller.js";
 const userRouter = Router();
 
@@ -14,5 +15,5 @@ userRouter.post("/register", register);
 userRouter.post("/login", login);
 userRouter.post("/logout", logout);
 userRouter.get("/profile", profile);
-
+userRouter.get("/verify", verifyToken);
 export default userRouter;
