@@ -1,9 +1,17 @@
 import axios from 'axios';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import GetToken from '../libs/getToken';
+import { useAuthStore } from '../store/auth';
 
 const useFetch = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<any>(null);
+  const token = useAuthStore((state) => state.token);
+  const { getToken } = GetToken();
+
+  useEffect(() => {
+    getToken();
+  }, [getToken]);
 
   /**
    * fetches data from a specified URL using the
@@ -27,7 +35,7 @@ const useFetch = () => {
       method: method,
       headers: {
         'Content-Type': 'application/json',
-        //Authorization: `Bearer ${localStorage.getItem('token')}`,
+        Authorization: `Bearer ${token}`,
       },
       data: body ? body : null,
       signal: abortController.signal,
@@ -35,6 +43,7 @@ const useFetch = () => {
 
     setIsLoading(true);
     try {
+      axios.defaults.withCredentials = true;
       const result = await axios(
         `${import.meta.env.VITE_SERVER_URL}${url}`,
         options
