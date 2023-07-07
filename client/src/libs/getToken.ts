@@ -1,12 +1,9 @@
 import { useAuthStore } from '../store/auth';
 
 function GetToken() {
-  const tokenStore = useAuthStore((state) => state.token);
   const setToken = useAuthStore((state) => state.setToken);
 
   const getToken = async () => {
-    if (tokenStore !== '') return;
-
     const cookies = document.cookie;
     const cookieArray = cookies.split(';'); // Dividir las cookies en un array
 
