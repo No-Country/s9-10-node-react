@@ -21,13 +21,7 @@ export const register = async (req, res) => {
     //Guardamos el token en la cookie
     res.cookie("token", token);
     //Devolvemos el usuario
-    res.status(201).json({
-      id: userSaved._id,
-      username: userSaved.username,
-      email: userSaved.email,
-      createdAt: userSaved.createdAt,
-      updatedAt: userSaved.updatedAt,
-    });
+    res.status(201).json({});
   } catch (error) {
     res.status(500).json({
       message: error.message,
@@ -54,6 +48,19 @@ export const login = async (req, res) => {
       createdAt: userFound.createdAt,
       updatedAt: userFound.updatedAt,
     });
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+};
+
+export const session = async (req, res) => {
+ 
+  try {
+   
+    //Devolvemos el usuario
+    res.json({user:{...req.user}});
   } catch (error) {
     res.status(500).json({
       message: error.message,
