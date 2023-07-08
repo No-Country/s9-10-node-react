@@ -4,7 +4,7 @@ import {
   logout,
   profile,
   register,
-  editProfile
+  editProfile,
 } from "../controllers/auth.controller.js";
 import { authRequired } from "../middlewares/validateToken.js";
 const userRouter = Router();
@@ -18,6 +18,5 @@ userRouter.use(authRequired);
 userRouter.post("/logout", logout);
 userRouter.get("/profile", profile);
 userRouter.put("/edit-profile/:id", editProfile);
-
 
 export default userRouter;
