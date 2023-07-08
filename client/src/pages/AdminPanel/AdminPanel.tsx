@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { Formulario, Star, IconCara, NumberComponent } from './components';
+import { Formulario, Star, IconCara, NumberComponent, TextArea } from './components';
 
 const availableComponents = [
   { id: 'star', label: 'Estrella', component: Star },
@@ -10,6 +10,7 @@ const availableComponents = [
     label: 'Componente de Número',
     component: NumberComponent,
   },
+  {id: 'textArea', label: 'Texto', component: TextArea }
 ];
 
 const AdminPanel: React.FC = () => {

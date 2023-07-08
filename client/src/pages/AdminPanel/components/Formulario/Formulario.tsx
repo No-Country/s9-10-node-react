@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import Star from '../Star/Star';
 import IconCara from '../IconCara/IconCara';
 import NumberComponent from '../NumberComponent/NumberComponent';
+import  TextArea  from '../TextArea/TextArea';
 
 interface ComponentInstance {
   id: string;
   component: React.ReactNode;
   title: string;
+  
 }
 
 interface FormularioProps {
@@ -64,6 +66,9 @@ const Formulario: React.FC<FormularioProps> = ({ selectedComponents, onSave }) =
         break;
       case 'numberComponent':
         component = <NumberComponent onSave={onSave} />;
+        break;
+        case 'textArea':
+        component = <TextArea onSave={onSave} />;
         break;
       // Agrega más casos para otros componentes seleccionados
 
