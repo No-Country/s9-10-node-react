@@ -1,6 +1,6 @@
 import { Suspense, lazy } from 'react';
 import { Route, BrowserRouter, Routes } from 'react-router-dom';
-import { NavbarScreen } from './Components';
+import { FooterScreen, NavbarScreen } from './Components';
 
 //add lazy loading to all pages
 const Home = lazy(() => import('./pages/Home/Home'));
@@ -21,6 +21,7 @@ const App = () => {
           <Route path='logout' element={<Logout />} />
           <Route path='admin' element={<AdminPanel />} />
         </Routes>
+        <FooterScreen />
       </BrowserRouter>
     </Suspense>
   );
