@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react';
 
 //custom hook que permite obtener los valores del ancho y alto de la pantalla.
 const useScreenSize = () => {
-  const [width, setWidth] = useState(window.innerWidth);
-  const [height, setHeight] = useState(window.innerHeight);
+  const [width, setWidth] = useState<number>(window.innerWidth);
+  const [height, setHeight] = useState<number>(window.innerHeight);
 
   //handleResize es la función que va a ejecutar cuando cambie el tamaño de la ventana
-  const handleResize = () => {
+  const handleResize = (): void => {
     setWidth(window.innerWidth);
     setHeight(window.innerHeight);
   };
