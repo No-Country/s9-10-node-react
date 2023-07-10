@@ -1,1 +1,1 @@
-export { default as AcclaimScreen } from './AclaimScreen/AcclaimScreen';
+export { default as AcclaimScreen } from './AcclaimScreen/AcclaimScreen';
