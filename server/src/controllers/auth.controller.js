@@ -89,22 +89,19 @@ export const profile = async (req, res) => {
   }
 };
 
-
 export const editProfile = async (req, res) => {
   try {
-    const { id } = req.params; 
-    const { email, username, password} = req.body;
+    const { id } = req.params;
+    const { email, username, password } = req.body;
     const user = await User.findById(id);
 
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
 
- 
     user.email = email || user.email;
     user.username = username || user.username;
 
-    
     if (password) {
       const hashedPassword = await bcrypt.hash(password, 10);
       user.password = hashedPassword;
@@ -114,18 +111,18 @@ export const editProfile = async (req, res) => {
 
     res.status(200).json({
       email: updatedUser.email,
-      username: updatedUser.username
+      username: updatedUser.username,
     });
   } catch (error) {
     res.status(500).json({
       message: error.message,
     });
   }
+};
 
 export const verifyToken = async (req, res) => {
   const { token } = req.cookies;
   if (!token) return res.send(false);
-
   jwt.verify(token, TOKEN_SECRET, async (error, user) => {
     if (error) return res.sendStatus(401);
 
@@ -138,5 +135,4 @@ export const verifyToken = async (req, res) => {
       email: userFound.email,
     });
   });
-
 };

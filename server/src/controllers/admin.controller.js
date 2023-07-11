@@ -41,7 +41,8 @@ export const login = async (req, res) => {
   const { email, password } = req.body;
   try {
     const adminFound = await Admin.findOne({ email });
-    if (!adminFound) return res.status(400).json({ message: "Admin not found" });
+    if (!adminFound)
+      return res.status(400).json({ message: "Admin not found" });
 
     const isMatch = await bcrypt.compare(password, adminFound.password);
     if (!isMatch) return res.status(400).json({ message: "Invalid password" });
@@ -91,7 +92,6 @@ export const profile = async (req, res) => {
   }
 };
 
-
 export const listUsers = async (req, res) => {
   try {
     const users = await User.find();
@@ -130,80 +130,74 @@ export const deleteUser = async (req, res) => {
   }
 };
 export const editUser = async (req, res) => {
-    try {
-      const { id } = req.params;
-      const updates = {};
-  
-      
-      if (req.body.role) {
-        const { role } = req.body;
-  
-        let roleData;
-  
-        
-        roleData = await Role.findOne({ name: role });
-  
-        
-        if (!roleData) {
-          roleData = new Role({
-            name: role,
-            users: [], 
-          });
-        }
-  
-        updates.role = roleData._id; 
-        
-        if (!roleData.users.includes(id)) {
-          roleData.users.push(id);
-        }
-  
-        await roleData.save();
+  try {
+    const { id } = req.params;
+    const updates = {};
+
+    if (req.body.role) {
+      const { role } = req.body;
+
+      let roleData;
+
+      roleData = await Role.findOne({ name: role });
+
+      if (!roleData) {
+        roleData = new Role({
+          name: role,
+          users: [],
+        });
       }
-  
-      
-      if (req.body.equip) {
-        const { equip } = req.body;
-  
-        let equipData;
-  
-       
-        equipData = await Equip.findOne({ name: equip });
-  
-        
-        if (!equipData) {
-          equipData = new Equip({
-            name: equip,
-            members: [], 
-          });
-        }
-  
-        updates.equip = equipData._id;
-  
-      
-        if (!equipData.members.includes(id)) {
-          equipData.members.push(id);
-        }
-  
-        await equipData.save();
+
+      updates.role = roleData._id;
+
+      if (!roleData.users.includes(id)) {
+        roleData.users.push(id);
       }
-  
-      const user = await User.findByIdAndUpdate(id, updates, { new: true }).populate("equip role");
-  
-      if (!user) {
-        return res.status(404).json({ message: "User not found" });
-      }
-  
-      res.status(200).json({
-        id: user._id,
-        email: user.email,
-        username: user.username,
-        role: user.role.name, 
-        equip: user.equip.name, 
-        createdAt: user.createdAt,
-        updatedAt: user.updatedAt,
-      });
-    } catch (error) {
-      res.status(500).json({ message: error.message });
+
+      await roleData.save();
     }
-  };
-  
+
+    if (req.body.equip) {
+      const { equip } = req.body;
+
+      let equipData;
+
+      equipData = await Equip.findOne({ name: equip });
+
+      if (!equipData) {
+        equipData = new Equip({
+          name: equip,
+          members: [],
+        });
+      }
+
+      updates.equip = equipData._id;
+
+      if (!equipData.members.includes(id)) {
+        equipData.members.push(id);
+      }
+
+      await equipData.save();
+    }
+
+    const user = await User.findByIdAndUpdate(id, updates, {
+      new: true,
+    }).populate("equip role");
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.status(200).json({
+      id: user._id,
+      email: user.email,
+      username: user.username,
+      role: user.role.name,
+      equip: user.equip.name,
+      createdAt: user.createdAt,
+      updatedAt: user.updatedAt,
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
