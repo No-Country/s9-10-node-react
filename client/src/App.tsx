@@ -1,7 +1,6 @@
 import { Suspense, lazy } from 'react';
 import { Route, BrowserRouter, Routes } from 'react-router-dom';
 import { FooterScreen } from './Components';
-import Root from './Components/Layout/Root';
 
 //add lazy loading to all pages
 const Home = lazy(() => import('./pages/Home/Home'));
@@ -20,12 +19,6 @@ const App = () => {
           <Route path='login' element={<Login />} />
           <Route path='logout' element={<Logout />} />
           <Route path='admin' element={<AdminPanel />} />
-          <Route path='user' element={<Root/>}>
-            <Route index element={'Dashboard'}/>
-            <Route path='ranking-general' element={'Ranking general'}/>
-            <Route path='ranking-equipos' element={'Ranking equipos'}/>
-            <Route path='profile' element={'Perfil del usuario'}/>
-          </Route>
         </Routes>
         <FooterScreen />
       </BrowserRouter>
