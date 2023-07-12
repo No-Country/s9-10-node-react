@@ -4,14 +4,15 @@ import {
   LinkedinFilled,
 } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
-import { useLocationState } from '../../../../hooks';
+import { useLocationState, useScreenSize } from '../../../../hooks';
 
 function SocialMediaScreen() {
+  const { width } = useScreenSize();
   const { isPathname } = useLocationState('/');
 
   return (
     <>
-      {isPathname && (
+      {isPathname && width >= 768 && (
         <div className='flex flex-row w-full h-52 items-center justify-between'>
           <div className='flex flex-row gap-8 items-center justify-center ml-40'>
             <div className='flex w-20 h-20 rounded-full bg-red-200'></div>
