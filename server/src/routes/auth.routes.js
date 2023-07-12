@@ -24,5 +24,4 @@ userRouter.get("/profile", profile);
 userRouter.put("/edit-profile/:id", editProfile);
 userRouter.get("/verify", verifyToken);
 
-
 export default userRouter;
