@@ -1,0 +1,48 @@
+.textCardMobile {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 30px;
+  letter-spacing: -0.022em;
+  text-align: left;
+  margin-left: 25px;
+}
+
+.contenedorCardTeamMobile {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 20px;
+}
+
+.card-mobile-team {
+  width: 159px;
+  height: 160px;
+  border-radius: 26px;
+  border: 1px;
+  background: #edf0f7;
+  
+  
+}
+
+.card-content-mobile{
+  margin-left: 19px;
+}
+
+
+.custom-title-class {
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 29px;
+  text-align: center;
+  
+}
+
+
+.custom-description-class {
+ 
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 29px;
+  text-align: center;
+}

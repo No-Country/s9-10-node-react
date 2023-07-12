@@ -1,15 +1,17 @@
 .contenedorCard-mobile {
-    width: 100%;
-    max-width: 900px;
-    margin-left: 24px;
+    width: 937px;
+    max-width: 500px;
+    margin-left: 27px;
     margin-right: 0;
     overflow: hidden;
-    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   
   .item-mobile{
-    margin-left: 27px; 
-    margin-right: 2px; 
+     margin-left: 61px;
+     
   }
   
   .card-first-mobile {
@@ -20,8 +22,8 @@
     position: absolute;
     width: 36px;
     height: 36px;
-    margin-top: -177px;
-    margin-left: 1478px;
+    margin-top: -145px;
+    margin-left: 85%;
     padding: 10.5px 0px 10.5px 0px;
     font-size: 36px;
     
@@ -63,9 +65,11 @@
      text-align: left;
      width: 191px;
      height: 32px;
-     margin-top: 216px;
+     margin-top: 20px;
      margin-left: 27px;     
   }
+
+ 
   
   .avatar-container-mobile {
     position: absolute;

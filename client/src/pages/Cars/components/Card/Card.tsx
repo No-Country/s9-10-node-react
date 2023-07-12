@@ -1,4 +1,4 @@
-import BestTeams from '../BestTeams/BestTeams';
+import ParentBest from '../ParentBest/ParentBest'
 import ParentComponent from '../ParentComponent/ParentComponent';
 
 
@@ -6,7 +6,7 @@ const Card = () => {
   return (
     <>
       <ParentComponent/>
-      <BestTeams />
+      <ParentBest />
     </>
   )
 }
