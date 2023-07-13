@@ -1,31 +1,12 @@
-import React, { useEffect, useState } from "react";
-import TopMonthDesktop from "../TopMonthDesktop/TopMonthDesktop";
-import TopMonthMobile from "../TopMonthMobile/TopMonthMobile";
+import React from 'react';
+import TopMonthDesktop from '../TopMonthDesktop/TopMonthDesktop';
+import TopMonthMobile from '../TopMonthMobile/TopMonthMobile';
+import { useScreenSize } from '../../../../hooks';
 
 const ParentComponent: React.FC = () => {
-  const [isMobile, setIsMobile] = useState(window.matchMedia("(max-width: 768px)").matches);
+  const { width } = useScreenSize();
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.matchMedia("(max-width: 768px)").matches);
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  return (
-    <div>
-      {isMobile ? (
-        <TopMonthMobile />
-      ) : (
-        <TopMonthDesktop />
-      )}
-    </div>
-  );
+  return <div>{width < 768 ? <TopMonthMobile /> : <TopMonthDesktop />}</div>;
 };
 
 export default ParentComponent;
