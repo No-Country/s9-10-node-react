@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { FilterOutlined } from '@ant-design/icons';
 import { useScreenSize } from '../../../../hooks';
 import { SearchBoxPropsBase, TAGS, TermsSearch } from '../../models';
-import '../../../../pages/Cars/components/TopMonthDesktop/TopMonthDesktop.css'
 
 function TermsSearchScreen({ handleSearch }: SearchBoxPropsBase) {
   const { width } = useScreenSize();
@@ -12,7 +11,7 @@ function TermsSearchScreen({ handleSearch }: SearchBoxPropsBase) {
     setIsOpen(!isOpen);
   };
 
-  return (  
+  return (
     <>
       {width < 768 ? (
         <div className=''>

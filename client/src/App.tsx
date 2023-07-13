@@ -9,6 +9,9 @@ const Logout = lazy(() => import('./pages/Login/Login'));
 const Login = lazy(() => import('./pages/Login/Login'));
 const Register = lazy(() => import('./pages/Register/Register'));
 const AdminPanel = lazy(() => import('./pages/AdminPanel/AdminPanel'));
+const DashboardCompany = lazy(
+  () => import('./pages/DashboardCompany/DashboardCompany')
+);
 
 const App = () => {
   return (
@@ -21,7 +24,7 @@ const App = () => {
           <Route path='logout' element={<Logout />} />
           <Route path='admin' element={<AdminPanel />} />
           <Route path='user' element={<Root />}>
-            <Route index element={'Dashboard'} />
+            <Route index element={<DashboardCompany />} />
             <Route path='ranking-general' element={'Ranking general'} />
             <Route path='ranking-equipos' element={'Ranking equipos'} />
             <Route path='profile' element={'Perfil del usuario'} />
