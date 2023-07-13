@@ -12,7 +12,7 @@ const Aside = () => {
             <Link to={'/user'} className="block">Formularios</Link>
             <Link to={'/user'} className="block">Perfil</Link>
       <hr />
-      <Link to={'/user/ranking-general'} className="block">Ranking General</Link>
+      <Link to={'/user/ranking-rol'} className="block">Ranking Roles</Link>
       <Link to={'/user/ranking-equipos'} className="block">Ranking Equipos</Link>
             <Link to={'/user/profile'} className="block">Perfil del usuario</Link>
     </div>
