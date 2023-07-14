@@ -2,7 +2,7 @@ function MiddleSectionScreen() {
   return (
     <article
       className={`flex flex-col md:flex-row justify-center items-center w-full h-[440px] md:h-[736px] mt-6 
-      md:mt-20 md:gap-28 bg-gray-300`}
+      md:mt-20 md:gap-48 bg-gray-300`}
     >
       <div className='flex flex-col justify-center items-center w-full md:w-min'>
         <h2
