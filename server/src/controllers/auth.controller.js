@@ -3,9 +3,11 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { TOKEN_SECRET } from "../config.js";
 import { createAccessToken } from "../lib/jwt.js";
+import { processImage } from "../helpers/processImage.js";
+import { updateUser } from "../services/admin.service.js";
 export const register = async (req, res) => {
   const { email, password, username } = req.body;
-  try {    
+  try {
     const userFound = await User.findOne({ email });
     if (userFound) return res.status(400).json(["User already exists"]);
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -120,6 +122,27 @@ export const editProfile = async (req, res) => {
   }
 };
 
+export const uploadPicture = async (req, res) => {
+  const images = req.files;
+  let imagePaths = [];
+  console.log(req.user.id);
+  if (images) {
+    try {
+      imagePaths = await Promise.all(
+        images.map((image) => processImage(image))
+      );
+      const user = await User.findById(req.user.id);
+      user.profilePicture = imagePaths[0];
+      await user.save();
+      console.log(user);
+    } catch (error) {
+      return res
+        .status(500)
+        .json({ error: "Error al procesar las imágenes", Eerror: error });
+    }
+  }
+  res.status(200).json({ message: imagePaths, user: req.user.id });
+};
 export const verifyToken = async (req, res) => {
   const { token } = req.cookies;
   if (!token) return res.send(false);
