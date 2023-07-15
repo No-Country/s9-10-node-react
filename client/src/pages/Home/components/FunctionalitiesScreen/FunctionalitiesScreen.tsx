@@ -12,21 +12,36 @@ function FunctionalitiesScreen() {
           className={`flex flex-col justify-center items-center w-[328px] md:w-[416px] h-[280px] md:h-[478px] rounded-xl border-2 
             border-solid border-[#2D3648] overflow-hidden`}
         >
-          <div className='flex w-full h-48 md:h-[242px] bg-red-300'></div>
+          <img
+            src='https://th.bing.com/th/id/R.1228d494b2f79ba87f65a667ba53989d?rik=nofvPe3NI0Y28Q&pid=ImgRaw&r=0'
+            alt='programación'
+            loading='lazy'
+            className='flex w-full h-48 md:h-[242px] object-cover'
+          />
           <div className='flex flex-col justify-center items-center w-full h-[83px] md:h-[231px]'></div>
         </div>
         <div
           className={`flex flex-col justify-center items-center w-[328px] md:w-[416px] h-[280px] md:h-[478px] rounded-xl border-2 
             border-solid border-[#2D3648] overflow-hidden`}
         >
-          <div className='flex w-full h-48 md:h-[242px] bg-red-300'></div>
+          <img
+            src='https://th.bing.com/th/id/R.1228d494b2f79ba87f65a667ba53989d?rik=nofvPe3NI0Y28Q&pid=ImgRaw&r=0'
+            alt='programación'
+            loading='lazy'
+            className='flex w-full h-48 md:h-[242px] object-cover'
+          />
           <div className='flex flex-col justify-center items-center w-full h-[83px] md:h-[231px]'></div>
         </div>
         <div
           className={`flex flex-col justify-center items-center w-[328px] md:w-[416px] h-[280px] md:h-[478px] rounded-xl border-2 
             border-solid border-[#2D3648] overflow-hidden`}
         >
-          <div className='flex w-full h-48 md:h-[242px] bg-red-300'></div>
+          <img
+            src='https://th.bing.com/th/id/R.1228d494b2f79ba87f65a667ba53989d?rik=nofvPe3NI0Y28Q&pid=ImgRaw&r=0'
+            alt='programación'
+            loading='lazy'
+            className='flex w-full h-48 md:h-[242px] object-cover'
+          />
           <div className='flex flex-col justify-center items-center w-full h-[83px] md:h-[231px]'></div>
         </div>
       </div>
