@@ -1,11 +1,16 @@
 function HeadSectionScreen() {
   return (
-    <div
+    <article
       className={`flex flex-col md:flex-row-reverse justify-center items-center w-full 
     h-[440px] md:h-[608px] bg-slate-200 gap-36 md:gap-64`}
     >
-      <article className='w-11 h-11 md:w-44 md:h-44 bg-red-300'></article>
-      <article className='flex flex-col justify-center items-center'>
+      <img
+        src='https://th.bing.com/th/id/R.1228d494b2f79ba87f65a667ba53989d?rik=nofvPe3NI0Y28Q&pid=ImgRaw&r=0'
+        alt='programación'
+        loading='lazy'
+        className='w-11 h-11 md:w-44 md:h-44 object-cover'
+      />
+      <div className='flex flex-col justify-center items-center'>
         <h1
           className={`text-2xl md:text-7xl font-bold text-black w-[247px] md:w-[545px] md:h-[217px] text-center 
         md:text-left leading-[120%] md:leading-[150%] tracking-tight`}
@@ -39,8 +44,8 @@ function HeadSectionScreen() {
             </svg>
           </button>
         </div>
-      </article>
-    </div>
+      </div>
+    </article>
   );
 }
 
