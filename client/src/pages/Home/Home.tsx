@@ -2,6 +2,7 @@ import {
   FunctionalitiesScreen,
   HeadSectionScreen,
   MiddleSectionScreen,
+  WhyUsSection,
 } from './components';
 
 const Home = () => {
@@ -10,6 +11,7 @@ const Home = () => {
       <HeadSectionScreen />
       <FunctionalitiesScreen />
       <MiddleSectionScreen />
+      <WhyUsSection />
     </main>
   );
 };
