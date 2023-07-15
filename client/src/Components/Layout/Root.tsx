@@ -7,23 +7,20 @@ const Root = () => {
   return (
     <div className=''>
       <div>
-        <NavbarScreen/>
+        <NavbarScreen />
       </div>
       <div className='md:flex'>
         <div className='hidden md:block w-60'>
-          <Aside/>
+          <Aside />
         </div>
-        <div className="w-full">
+        <div className='w-full'>
           <main className=''>
             <Outlet />
           </main>
-          <footer>
-            <p>Footer</p>
-          </footer>
         </div>
       </div>
       <div className='fixed bottom-0 w-full md:hidden'>
-        <Toolbar/>
+        <Toolbar />
       </div>
     </div>
   );
