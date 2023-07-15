@@ -15,7 +15,12 @@ function SocialMediaScreen() {
       {isPathname && width >= 768 && (
         <div className='flex flex-row w-full h-52 items-center justify-between'>
           <div className='flex flex-row gap-8 items-center justify-center ml-40'>
-            <div className='flex w-20 h-20 rounded-full bg-red-200'></div>
+            <img
+              src='https://th.bing.com/th/id/R.1228d494b2f79ba87f65a667ba53989d?rik=nofvPe3NI0Y28Q&pid=ImgRaw&r=0'
+              alt='programación'
+              loading='lazy'
+              className='flex w-20 h-20 rounded-full object-cover'
+            />
             <h2 className=' text-[40px] font-bold text-black leading-[150%] tracking-tight'>
               Logo
             </h2>
