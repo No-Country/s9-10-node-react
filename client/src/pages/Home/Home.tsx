@@ -1,4 +1,5 @@
 import {
+  EndSectionScreen,
   FunctionalitiesScreen,
   HeadSectionScreen,
   MiddleSectionScreen,
@@ -12,6 +13,7 @@ const Home = () => {
       <FunctionalitiesScreen />
       <MiddleSectionScreen />
       <WhyUsSection />
+      <EndSectionScreen />
     </main>
   );
 };
