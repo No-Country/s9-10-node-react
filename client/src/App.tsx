@@ -1,6 +1,6 @@
 import { Suspense, lazy } from 'react';
 import { Route, BrowserRouter, Routes } from 'react-router-dom';
-import { FooterScreen } from './Components';
+import { FooterScreen, Loader } from './Components';
 
 const Home = lazy(() => import('./pages/Home/Home'));
 const Logout = lazy(() => import('./pages/Login/Login'));
@@ -17,7 +17,7 @@ const DashboardCompany = lazy(
 
 const App = () => {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<Loader />}>
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Home />} />
