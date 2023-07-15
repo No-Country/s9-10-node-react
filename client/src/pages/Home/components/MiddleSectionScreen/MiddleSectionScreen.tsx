@@ -11,14 +11,43 @@ function MiddleSectionScreen() {
         >
           Organiza a tu equipo en simples pasos
         </h2>
-        <div className='w-44 h-44 hidden md:flex self-start bg-red-300 mt-12'></div>
+        <img
+          src='https://th.bing.com/th/id/R.1228d494b2f79ba87f65a667ba53989d?rik=nofvPe3NI0Y28Q&pid=ImgRaw&r=0'
+          alt='programación'
+          loading='lazy'
+          className='w-44 h-44 hidden md:flex mt-4 self-start object-cover'
+        />
       </div>
       <div className='flex justify-center items-center mt-6 md:mt-[78px] gap-7 md:gap-14'>
         <div className='flex flex-col justify-center items-center w-[52px] h-min'>
-          <div className='w-[52px] md:w-[88px] h-[52px] md:h-[88px] rounded-full bg-red-300 mb-14 md:mb-[93px] z-10 border-2 border-gray-500'></div>
+          <div
+            className={`w-[52px] md:w-[88px] h-[52px] md:h-[88px] rounded-full mb-14 md:mb-[93px] z-10 border-2
+          border-gray-500`}
+          >
+            <img
+              src='https://th.bing.com/th/id/R.1228d494b2f79ba87f65a667ba53989d?rik=nofvPe3NI0Y28Q&pid=ImgRaw&r=0'
+              alt='programación'
+              loading='lazy'
+              className='w-full h-full object-cover rounded-full'
+            />
+          </div>
           <hr className='h-[1.3px] bg-black w-[218px] md:w-[360px] rotate-90' />
-          <div className='w-[52px] md:w-[88px] h-[52px] md:h-[88px] rounded-full bg-red-300 mb-14 md:mb-[93px] z-10 border-2 border-gray-500'></div>
-          <div className='w-[52px] md:w-[88px] h-[52px] md:h-[88px] rounded-full bg-red-300 md:mb-[93px] z-10 border-2 border-gray-500'></div>
+          <div className='w-[52px] md:w-[88px] h-[52px] md:h-[88px] rounded-full mb-14 md:mb-[93px] z-10 border-2 border-gray-500'>
+            <img
+              src='https://th.bing.com/th/id/R.1228d494b2f79ba87f65a667ba53989d?rik=nofvPe3NI0Y28Q&pid=ImgRaw&r=0'
+              alt='programación'
+              loading='lazy'
+              className='w-full h-full object-cover rounded-full'
+            />
+          </div>
+          <div className='w-[52px] md:w-[88px] h-[52px] md:h-[88px] rounded-full md:mb-[93px] z-10 border-2 border-gray-500'>
+            <img
+              src='https://th.bing.com/th/id/R.1228d494b2f79ba87f65a667ba53989d?rik=nofvPe3NI0Y28Q&pid=ImgRaw&r=0'
+              alt='programación'
+              loading='lazy'
+              className='w-full h-full object-cover rounded-full'
+            />
+          </div>
         </div>
         <div className='flex flex-col justify-center items-center w-max h-min gap-[78px] md:gap-[150px] md:-mt-24'>
           <p className='text-lg font-semibold text-black leading-7 tracking-[-0.39px]'>
