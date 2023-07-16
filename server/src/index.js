@@ -4,7 +4,7 @@ import morgan from "morgan";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import { dbConnection } from "./config/mongo.js";
-import apiRoutes from "./routes/index.js"
+import apiRoutes from "./routes/index.js";
 const app = express();
 
 // Enable incoming JSON data

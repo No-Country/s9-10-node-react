@@ -9,7 +9,10 @@ import {
   createUser,
   deleteUser,
   editUser,
+  uploadPictureAdmin,
 } from "../controllers/admin.controller.js";
+
+import upload from "../middlewares/multer.js";
 
 const adminRouter = Router();
 adminRouter.get("/", (req, res) => {
@@ -27,5 +30,8 @@ adminRouter.get("/users", listUsers);
 adminRouter.post("/users", createUser);
 adminRouter.delete("/users/:id", deleteUser);
 adminRouter.put("/users/:id", editUser);
+
+/* Queda pendiente donde se va a guardar la imagen cuando la suba el admin */
+adminRouter.post("/uploadPicture", upload.array("images"), uploadPictureAdmin);
 
 export default adminRouter;
