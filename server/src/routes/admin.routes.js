@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { authRequired } from "../middlewares/validateToken.js";
+import upload from "../middlewares/multer.js";
 import {
   register,
   login,
@@ -12,7 +13,7 @@ import {
   uploadPictureAdmin,
 } from "../controllers/admin.controller.js";
 
-import upload from "../middlewares/multer.js";
+import { createForm } from "../controllers/form.controller.js";
 
 const adminRouter = Router();
 adminRouter.get("/", (req, res) => {
@@ -30,6 +31,10 @@ adminRouter.get("/users", listUsers);
 adminRouter.post("/users", createUser);
 adminRouter.delete("/users/:id", deleteUser);
 adminRouter.put("/users/:id", editUser);
+
+//Form
+adminRouter.post("/form", createForm);
+
 
 /* Queda pendiente donde se va a guardar la imagen cuando la suba el admin */
 adminRouter.post("/uploadPicture", upload.array("images"), uploadPictureAdmin);
