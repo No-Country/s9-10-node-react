@@ -3,7 +3,13 @@ import { TermsSearchScreen } from './components';
 import { useScreenSize } from '../../hooks';
 import { searchOptions, SearchBoxProps } from './models';
 
-function SearchBoxScreen({ handleSearch, showSelect }: SearchBoxProps) {
+function SearchBoxScreen({
+  handleSearch,
+  showSelect,
+  showButton,
+  handleCreate,
+  label,
+}: SearchBoxProps) {
   const [search, setSearch] = useState<string>('');
   const { width } = useScreenSize();
 
@@ -13,10 +19,10 @@ function SearchBoxScreen({ handleSearch, showSelect }: SearchBoxProps) {
 
   return (
     <>
-      <h2 className='font-inter text-empresa mobile-specific'>
-        ¡Empresa, vean el progreso!
+      <h2 className='text-center md:text-left text-2xl text-[26px] font-bold leading-9 tracking-[-0.572px] mt-5 md:mt-8'>
+        {label}
       </h2>
-      <div className='flex relative justify-center items-center mt-6 w-min mx-auto'>
+      <div className='flex relative justify-center items-center mt-6 w-min mx-auto md:mx-0'>
         <input
           className={`w-[283px] md:w-[293px] h-10 border-[1px] border-[#2D3648] rounded-3xl pl-9 pr-2 mr-4`}
           type='search'
@@ -68,6 +74,16 @@ function SearchBoxScreen({ handleSearch, showSelect }: SearchBoxProps) {
               </option>
             ))}
           </select>
+        )}
+        {showButton && (
+          <button
+            className={`flex w-36 h-8 rounded-[6.25rem] py-[1.3rem] bg-[#2D3648] items-center justify-center text-sm font-bold
+        leading-7 tracking-[-0.00938rem] text-white absolute right-0 top-[-60px] md:-top-1 md:-right-44 md:w-48 md:h-12 md:px-[1.95rem]
+        md:text-lg md:tracking-[-0.01125rem]`}
+            onClick={handleCreate}
+          >
+            Crear
+          </button>
         )}
       </div>
     </>
