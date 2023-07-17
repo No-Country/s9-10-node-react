@@ -8,6 +8,7 @@ import {
   registerUser,
   updateUser,
 } from "../services/admin.service.js";
+import { processImage } from "../helpers/processImage.js";
 
 export const register = async (req, res) => {
   const { email, password, username } = req.body;
@@ -151,4 +152,22 @@ export const editUser = async (req, res) => {
       res.status(500).json({ message: error.message });
     }
   }
+};
+
+export const uploadPictureAdmin = async (req, res) => {
+  const images = req.files;
+  let imagePaths = [];
+  console.log(req.user.id);
+  if (images) {
+    try {
+      imagePaths = await Promise.all(
+        images.map((image) => processImage(image))
+      );
+    } catch (error) {
+      return res
+        .status(500)
+        .json({ error: "Error al procesar las imágenes", Eerror: error });
+    }
+  }
+  res.status(200).json({ message: imagePaths });
 };
