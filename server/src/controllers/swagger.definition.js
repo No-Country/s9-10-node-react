@@ -10,9 +10,16 @@ const swaggerDefinition = {
       url: "https://github.com/No-Country/s9-10-node-react.git",
     },
   },
+  securityDefinitions:{
+    myCookie:{
+      type: "apiKey",
+      name: "Cookie",
+      in:"header",
+    },
+  },
   servers: [
     {
-      url: `http://localhost:${port}/v1`,
+      url: `http://localhost:${port}/api`,
       description: "Development Server",
     },
   ],
