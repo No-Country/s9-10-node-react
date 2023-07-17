@@ -11,20 +11,11 @@ const ResponseSchema = new mongoose.Schema({
     ref: "Form",
     required: true,
   },
-  answers: [
-    {
-      question: {
-        type: String,
-        required: true,
-      },
-      value: {
-        type: mongoose.Schema.Types.Mixed,
-        required: true,
-      },
-    },
-  ],
+  answers: {
+    type: Map,
+    of: mongoose.Schema.Types.Mixed,
+    required: true,
+  },
 });
 
-const Response = mongoose.model("Response", ResponseSchema);
-
-export default Response;
+export default mongoose.model("Response", ResponseSchema);
