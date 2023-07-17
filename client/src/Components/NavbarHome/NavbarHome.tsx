@@ -1,13 +1,12 @@
 import { Link } from 'react-router-dom';
 import { GrMenu } from 'react-icons/gr';
-import { MdOutlineNotificationsNone } from 'react-icons/md';
 
-const NavbarScreen = () => {
+const NavbarHome = () => {
   return (
     <nav className='flex justify-between items-center p-5 border-b rounded-b-xl h-20'>
       <div className='flex'>
         <div>
-          <Link to={'/'} className='bg-blue-900 text-white px-8 py-2 rounded-md'>Logo</Link>
+          <Link to={'/user'} className='bg-blue-900 text-white px-8 py-2 rounded-md'>Logo</Link>
         </div>
         <div className='hidden md:flex gap-6 ml-10'>
           <Link to={'/'} className=''>Lorem</Link>
@@ -16,8 +15,9 @@ const NavbarScreen = () => {
         </div>
       </div>
       <div className=''>
-        <button className='hidden md:block bg-orange-400 text-white p-3 rounded-full text-2xl'>
-          <MdOutlineNotificationsNone/>
+        <button className='hidden md:block'>
+          <Link to={'/login'} className='bg-orange-100 border border-orange-500 px-4 py-2 text-orange-500 rounded-3xl'>Iniciar sesión</Link>
+          <Link to={'/register'} className='bg-orange-500 border border-orange-500 px-4 py-2 text-white rounded-3xl ml-5'>Registrarse</Link>
         </button>
         <div className='md:hidden border-2 p-2 border-blue-900 rounded-md text-xl'>
           <GrMenu/>
@@ -27,4 +27,4 @@ const NavbarScreen = () => {
   );
 };
 
-export default NavbarScreen;
+export default NavbarHome;
