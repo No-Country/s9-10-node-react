@@ -12,7 +12,12 @@ function DashboardCompany() {
 
   return (
     <div className='overflow-hidden'>
-      <SearchBoxScreen handleSearch={handleSearch} showSelect={true} />
+      <SearchBoxScreen
+        handleSearch={handleSearch}
+        showSelect={true}
+        showButton={false}
+        label='¡Empresa, vean el progreso!'
+      />
       <ParentComponent />
       <ParentBest />
     </div>
