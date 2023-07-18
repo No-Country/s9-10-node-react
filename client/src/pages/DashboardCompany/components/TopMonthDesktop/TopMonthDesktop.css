@@ -1,12 +1,12 @@
 .contenedorCard {
   width: 100%;
-  max-width: 974px;
+  max-width: 1019px;
   margin-right: 0;
   overflow: hidden;
 }
 
 .item {
-  margin-left: 115px;
+  margin-left: 106px;
   margin-right: 8px;
 }
 
@@ -19,7 +19,7 @@
   width: 36px;
   height: 36px;
   margin-top: -177px;
-  margin-left: 955px;
+  margin-left: 975px;
   padding: 10.5px 0px 10.5px 0px;
   font-size: 36px;
   color: #40903c;

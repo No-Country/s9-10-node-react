@@ -1,6 +1,6 @@
 .contenedorCardTeam {
     width: 100%;
-    max-width: 990px;
+    max-width: 1019px;
     margin-right: 0;
     overflow: hidden;
     display: flex;
@@ -10,7 +10,7 @@
   }
   
   .item-team {
-    margin-left: 115px; 
+    margin-left: 78px; 
     margin-right: 8px; 
     position: relative;
     z-index: 1;
@@ -24,7 +24,7 @@
     width: 36px;
     height: 36px;
     margin-top: -177px;
-    margin-left: 955px;
+    margin-left: 975px;
     padding: 10.5px 0px 10.5px 0px;
     font-size: 36px;
     color: #40903C;
