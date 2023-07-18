@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import toJSON from "../lib/toJSON.js";
 
 const userSchema = new mongoose.Schema(
   {
@@ -16,6 +17,7 @@ const userSchema = new mongoose.Schema(
     password: {
       type: String,
       required: true,
+      private:true,
     },
     role: {
       type: mongoose.Schema.Types.ObjectId,
@@ -35,5 +37,6 @@ const userSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
+userSchema.plugin(toJSON);
 
 export default mongoose.model("User", userSchema);

@@ -54,7 +54,6 @@ components:
           schema:
             $ref: '#/components/schemas/Error'
           example:
-            code: 400
             message: User already exists
     Unauthorized:
       description: Unauthorized
@@ -63,7 +62,6 @@ components:
           schema:
             $ref: '#/components/schemas/Error'
           example:
-            code: 401
             message: Please authenticate
     Forbidden:
       description: Forbidden
@@ -72,7 +70,6 @@ components:
           schema:
             $ref: '#/components/schemas/Error'
           example:
-            code: 403
             message: Forbidden
     NotFound:
       description: Not found
@@ -81,11 +78,5 @@ components:
           schema:
             $ref: '#/components/schemas/Error'
           example:
-            code: 404
             message: Not found
 
-  securitySchemes:
-    bearerAuth:
-      type: http
-      scheme: bearer
-      bearerFormat: JWT
