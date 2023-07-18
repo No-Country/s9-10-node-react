@@ -6,6 +6,7 @@ interface CardData {
   position: number;
   name: string;
   description: string;
+  empleados: string;
 }
 
 const BestTeamsMobile: React.FC = () => {
@@ -13,40 +14,47 @@ const BestTeamsMobile: React.FC = () => {
     {
       id: 1,
       position: 1,
-      name: 'Equipo 1',
-      description: 'Nombre',
+      name: "Recursos Humanos",
+      description: "1 Team Leader",
+      empleados: "4 Empleados"
     },
     {
       id: 2,
       position: 2,
-      name: 'Equipo 2',
-      description: 'Nombre',
+      name: "Backend Developers",
+      description: "1 Team Leader",
+      empleados: "4 Empleados"
     },
     {
       id: 3,
       position: 3,
-      name: 'Equipo 3',
-      description: 'Nombre',
+      name: "Marketing",
+      description: "1 Team Leader",
+      empleados: "4 Empleados"
     },
     {
       id: 4,
       position: 4,
-      name: 'Equipo 4',
-      description: 'Nombre',
+      name: "Digital Team",
+      description: "1 Team Leader",
+      empleados: "4 Empleados"
     },
     {
       id: 5,
       position: 5,
-      name: 'Equipo 5',
-      description: 'Nombre',
+      name: "Front end Developers",
+      description: "1 Team Leader",
+      empleados: "4 Empleados"
     },
     {
       id: 6,
       position: 6,
-      name: 'Equipo 6',
-      description: 'Nombre',
-    },
+      name: "UX/UI Design",
+      description: "1 Team Leader",
+      empleados: "4 Empleados"
+    }
   ];
+
 
   return (
     <>
@@ -63,6 +71,8 @@ const BestTeamsMobile: React.FC = () => {
                   description={
                     <p className='custom-description-class font-inter'>
                       {item.description}
+                      <br />
+                      {item.empleados}
                     </p>
                   }
                 />

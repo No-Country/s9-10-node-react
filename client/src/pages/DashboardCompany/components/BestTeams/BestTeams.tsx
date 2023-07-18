@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { RightCircleFilled } from "@ant-design/icons";
+import { RightCircleFilled, TeamOutlined } from "@ant-design/icons";
 import { Card } from "antd";
 import { motion } from "framer-motion";
 import Slider from "react-slick";
@@ -12,6 +12,7 @@ interface CardData {
   position: number;
   name: string;
   description: string;
+  empleados: string;
 }
 
 const BestTeams: React.FC = () => {
@@ -21,38 +22,44 @@ const BestTeams: React.FC = () => {
     {
       id: 1,
       position: 1,
-      name: "Equipo 1",
-      description: "Nombre"
+      name: "Recursos Humanos",
+      description: "1 Team Leader",
+      empleados: "4 Empleados"
     },
     {
       id: 2,
       position: 2,
-      name: "Equipo 2",
-      description: "Nombre"
+      name: "Backend Developers",
+      description: "1 Team Leader",
+      empleados: "4 Empleados"
     },
     {
       id: 3,
       position: 3,
-      name: "Equipo 3",
-      description: "Nombre"
+      name: "Marketing",
+      description: "1 Team Leader",
+      empleados: "4 Empleados"
     },
     {
       id: 4,
       position: 4,
-      name: "Equipo 4",
-      description: "Nombre"
+      name: "Digital Team",
+      description: "1 Team Leader",
+      empleados: "4 Empleados"
     },
     {
       id: 5,
       position: 5,
-      name: "Equipo 5",
-      description: "Nombre"
+      name: "Front end Developers",
+      description: "1 Team Leader",
+      empleados: "4 Empleados"
     },
     {
       id: 6,
       position: 6,
-      name: "Equipo 6",
-      description: "Nombre"
+      name: "UX/UI Design",
+      description: "1 Team Leader",
+      empleados: "4 Empleados"
     }
   ];
 
@@ -76,10 +83,28 @@ const BestTeams: React.FC = () => {
         >
           {data.map((item) => (
             <motion.div key={item.id} className="item-team">
+              <div className="hr"><TeamOutlined /></div>
               <Card className={`mb-6 card-team card-${item.id}`}>
                 <div className="card-content-team">
-                  <Card.Meta title={item.name} description={item.description} />
+                  
+                  <Card.Meta 
+                  
+                  title={
+                    <>
+                    <p className="item-name font-inter">{item.name}</p>
+                    </>
+                    
+                  }
+                  description={
+                    <>
+                      <span className="item-description">{item.description}</span>
+                      <br />
+                      <span className="item-empleados">{item.empleados}</span>
+                    </>
+                  }
+                />
                 </div>
+                <div className="footer-card"></div>
               </Card>
             </motion.div>
           ))}
@@ -87,6 +112,7 @@ const BestTeams: React.FC = () => {
       </div>
       
       <CustomNextArrow onClick={handleNext} />
+         
     </>
   );
 };

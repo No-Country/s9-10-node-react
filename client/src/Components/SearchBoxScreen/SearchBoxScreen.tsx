@@ -22,7 +22,9 @@ function SearchBoxScreen({
       <h2 className='text-center md:text-left text-2xl text-[26px] font-bold leading-9 tracking-[-0.572px] mt-5 md:mt-8'>
         {label}
       </h2>
-      <div className='flex relative justify-center items-center mt-6 w-min mx-auto md:mx-0'>
+
+      <div className='flex relative search-contenedor justify-center items-center mt-6 w-min mx-auto'>
+
         <input
           className={`w-[283px] md:w-[293px] h-10 border-[1px] border-[#2D3648] rounded-3xl pl-9 pr-2 mr-4`}
           type='search'

@@ -1,7 +1,6 @@
 .contenedorCard {
   width: 100%;
-  max-width: 978px;
-  margin-left: 245px;
+  max-width: 974px;
   margin-right: 0;
   overflow: hidden;
   
@@ -23,9 +22,10 @@
   width: 36px;
   height: 36px;
   margin-top: -177px;
-  margin-left: 1174px;
+  margin-left: 955px;
   padding: 10.5px 0px 10.5px 0px;
   font-size: 36px;
+  color: #40903C;
   
 
 }
@@ -43,7 +43,7 @@
 }
 
 .card-header {
-  background-color: #595959;
+  background-color: #7A8CEB;
   height: 47px;
   padding: 10px;
   color: white;
@@ -64,9 +64,10 @@
   text-align: left;
   width: 194px;
   height: 35px;
-  margin-left: 247px;
+  
   margin-top: 40px;
   line-height: 36px;
+  color: #5D6AB3;
 
 
 }
@@ -107,23 +108,26 @@
   margin-top: 4px;
   font-weight: 500;
   font-size: 19.22px;
+  color: #424C80;
 }
 
 .description {
   margin-top: 10px;
   font-weight: 500;
   font-size: 19.22px;
+  color: #424C80;
 }
 
 .score {
   margin-top: 20px;
   font-weight: 500;
   font-size: 19.22px;
+  color: #424C80;
 }
 
 /** lupa input**/
 .search-contenedor {
-  margin-left: 111px;
+  margin-left: 243px;
 }
 
 

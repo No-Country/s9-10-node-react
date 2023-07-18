@@ -1,24 +1,22 @@
 .contenedorCardTeam {
     width: 100%;
-    max-width: 988px;
-    margin-left: 235px;
+    max-width: 990px;
     margin-right: 0;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    
-    
+    gap: 8px;
+   
   }
   
   .item-team {
     margin-left: 115px; 
     margin-right: 8px; 
+    position: relative;
+    z-index: 1;
+    display: flex;
     
-  }
-  
-  .card-first {
-    margin-left: 0;
+    
   }
   
   .flecha-team {
@@ -26,34 +24,66 @@
     width: 36px;
     height: 36px;
     margin-top: -177px;
-    margin-left: 1173px;
+    margin-left: 955px;
     padding: 10.5px 0px 10.5px 0px;
     font-size: 36px;
+    color: #40903C;
     
-  
   }
-  
+
+ .hr {
+  color: #E4E4E4;
+  margin-top: 0px;
+  margin-bottom: 110px;
+  width: 64px;
+  height: 64px;
+  margin-left: 50%;
+  border-radius: 16px;
+  background: #185D81;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 3;
+
+ }
   
   .card-team {
-    width: 240px;
-    height: 240px;
-    border-radius: 20px;
-    margin-top: 22px;
+    width: 224px;
+    height: 176px;
+    margin-top: 35px;
+    border-radius:  30px;
     margin-left: auto;
-    border: 2px solid #595959;
-    background: #EDF0F7;
+    position: relative;
+    z-index: 2;
+    border: 1px solid #185D81;
+    background: #E4E4E4;
+    display: flex;
+    flex-direction: column;
+    
   }
+
   
-  .card-header {
-    background-color: #595959;
-    width: 249px;
-    border-radius: 20px 20px 0px 0px;
+  .card-team:hover {
+    background: #CCE8FF;
+  }
+ 
+  .footer-card {
+    position: absolute;
     margin-top: -25px;
     margin-left: -25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 224px;
+    height: 56px;
+    background: #185D81;
+    border-radius: 0px 0px 30px 30px;
+    /* transform: translateY(100%);
+    transition: transform 0.3s ease; */
+    
+    
   }
+  /* .footer-card:hover{
+    transform: translateY(0);
+  } */
   
   .textCardTeam {
     font-size: 24px;
@@ -63,9 +93,9 @@
     text-align: left;
     width: 194px;
     height: 35px;
-    margin-left: 247px;
     margin-top: 26px;
     line-height: 36px;
+    color: #185D81;
   
   
   }
@@ -78,11 +108,36 @@
   }
   
   .card-content-team {
-    margin-top: 30%;
+    
     font-weight: 500;
     font-size: 19.22px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+    
   }
   
+.item-name {
+  color: #185D81;
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 29px;
+  letter-spacing: -0.022em;
+  text-align: center;
+  margin-top: 30px;
+  
 
+}
+
+.item-description,
+.item-empleados {
+color: #185D81;
+font-size: 16px;
+font-weight: 500;
+line-height: 24px;
+letter-spacing: -0.022em;
+text-align: center;
+
+}
  
