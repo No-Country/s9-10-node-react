@@ -23,8 +23,7 @@ function SearchBoxScreen({
         {label}
       </h2>
 
-      <div className='flex relative search-contenedor justify-center items-center mt-6 w-min mx-auto'>
-
+      <div className='flex relative search-contenedor justify-center items-center mt-6 md:w-min mx-auto md:mx-0'>
         <input
           className={`w-[283px] md:w-[293px] h-10 border-[1px] border-[#2D3648] rounded-3xl pl-9 pr-2 mr-4`}
           type='search'
@@ -39,7 +38,7 @@ function SearchBoxScreen({
             }
           }}
         />
-        <div className='absolute left-2 top-2'>
+        <div className='absolute left-6 md:left-2 top-2'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             width='27'

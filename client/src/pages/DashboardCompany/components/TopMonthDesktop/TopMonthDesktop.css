@@ -3,14 +3,11 @@
   max-width: 974px;
   margin-right: 0;
   overflow: hidden;
-  
 }
 
 .item {
-  
-  margin-left: 115px; 
-  margin-right: 8px; 
- 
+  margin-left: 115px;
+  margin-right: 8px;
 }
 
 .card-first {
@@ -25,11 +22,8 @@
   margin-left: 955px;
   padding: 10.5px 0px 10.5px 0px;
   font-size: 36px;
-  color: #40903C;
-  
-
+  color: #40903c;
 }
-
 
 .card {
   width: 249px;
@@ -38,12 +32,11 @@
   margin-top: 22px;
   margin-left: auto;
   border: 2px solid #595959;
-  background: #EDF0F7;
-  
+  background: #edf0f7;
 }
 
 .card-header {
-  background-color: #7A8CEB;
+  background-color: #7a8ceb;
   height: 47px;
   padding: 10px;
   color: white;
@@ -64,24 +57,20 @@
   text-align: left;
   width: 194px;
   height: 35px;
-  
+
   margin-top: 40px;
   line-height: 36px;
-  color: #5D6AB3;
-
-
+  color: #5d6ab3;
 }
 
 .text-empresa {
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 26px;
   font-weight: 700;
   line-height: 39px;
   letter-spacing: -0.022em;
   text-align: left;
   margin: 10px 0 15px 247px;
-
-
 }
 
 .avatar-container {
@@ -103,56 +92,42 @@
   margin-left: 70px;
 }
 
-
 .name {
   margin-top: 4px;
   font-weight: 500;
   font-size: 19.22px;
-  color: #424C80;
+  color: #424c80;
 }
 
 .description {
   margin-top: 10px;
   font-weight: 500;
   font-size: 19.22px;
-  color: #424C80;
+  color: #424c80;
 }
 
 .score {
   margin-top: 20px;
   font-weight: 500;
   font-size: 19.22px;
-  color: #424C80;
-}
-
-/** lupa input**/
-.search-contenedor {
-  margin-left: 243px;
-}
-
-
-.search-mejores {
-  margin-left: 139px;
+  color: #424c80;
 }
 
 @media (max-width: 780px) {
-  
   .search-contenedor {
-  margin-top: 40px;  
-  margin-left: 5px;
- }
+    margin-top: 40px;
+    margin-left: 5px;
+  }
 
- .search-mejores {
-  margin-left: 10px;
- }
+  .search-mejores {
+    margin-left: 10px;
+  }
 
- .mobile-specific  {
-  font-family: "Inter", sans-serif;
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 36px;
-  margin-left: 10px;
-  
+  .mobile-specific {
+    font-family: 'Inter', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 36px;
+    margin-left: 10px;
+  }
 }
-
-} 

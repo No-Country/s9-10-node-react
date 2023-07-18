@@ -11,7 +11,7 @@ function DashboardCompany() {
   };
 
   return (
-    <div className="ml-28">
+    <div className='md:ml-40 overflow-hidden'>
       <SearchBoxScreen
         handleSearch={handleSearch}
         showSelect={true}
