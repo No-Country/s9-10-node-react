@@ -1,15 +1,17 @@
 .contenedorCard {
   width: 100%;
-  max-width: 936px;
-  margin-left: auto;
+  max-width: 978px;
+  margin-left: 245px;
   margin-right: 0;
   overflow: hidden;
   
 }
 
 .item {
+  
   margin-left: 115px; 
   margin-right: 8px; 
+ 
 }
 
 .card-first {
@@ -21,7 +23,7 @@
   width: 36px;
   height: 36px;
   margin-top: -177px;
-  margin-left: 1478px;
+  margin-left: 1174px;
   padding: 10.5px 0px 10.5px 0px;
   font-size: 36px;
   
@@ -37,6 +39,7 @@
   margin-left: auto;
   border: 2px solid #595959;
   background: #EDF0F7;
+  
 }
 
 .card-header {
@@ -61,9 +64,21 @@
   text-align: left;
   width: 194px;
   height: 35px;
-  margin-left: 586px;
-  margin-top: 275px;
+  margin-left: 247px;
+  margin-top: 40px;
   line-height: 36px;
+
+
+}
+
+.text-empresa {
+  font-family: "Inter", sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 39px;
+  letter-spacing: -0.022em;
+  text-align: left;
+  margin: 10px 0 15px 247px;
 
 
 }
@@ -106,3 +121,34 @@
   font-size: 19.22px;
 }
 
+/** lupa input**/
+.search-contenedor {
+  margin-left: 111px;
+}
+
+
+.search-mejores {
+  margin-left: 139px;
+}
+
+@media (max-width: 780px) {
+  
+  .search-contenedor {
+  margin-top: 40px;  
+  margin-left: 5px;
+ }
+
+ .search-mejores {
+  margin-left: 10px;
+ }
+
+ .mobile-specific  {
+  font-family: "Inter", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 36px;
+  margin-left: 10px;
+  
+}
+
+} 

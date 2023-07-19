@@ -1,15 +1,20 @@
 .contenedorCardTeam {
     width: 100%;
-    max-width: 945px;
-    margin-left: auto;
+    max-width: 988px;
+    margin-left: 235px;
     margin-right: 0;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
     
   }
   
   .item-team {
     margin-left: 115px; 
     margin-right: 8px; 
+    
   }
   
   .card-first {
@@ -21,7 +26,7 @@
     width: 36px;
     height: 36px;
     margin-top: -177px;
-    margin-left: 1478px;
+    margin-left: 1173px;
     padding: 10.5px 0px 10.5px 0px;
     font-size: 36px;
     
@@ -58,7 +63,7 @@
     text-align: left;
     width: 194px;
     height: 35px;
-    margin-left: 586px;
+    margin-left: 247px;
     margin-top: 26px;
     line-height: 36px;
   
@@ -79,3 +84,5 @@
     text-align: center;
   }
   
+
+ 

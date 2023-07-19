@@ -66,7 +66,8 @@ const TopMonthDesktop: React.FC = () => {
 
   return (
     <>
-      <h2 className="textCard font-inter">Mejores del mes</h2>
+      
+      <h2 className="textCard">Mejores del mes</h2>
       <div className="contenedorCard">
         <Slider
           ref={sliderRef}

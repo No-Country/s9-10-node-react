@@ -1,20 +1,33 @@
-import { useNavigate } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
+import { Loader } from '../../Components';
+
+const EndSectionScreen = lazy(
+  () => import('./components/EndSection/EndSectionScreen')
+);
+const FunctionalitiesScreen = lazy(
+  () => import('./components/FunctionalitiesScreen/FunctionalitiesScreen')
+);
+const HeadSectionScreen = lazy(
+  () => import('./components/HeadSectionScreen/HeadSectionScreen')
+);
+const MiddleSectionScreen = lazy(
+  () => import('./components/MiddleSectionScreen/MiddleSectionScreen')
+);
+const WhyUsSection = lazy(
+  () => import('./components/WhyUsSection/WhyUsSection')
+);
 
 const Home = () => {
-  const navigate = useNavigate();
-
   return (
-    <main className='flex flex-col justify-center items-center w-full h-screen overflow-y-hidden'>
-      <h1 className='text-4xl font-bold text-center'>
-        Bienvenidos al Feedback App
-      </h1>
-      <button
-        className='bg-blue-500 text-white p-2 rounded-md mt-5 px-4 py-2'
-        onClick={() => navigate('/login')}
-      >
-        Login
-      </button>
-    </main>
+    <Suspense fallback={<Loader />}>
+      <main className='flex flex-col justify-center items-center w-full h-full'>
+        <HeadSectionScreen />
+        <FunctionalitiesScreen />
+        <MiddleSectionScreen />
+        <WhyUsSection />
+        <EndSectionScreen />
+      </main>
+    </Suspense>
   );
 };
 

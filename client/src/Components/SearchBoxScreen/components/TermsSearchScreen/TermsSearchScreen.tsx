@@ -16,10 +16,10 @@ function TermsSearchScreen({ handleSearch }: SearchBoxPropsBase) {
       {width < 768 ? (
         <div className=''>
           <button onClick={toggleMenu}>
-            <FilterOutlined style={{ fontSize: '24px' }} />
+            <FilterOutlined style={{ fontSize: '29px' }} />
           </button>
           {isOpen && (
-            <div className='absolute top-full right-0 w-48 bg-white border border-gray-300 rounded shadow'>
+            <div className='absolute  top-full right-0 w-48 bg-white border border-gray-300 rounded shadow'>
               <ul className='list-none'>
                 {TAGS?.length > 0 &&
                   TAGS?.map((item: TermsSearch) => (
