@@ -1,143 +1,146 @@
 .contenedorCardTeam {
-    width: 100%;
-    max-width: 1019px;
-    margin-right: 0;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-   
-  }
-  
-  .item-team {
-    margin-left: 78px; 
-    margin-right: 8px; 
-    position: relative;
-    z-index: 1;
-    display: flex;
-    
-    
-  }
-  
-  .flecha-team {
-    position: absolute;
-    width: 36px;
-    height: 36px;
-    margin-top: -177px;
-    margin-left: 975px;
-    padding: 10.5px 0px 10.5px 0px;
-    font-size: 36px;
-    color: #40903C;
-    
-  }
+  width: 100%;
+  max-width: 1019px;
+  margin-right: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
 
- .hr {
-  color: #E4E4E4;
-  margin-top: 0px;
+.item-team {
+  margin-left: 78px;
+  margin-right: 8px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+}
+
+.flecha-team {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  margin-top: -177px;
+  margin-left: 975px;
+  padding: 10.5px 0px 10.5px 0px;
+  font-size: 36px;
+  color: #40903c;
+}
+
+.hr {
+  color: #e4e4e4;
+  margin-top: 25px;
   margin-bottom: 110px;
   width: 64px;
   height: 64px;
   margin-left: 50%;
   border-radius: 16px;
-  background: #185D81;
+  background: #185d81;
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
   z-index: 3;
+}
 
- }
-  
-  .card-team {
-    width: 224px;
-    height: 176px;
-    margin-top: 35px;
-    border-radius:  30px;
-    margin-left: auto;
-    position: relative;
-    z-index: 2;
-    border: 1px solid #185D81;
-    background: #E4E4E4;
-    display: flex;
-    flex-direction: column;
-    
-  }
+.card-team {
+  width: 224px;
+  height: 176px;
+  margin-top: 55px;
+  border-radius: 30px;
+  margin-left: auto;
+  position: relative;
+  z-index: 2;
+  border: 1px solid #185d81;
+  background: #e4e4e4;
+  display: flex;
+  flex-direction: column;
+}
 
-  
-  .card-team:hover {
-    background: #CCE8FF;
-  }
- 
-  .footer-card {
-    position: absolute;
-    margin-top: -25px;
-    margin-left: -25px;
-    width: 224px;
-    height: 56px;
-    background: #185D81;
-    border-radius: 0px 0px 30px 30px;
-    /* transform: translateY(100%);
-    transition: transform 0.3s ease; */
-    
-    
-  }
-  /* .footer-card:hover{
-    transform: translateY(0);
-  } */
-  
-  .textCardTeam {
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 36px;
-    letter-spacing: -0.022em;
-    text-align: left;
-    width: 194px;
-    height: 35px;
-    margin-top: 26px;
-    line-height: 36px;
-    color: #185D81;
-  
-  
-  }
-  
+.card-team:hover {
+  background: #cce8ff;
+}
 
+.footer-card {
+  position: relative;
+  margin-top: -25px;
+  margin-left: -25px;
+  width: 224px;
+  height: 56px;
+  background: #185d81;
+  border-radius: 0px 0px 30px 30px;
+  display: flex;
+  justify-content: space-between;
   
-  .card-content {
-    margin-top: 22px;
-    margin-left: 70px;
-  }
   
-  .card-content-team {
-    
-    font-weight: 500;
-    font-size: 19.22px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    gap: 45px;
-    
-  }
-  
+}
+
+
+
+.edit-cont {
+  margin-left: 56px;
+  color: #cce8ff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.delet-cont {
+  margin-right: 56px;
+  color: #cce8ff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.textCardTeam {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 36px;
+  letter-spacing: -0.022em;
+  text-align: left;
+  width: 194px;
+  height: 35px;
+  margin-top: 26px;
+  line-height: 36px;
+  color: #185d81;
+}
+
+.card-content {
+  margin-top: 22px;
+  margin-left: 70px;
+}
+
+.card-content-team {
+  font-weight: 500;
+  font-size: 19.22px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+}
+
 .item-name {
-  color: #185D81;
+  color: #185d81;
   font-size: 19px;
   font-weight: 600;
   line-height: 29px;
   letter-spacing: -0.022em;
   text-align: center;
   margin-top: 30px;
-  
-
 }
 
 .item-description,
 .item-empleados {
-color: #185D81;
-font-size: 16px;
-font-weight: 500;
-line-height: 24px;
-letter-spacing: -0.022em;
-text-align: center;
-
+  color: #185d81;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.022em;
+  text-align: center;
 }
- 
+
