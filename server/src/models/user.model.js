@@ -21,6 +21,10 @@ const userSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "Role",
     },
+    subrole: {
+      type: String,
+      enum: ["team leader", "employee"],
+    },
     equip: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Equip"
