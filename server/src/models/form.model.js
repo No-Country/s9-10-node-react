@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-
 const FormSchema = new mongoose.Schema({
   title: {
     type: String,
@@ -16,18 +15,32 @@ const FormSchema = new mongoose.Schema({
         type: String,
         required: true,
       },
-      skill: {
+      /*skill: {
         type: String,
         required: true,
-      },
+      },*/
       type: {
         type: String,
-        enum: ["open", "closed", "scale", "yesno"],
         required: true,
+        enum: ["open", "closed", "scale", "yesno", "multiple"],
       },
       options: {
         type: [String],
         default: undefined,
+      },
+      scaleRange: {
+        min: {
+          type: Number,
+          required: function () {
+            return this.type === "scale";
+          },
+        },
+        max: {
+          type: Number,
+          required: function () {
+            return this.type === "scale";
+          },
+        },
       },
     },
   ],

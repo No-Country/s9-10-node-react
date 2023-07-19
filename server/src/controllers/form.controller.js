@@ -1,52 +1,51 @@
-import Form from "../models/form.model.js";
-import Response from "../models/answer.model.js";
+import { createNewForm, createNewResponse } from "../services/form.service.js";
+import { HttpException } from "../utils/HttpException.js";
 
 //Controller para la creación de un formulario
 export const createForm = async (req, res) => {
   try {
     const { title, category, questions, comments } = req.body;
 
-    // Validar los datos recibidos
-
-    // Crear un nuevo documento de formulario
-    const newForm = new Form({
+   //Llamamos al servicio que crea el formulario
+    const newForm = await createNewForm({
       title,
       category,
       questions,
       comments,
     });
 
-    // Guardar el formulario en la base de datos
     const createdForm = await newForm.save();
 
     res.status(201).json(createdForm);
   } catch (error) {
-    res
-      .status(500)
-      .json({ message: "Error al crear el formulario", error: error.message });
+    if (error instanceof HttpException) {
+      res.status(error.statusCode).json({ message: error.message });
+    } else {
+      res.status(500).json({ message: error.message });
+    }
   }
 };
 
 //Controller para la respuesta del usuario
+
 export const createResponse = async (req, res) => {
   try {
     const { userId, formId, answers } = req.body;
-  
-    // Crear la nueva respuesta
-    const newResponse = new Response({
-      userId,
-      formId,
-      answers,
-    });
-  
+
     // Guardar la respuesta en la base de datos
+    const newResponse = await createNewResponse({userId, formId, answers})
+
     const savedResponse = await newResponse.save();
-  
+
     res.status(201).json({
-      message: "Response created successfully",
+      message: "Respuesta creada con éxito",
       response: savedResponse,
     });
   } catch (error) {
-    res.status(500).json({ message: "Failed to create response", error: error.message });
-  }
+    if (error instanceof HttpException) {
+      res.status(error.statusCode).json({ message: error.message });
+    } else {
+      res.status(500).json({ message: error.message });
+    }
 };
+}
