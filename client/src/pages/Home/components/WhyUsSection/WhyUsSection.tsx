@@ -6,19 +6,23 @@ interface TextActions {
 const textActions: TextActions[] = [
   {
     id: 1,
-    text: 'Lorem ipsum dolor sit amet',
+    text: 'Plataforma personalizada: Ajustada a tu empresa, adaptable y flexible a desafíos.',
   },
   {
     id: 2,
-    text: 'Lorem ipsum dolor sit amet',
+    text: `Participación activa de empleado: Ideas, sugerencias y preocupaciones valoradas.`,
   },
   {
     id: 3,
-    text: 'Lorem ipsum dolor sit amet',
+    text: `Potentes herramientas
+    de análisis: 
+    Para decisiones informadas 
+    y métricas valiosas.`,
   },
   {
     id: 4,
-    text: 'Lorem ipsum dolor sit amet',
+    text: `Comunicación abierta 
+    y transparente: Fomentando confianza y colaboración.`,
   },
 ];
 
@@ -31,16 +35,24 @@ function WhyUsSection() {
         className={`flex flex-col justify-center items-center w-[336px] md:w-[1152px] h-[296px] md:h-[368px] rounded-lg border-2
           border-black`}
       >
-        <div className='flex flex-col justify-center items-center w-full h-32 md:h-[220px] border-b-2 border-black'>
+        <div className='flex flex-col justify-center items-center w-full h-32 md:h-[220px] border-b-2 border-black relative'>
           <img
             src='https://th.bing.com/th/id/R.1228d494b2f79ba87f65a667ba53989d?rik=nofvPe3NI0Y28Q&pid=ImgRaw&r=0'
             alt=' programación'
             loading='lazy'
             className='w-full h-full object-cover'
           />
+          <h2 className='absolute md:top-[9.37rem] text-white text-base md:text-3xl font-semibold'>
+            Estimule una cultura de feedback positivo
+          </h2>
         </div>
         <div className='flex flex-col justify-center items-center w-full h-[168px] gap-6'>
-          <div className='w-[163.2px] md:w-[651px] h-8 bg-gray-500'></div>
+          <h3
+            className={`w-[15rem] md:w-[651px] h-8 text-base text-black md:text-[1.375rem] font-normal md:leading-[2.0625rem]
+          md:tracking-[-0.03025rem]`}
+          >
+            Garantice que todas las opiniones sean escuchadas en su empresa.
+          </h3>
           <button
             className={`w-[143px] h-12 rounded-md bg-[#2D3648] text-white font-bold text-base`}
           >
@@ -76,7 +88,7 @@ function WhyUsSection() {
                   className=' w-full h-[90px] md:h-[116px] rounded-t-lg object-cover'
                 />
                 <div className='flex flex-col justify-center items-center w-full h-[54px] md:h-[108px] rounded-b-lg'>
-                  <p className='text-[15px] md:text-[32px] text-black font-semibold text-left mx-4 md:leading-10'>
+                  <p className='text-[9px] md:text-[0.9375rem] text-black font-semibold text-left mx-4 md:leading-5'>
                     {textAction.text}
                   </p>
                 </div>

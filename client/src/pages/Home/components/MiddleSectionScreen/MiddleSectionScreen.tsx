@@ -6,10 +6,10 @@ function MiddleSectionScreen() {
     >
       <div className='flex flex-col justify-center items-center w-full md:w-min'>
         <h2
-          className={`text-2xl md:text-6xl font-bold text-black leading-7 md:leading-[90px] tracking-tight md:tracking-[1.32px] 
-          text-center md:text-left w-[339px] md:w-[406px]`}
+          className={`text-2xl md:text-6xl font-bold text-black leading-7 md:leading-[5.625rem] tracking-tight md:tracking-[-0.0825rem] 
+          text-center md:text-left w-[339px] md:w-[34rem]`}
         >
-          Organiza a tu equipo en simples pasos
+          Promueva la retroalimentación en simples pasos
         </h2>
         <img
           src='https://th.bing.com/th/id/R.1228d494b2f79ba87f65a667ba53989d?rik=nofvPe3NI0Y28Q&pid=ImgRaw&r=0'
@@ -49,15 +49,24 @@ function MiddleSectionScreen() {
             />
           </div>
         </div>
-        <div className='flex flex-col justify-center items-center w-max h-min gap-[78px] md:gap-[150px] md:-mt-24'>
-          <p className='text-lg font-semibold text-black leading-7 tracking-[-0.39px]'>
-            Lorem ipsum dolor
+        <div className='flex flex-col justify-center items-center gap-9 md:gap-0 w-max h-min '>
+          <p
+            className={`text-lg md:text-[2rem] font-semibold text-black leading-7 tracking-[-0.39px] w-44 md:w-[22.75rem]
+          md:h-[7.68rem] mt-4 md:mt-0`}
+          >
+            Cree diferentes equipos de trabajo
           </p>
-          <p className='text-lg font-semibold text-black leading-7 tracking-[-0.39px]'>
-            Lorem ipsum dolor
+          <p
+            className={`text-lg md:text-[2rem] font-semibold text-black leading-7 tracking-[-0.39px] w-44 md:w-[22.75rem]
+          md:h-[8.68rem] md:mt-[3.2rem]`}
+          >
+            Diseñe una encuesta personalizada para cada rol del grupo
           </p>
-          <p className='text-lg font-semibold text-black leading-7 tracking-[-0.39px]'>
-            Lorem ipsum dolor
+          <p
+            className={`text-lg md:text-[2rem] font-semibold text-black leading-7 tracking-[-0.39px] w-44 md:w-[22.75rem]
+          md:h-[11.25rem] md:mt-11`}
+          >
+            Obtenga el feedback y las métricas de los empleados
           </p>
         </div>
       </div>

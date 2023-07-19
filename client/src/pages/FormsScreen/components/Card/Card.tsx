@@ -9,7 +9,7 @@ function Card({ card }: CardProps) {
     <div
       className={`group relative flex flex-col items-center justify-center w-40 h-40 rounded-[1.25rem] bg-[#E9ECFC]
       md:min-w-[14rem] md:min-h-[16.5rem] md:justify-between md:hover:flex-row md:hover:min-w-[19.5rem] transition-all
-      md:group-hover:justify-center md:first-of-type:ml-[8.5rem]`}
+      md:group-hover:justify-center md:mx-6 md:first-of-type:ml-0`}
     >
       <div
         className={`absolute flex justify-center items-center top-0 left-0 w-full h-[2.10525rem] bg-[#7A8CEB] rounded-t-[1.25rem]

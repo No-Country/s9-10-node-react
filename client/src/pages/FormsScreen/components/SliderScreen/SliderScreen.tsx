@@ -18,8 +18,8 @@ function SliderScreen() {
     <>
       {width < 768 ? (
         <div
-          className={`flex flex-wrap w-full justify-center items-center gap-[1.88rem] md:mt-[7.5rem] md:flex-nowrap 
-          md:w-[900px] overflow-hidden`}
+          className={`flex flex-wrap w-full justify-center items-center gap-[1.88rem]
+          overflow-hidden`}
         >
           {cards.map((card: Forms) => (
             <Card card={card} />
@@ -28,14 +28,16 @@ function SliderScreen() {
       ) : (
         <Slider
           ref={sliderRef}
-          slidesToShow={3.5}
+          slidesToShow={3}
           slidesToScroll={1}
           dots={false}
           infinite={true}
           initialSlide={0}
-          className={`flex justify-center items-center md:mt-[5rem]  
-          w-[900px]`}
+          className={`flex md:mt-[5rem]  
+          w-[62rem]`}
           lazyLoad='ondemand'
+          draggable={false}
+          variableWidth={true}
         >
           {cards.map((card: Forms) => (
             <Card card={card} />
@@ -43,7 +45,7 @@ function SliderScreen() {
         </Slider>
       )}
       <button
-        className='hidden md:flex absolute bottom-[5.94rem] right-8 bg-black rounded-full'
+        className='hidden md:flex absolute bottom-[5.94rem] right-14 bg-black rounded-full'
         onClick={handleNext}
       >
         <svg
