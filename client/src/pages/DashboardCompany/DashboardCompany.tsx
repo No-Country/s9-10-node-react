@@ -11,8 +11,13 @@ function DashboardCompany() {
   };
 
   return (
-    <div className='overflow-hidden'>
-      <SearchBoxScreen handleSearch={handleSearch} showSelect={true} />
+    <div className='md:ml-40 overflow-hidden'>
+      <SearchBoxScreen
+        handleSearch={handleSearch}
+        showSelect={true}
+        showButton={false}
+        label='¡Empresa, vean el progreso!'
+      />
       <ParentComponent />
       <ParentBest />
     </div>

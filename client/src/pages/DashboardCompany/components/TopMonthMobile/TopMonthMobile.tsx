@@ -99,7 +99,7 @@ const TopMonthMobile: React.FC = () => {
                   <p className="font-inter name-mobile">{item.name}</p>
                   <p className="font-inter description-mobile">{item.description}</p>
                 </div>
-                <p className="font-inter score-mobile">Puntaje:</p>
+                <p className="font-inter score-mobile">Promedio:</p>
               </Card>
             </motion.div>
           ))}

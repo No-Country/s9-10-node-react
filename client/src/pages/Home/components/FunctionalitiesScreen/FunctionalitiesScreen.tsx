@@ -2,10 +2,10 @@ function FunctionalitiesScreen() {
   return (
     <article className='flex flex-col justify-center items-center w-full h-[976px] md:h-[800px]'>
       <h1
-        className={`text-2xl md:text-[40px] font-bold text-black leading-[120%] tracking-[-0.528px] md:leading-[150%] md:tracking-[-0.88px] 
-          mt-8 md:mt-16 mb-4 md:mb-2`}
+        className={`text-2xl md:text-[2.5rem] font-bold text-black leading-[120%] tracking-[-0.528px] md:leading-[150%] md:tracking-[-0.88px] 
+          mt-8 md:mt-16 mb-4 md:mb-2 text-center`}
       >
-        Funcionalidades
+        Explora las funciones que ofrecemos
       </h1>
       <div className='flex flex-col md:flex-row justify-center items-center w-full h-full gap-4 md:gap-8 mb-6 md:mb-0'>
         <div

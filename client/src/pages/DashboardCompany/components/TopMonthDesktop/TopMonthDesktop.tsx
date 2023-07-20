@@ -100,7 +100,7 @@ const TopMonthDesktop: React.FC = () => {
                   <p className="font-inter name">{item.name}</p>
                   <p className="font-inter description">{item.description}</p>
                 </div>
-                <p className="font-inter score">Puntaje:</p>
+                <p className="font-inter score">Promedio:</p>
               </Card>
             </motion.div>
           ))}

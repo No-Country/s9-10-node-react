@@ -43,7 +43,7 @@
   
   .card-header-mobile {
     padding-right: 8px;
-    background-color: #595959;
+    background-color: #7A8CEB;
     height: 31px;
     color: white;
     width: 132px;
@@ -66,7 +66,8 @@
      width: 191px;
      height: 32px;
      margin-top: 20px;
-     margin-left: 27px;     
+     margin-left: 27px;  
+     color: #5D6AB3;   
   }
 
  
@@ -107,6 +108,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    color: #424C80;
     
 
   }
@@ -119,6 +121,7 @@
     letter-spacing: -0.022em;
     text-align: left;
     display: flex;
+    color: #424C80;
 
   }
   
@@ -129,6 +132,7 @@
     line-height: 19px;
     letter-spacing: -0.022em;
     text-align: left;
+    color: #424C80;
 
   }
   
