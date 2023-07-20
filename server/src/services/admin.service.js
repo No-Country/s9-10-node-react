@@ -135,6 +135,10 @@ export const updateUser = async (id, role, equip) => {
     await equipData.save();
   }
 
+  if (subrole) {
+    updates.subrole = subrole;
+  }
+  
   const user = await User.findByIdAndUpdate(id, updates, {
     new: true,
   }).populate("equip role");

@@ -12,6 +12,7 @@ import { authRequired } from "../middlewares/validateToken.js";
 import validateSchema from "../middlewares/validateSchema.js";
 import { loginSchema, registerSchema } from "../Schemas/auth.schema.js";
 import upload from "../middlewares/multer.js";
+import { createResponse } from "../controllers/form.controller.js";
 const userRouter = Router();
 
 /**
@@ -285,6 +286,7 @@ userRouter.post("/logout", logout);
  */
 userRouter.put("/edit-profile/:id", editProfile);
 
+userRouter.post("/replyForm", createResponse);
 
 
 

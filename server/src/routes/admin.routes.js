@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { authRequired } from "../middlewares/validateToken.js";
+import upload from "../middlewares/multer.js";
 import {
   register,
   login,
@@ -9,10 +10,11 @@ import {
   createUser,
   deleteUser,
   editUser,
-  uploadPictureAdmin,
+  uploadPictureAdmin
 } from "../controllers/admin.controller.js";
+import {calculateCombinedScoreAverage, calculateSoftSkillsScore, calculateTechnicalSkillsScore, getCommentsAndPraiseCount, getScoresAndComments} from "../services/score.service.js";
 
-import upload from "../middlewares/multer.js";
+import { createForm } from "../controllers/form.controller.js";
 
 const adminRouter = Router();
 adminRouter.get("/", (req, res) => {
@@ -30,6 +32,17 @@ adminRouter.get("/users", listUsers);
 adminRouter.post("/users", createUser);
 adminRouter.delete("/users/:id", deleteUser);
 adminRouter.put("/users/:id", editUser);
+
+//Crear Formulario
+adminRouter.post("/form", createForm);
+
+//respuestas
+adminRouter.get("/users/soft-skills/:userId", calculateSoftSkillsScore);
+adminRouter.get("/users/tech-skills/:userId", calculateTechnicalSkillsScore);
+adminRouter.get("/users/all-scores/:userId", getScoresAndComments );
+adminRouter.get("/users/comments-praises/:userId", getCommentsAndPraiseCount);
+adminRouter.get("/users/score-combinated/:userId", calculateCombinedScoreAverage);
+
 
 /* Queda pendiente donde se va a guardar la imagen cuando la suba el admin */
 adminRouter.post("/uploadPicture", upload.array("images"), uploadPictureAdmin);
