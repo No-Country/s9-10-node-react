@@ -1,69 +1,53 @@
 import UserScore from "../models/userScore.model.js";
+import userModel from "../models/user.model.js";
 import Response from "../models/answer.model.js";
 import mongoose from "mongoose";
-
+import { HttpException } from "../utils/HttpException.js";
 // Calcular puntuación de habilidades blandas
-export const calculateSoftSkillsScore = async (userId) => {
-  const userScores = await UserScore.find({
-    userId,
-    category: "soft",
-  });
+export const calculateSoftSkillsScore = async (req, res) => {
+  try {
+    // Buscar las respuestas del usuario en el formulario (category: "soft skills")
+    const userId = req.params.userId; // Asegúrate de que req.params.userId sea el ObjectId válido
+    console.log(userId);
+    // Buscar las respuestas del usuario en el formulario (category: "soft skills")
+    const responses = await Response.find({ userId });
+    // Objeto para almacenar el ranking de puntajes de preguntas de tipo escala
+    const ranking = {};
 
-  const softSkills = {};
+    responses.forEach((response) => {
+      const { answers } = response;
+      console.log(response);
+      for (const answer of answers) {
+        if (answer.category === "soft" && answer.type === "scale") {
+          // Si la respuesta pertenece a la categoría "soft skills" y es de tipo "escala"
+          const { questionId, score } = answer;
 
-  userScores.forEach((score) => {
-    const { skillId, score: skillScore } = score;
-    softSkills[skillId] = skillScore;
-  });
+          // Agregar o actualizar el puntaje en el ranking
+          if (!ranking[questionId] || ranking[questionId] < score) {
+            ranking[questionId] = score;
+          }
+        }
+      }
+    });
 
-  return softSkills;
+    // Convertir el objeto de ranking en un array de objetos para poder ordenarlos
+    const rankingArray = Object.entries(ranking).map(([questionId, score]) => ({
+      questionId,
+      score,
+    }));
+
+    // Ordenar el ranking por puntajes de mayor a menor
+    rankingArray.sort((a, b) => b.score - a.score);
+
+    // Devolver el ranking ordenado
+    // return rankingArray;
+    res.json(rankingArray);
+  } catch (error) {
+    console.log(error);
+  }
 };
 
-// Calcular puntuación de habilidades técnicas
-// export const calculateTechnicalSkillsScore = async (userId) => {
-//   const userScores = await UserScore.find({
-//     userId,
-//     category: "technical skills",
-//   });
-//   console.log(userScores);
-//   const technicalSkills = {};
 
-//   userScores.forEach((score) => {
-//     const { skillId, score: skillScore } = score;
-//     technicalSkills[skillId] = skillScore;
-//   });
-
-//   return technicalSkills;
-// };
-// Importa el modelo UserScore
-
-
-
-// export const calculateTechnicalSkillsScore = async (userId) => {
-//   try {
-//     // Buscar las respuestas del usuario en el formulario (category: "technical skills")
-//     const responses = await Response.find({
-//       userId,
-//     });
-
-//     // Filtrar las respuestas para obtener las que tienen la categoría "technical skills"
-//     const technicalSkills = {};
-
-//     responses.forEach((response) => {
-//       const { answers } = response;
-
-//       for (const [questionId, answer] of Object.entries(answers)) {
-//         if (typeof answer === "number") {
-//           technicalSkills[questionId] = answer;
-//         }
-//       }
-//     });
-
-//     return technicalSkills;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
 export const calculateTechnicalSkillsScore = async (req, res) => {
   try {
     // Buscar las respuestas del usuario en el formulario (category: "technical skills")
@@ -76,7 +60,7 @@ export const calculateTechnicalSkillsScore = async (req, res) => {
 
     responses.forEach((response) => {
       const { answers } = response;
-console.log(response);
+      console.log(response);
       for (const answer of answers) {
         if (answer.category === "technical" && answer.type === "scale") {
           // Si la respuesta pertenece a la categoría "technical skills" y es de tipo "escala"
@@ -110,30 +94,39 @@ console.log(response);
 
 
 // Obtener comentarios y recuento de elogios
-export const getCommentsAndPraiseCount = async (userId) => {
-  const userScores = await UserScore.find({ userId });
+export const getCommentsAndPraiseCount = async (req, res) => {
+  try {
+    const userId = req.params.userId;
 
-  let comments = "";
-  let praise = false;
-  let praiseCount = 0;
+    const userResponse = await Response.findOne({ userId });
+    console.log(userId);
+    
+    let comments = "";
+    let praise = false;
+    let praiseCount = 0;
 
-  userScores.forEach((score) => {
-    if (score.comment) {
-      comments += score.comment + "\n";
-    }
+    userResponse.answers.forEach((response) => {
+      if (response.comment) {
+        comments += response.comment + "\n";
+      }
 
-    if (score.praise) {
-      praise = true;
-      praiseCount++;
-    }
-  });
+      if (response.praise) {
+        praise = true;
+        praiseCount++;
+      }
+    });
 
-  return {
-    comments,
-    praise,
-    praiseCount,
-  };
+    res.json({
+      comments,
+      praise,
+      praiseCount,
+    });
+  } catch (error) {
+    console.log(error);
+    throw new Error("Internal server error");
+  }
 };
+
 
 export const getScoresAndComments = async (req, res) => {
   try {
@@ -183,127 +176,131 @@ export const getScoresAndComments = async (req, res) => {
 };
 
 
+// Calcular puntuación general de habilidades blandas
 
+// export const calculateOverallSoftSkillsForAllUsers = async () => {
+//   try {
+//     // Obtener todos los usuarios de la base de datos
+//     const allUsers = await User.find();
 
-// export const getScoresAndComments = async (userId) => {
-//   const softSkills = await calculateSoftSkillsScore(userId);
-//   const technicalSkills = await calculateTechnicalSkillsScore(userId);
-//   const { comments, praise, praiseCount } = await getCommentsAndPraiseCount(
-//     userId
-//   );
+//     // Objeto para almacenar los puntajes promedio de soft skills por usuario
+//     const overallSoftSkillsScores = {};
 
-//   return {
-//     userId,
-//     "soft skills": softSkills,
-//     "hard skills": technicalSkills,
-//     comments,
-//     praise,
-//     praiseCount,
-//   };
+//     // Calcular el puntaje promedio de soft skills para cada usuario
+//     for (const user of allUsers) {
+//       const userId = user._id; // Id del usuario
+//       const averageScore = await calculateSoftSkillsScore(userId); // Puntaje promedio
+//       overallSoftSkillsScores[userId] = averageScore; // Almacenar el puntaje promedio en el objeto
+//     }
+
+//     return overallSoftSkillsScores;
+//   } catch (error) {
+//     console.log(error);
+//     throw new Error("Internal server error");
+//   }
 // };
 
-// Calcular puntuación general de habilidades blandas
-export const calculateOverallSoftSkillsScore = async (userId) => {
-  const userScores = await UserScore.find({
-    userId,
-    softSkillId: { $exists: true },
-  });
+// // Calcular puntuación general de habilidades técnicas
+// export const calculateOverallTechnicalSkillsScore = async (userId) => {
+//   const userScores = await UserScore.find({
+//     userId,
+//     technicalSkillId: { $exists: true },
+//   });
 
-  if (userScores.length === 0) {
-    return 0;
+//   if (userScores.length === 0) {
+//     return 0;
+//   }
+
+//   const sum = userScores.reduce((total, score) => total + score.score, 0);
+//   const average = sum / userScores.length;
+
+//   return average;
+// };
+export const calculateCombinedScoreAverage = async (req, res) => {
+  try {
+    const userId = req.params.userId;
+    console.log("Calculating combined score for user with ID:", userId);
+
+    // Buscar los documentos que coinciden con el userId
+    const userResponses = await Response.find({ userId });
+
+    console.log("User responses found:", userResponses);
+
+    if (userResponses.length === 0) {
+      console.log("No responses found for user with ID:", userId);
+      return res.json({ averageScore: 0 });
+    }
+
+    // Calcular el promedio de las puntuaciones
+    let totalScore = 0;
+    let validScoresCount = 0;
+    
+    for (const response of userResponses) {
+      for (const answer of response.answers) {
+        if (answer.score !== undefined) {
+          totalScore += answer.score;
+          validScoresCount++;
+        }
+      }
+    }
+    
+    if (validScoresCount === 0) {
+      console.log("Warning: Total score is 0 for user with ID:", userId);
+      return res.json({ averageScore: 0 });
+    }
+
+    const averageScore = totalScore / validScoresCount;
+
+    console.log("Calculated average score:", averageScore);
+
+    return res.json({ averageScore });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ message: "Error al calcular la puntuación combinada" });
   }
-
-  const sum = userScores.reduce((total, score) => total + score.score, 0);
-  const average = sum / userScores.length;
-
-  return average;
 };
 
-// Calcular puntuación general de habilidades técnicas
-export const calculateOverallTechnicalSkillsScore = async (userId) => {
-  const userScores = await UserScore.find({
-    userId,
-    technicalSkillId: { $exists: true },
-  });
 
-  if (userScores.length === 0) {
-    return 0;
-  }
-
-  const sum = userScores.reduce((total, score) => total + score.score, 0);
-  const average = sum / userScores.length;
-
-  return average;
-};
-
-export const calculateCombinedScoreAverage = async (userId) => {
-  const pipeline = [
-    {
-      $match: { userId },
-    },
-    {
-      $group: {
-        _id: null,
-        totalScore: { $sum: "$score" },
-        count: { $sum: 1 },
-      },
-    },
-    {
-      $project: {
-        _id: 0,
-        averageScore: { $divide: ["$totalScore", "$count"] },
-      },
-    },
-  ];
-
-  const result = await UserScore.aggregate(pipeline);
-
-  if (result.length === 0) {
-    return 0;
-  }
-
-  return result[0].averageScore;
-};
 // Obtener ranking de miembros por puntuación de habilidades blandas
-export const getSoftSkillsRanking = async () => {
-  const pipeline = [
-    {
-      $match: { category: "soft" },
-    },
-    {
-      $group: {
-        _id: "$userId",
-        score: { $avg: "$score" },
-      },
-    },
-    {
-      $sort: { score: -1 },
-    },
-  ];
+// export const getSoftSkillsRanking = async () => {
+//   const pipeline = [
+//     {
+//       $match: { category: "soft" },
+//     },
+//     {
+//       $group: {
+//         _id: "$userId",
+//         score: { $avg: "$score" },
+//       },
+//     },
+//     {
+//       $sort: { score: -1 },
+//     },
+//   ];
 
-  const rankedMembers = await UserScore.aggregate(pipeline);
+//   const rankedMembers = await UserScore.aggregate(pipeline);
 
-  return rankedMembers;
-};
+//   return rankedMembers;
+// };
 
 // Obtener ranking de miembros por puntuación de habilidades técnicas
-export const getTechnicalSkillsRanking = async () => {
-  const pipeline = [
-    {
-      $match: { category: "technical" },
-    },
-    {
-      $group: {
-        _id: "$userId",
-        score: { $avg: "$score" },
-      },
-    },
-    {
-      $sort: { score: -1 },
-    },
-  ];
+// export const getTechnicalSkillsRanking = async () => {
+//   const pipeline = [
+//     {
+//       $match: { category: "technical" },
+//     },
+//     {
+//       $group: {
+//         _id: "$userId",
+//         score: { $avg: "$score" },
+//       },
+//     },
+//     {
+//       $sort: { score: -1 },
+//     },
+//   ];
 
-  const rankedMembers = await UserScore.aggregate(pipeline);
+//   const rankedMembers = await UserScore.aggregate(pipeline);
 
-  return rankedMembers;
-};
+//   return rankedMembers;
+// };

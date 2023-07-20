@@ -12,7 +12,7 @@ import {
   editUser,
   uploadPictureAdmin
 } from "../controllers/admin.controller.js";
-import {calculateTechnicalSkillsScore, getScoresAndComments} from "../services/score.service.js";
+import {calculateCombinedScoreAverage, calculateSoftSkillsScore, calculateTechnicalSkillsScore, getCommentsAndPraiseCount, getScoresAndComments} from "../services/score.service.js";
 
 import { createForm } from "../controllers/form.controller.js";
 
@@ -37,9 +37,13 @@ adminRouter.put("/users/:id", editUser);
 adminRouter.post("/form", createForm);
 
 //respuestas
-// adminRouter.get("/tech-skills/:id", calculateTechnicalSkillsScore);
+adminRouter.get("/users/soft-skills/:userId", calculateSoftSkillsScore);
 adminRouter.get("/users/tech-skills/:userId", calculateTechnicalSkillsScore);
-adminRouter.get("/users/all-scores/:userId", getScoresAndComments )
+adminRouter.get("/users/all-scores/:userId", getScoresAndComments );
+adminRouter.get("/users/comments-praises/:userId", getCommentsAndPraiseCount);
+adminRouter.get("/users/score-combinated/:userId", calculateCombinedScoreAverage);
+
+
 /* Queda pendiente donde se va a guardar la imagen cuando la suba el admin */
 adminRouter.post("/uploadPicture", upload.array("images"), uploadPictureAdmin);
 
