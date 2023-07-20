@@ -5,6 +5,7 @@
   letter-spacing: -0.022em;
   text-align: left;
   margin-left: 25px;
+  color: #185d81;
 }
 
 .contenedorCardTeamMobile {
@@ -13,30 +14,89 @@
   justify-content: center;
   gap: 5px;
   margin-top: 20px;
+  
 }
 
 .card-mobile-team {
-  width: 159px;
-  height: 160px;
-  border-radius: 26px;
-  border: 1px;
-  background: #edf0f7;
+  width: 152px;
+  height: 128px;
+  border-radius: 19px;
+  margin-left: auto;
+  margin-top: 32px;
+  border: 1px solid #185d81;
+  background: #E4E4E4;
+  display: flex;
+  flex-direction: column;
+  
+  
 }
 
 .card-content-mobile {
-  margin-left: 19px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
 }
 
 .custom-title-class {
-  font-size: 19px;
-  font-weight: 500;
-  line-height: 29px;
+  width: 152px;
+  height: 17px;
   text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: #185D81;
+  margin-right: 70px;
+  
+  
 }
 
 .custom-description-class {
-  font-size: 19px;
-  font-weight: 500;
-  line-height: 29px;
+  width: 152px;
+  height: 56px;
   text-align: center;
+  font-size: 11px;
+  font-weight: 500;
+  text-align: center;
+  margin-right: 70px;
+  color: #185D81;
+}
+
+.hrMobil {
+  color: #e4e4e4;
+  width: 43px;
+  height: 43px;
+  margin-left: 16%;
+  border-radius: 16px;
+  background: #185d81;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 1;
+}
+
+
+.footer-card-mobile {
+  position: relative;
+  margin-top: -48px;
+  margin-left: -25px;
+  width: 152px;
+  height: 56px;
+  background: #185d81;
+  border-radius: 0px 0px 19px 19px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  font-size: 11px;
+  
+
+}
+
+.edit-cont-mobile {
+  color: #E4E4E4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 40%;
 }

@@ -1,8 +1,5 @@
 import React, { useRef, useState } from "react";
-import {
-  RightCircleFilled,
-  EditOutlined
-} from "@ant-design/icons";
+import { RightCircleFilled, EditOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import { Card } from "antd";
 import { motion } from "framer-motion";
@@ -29,13 +26,11 @@ interface CardData {
 const BestTeams: React.FC = () => {
   const sliderRef = useRef<Slider>(null);
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
-  
+
   const handleDelete = (teamId: number) => {
     // Acciones necesarias para eliminar el equipo con el teamId proporcionado.
     console.log(`Eliminar equipo con ID: ${teamId}`);
   };
-
-
 
   const data: CardData[] = [
     {
@@ -188,7 +183,7 @@ const BestTeams: React.FC = () => {
                       </div>
                       <div className="edit-edit">Editar</div>
                     </Link>
-                    <BtnDelet onDelete={() => handleDelete(item.id)}  />
+                    <BtnDelet onDelete={() => handleDelete(item.id)} />
                   </div>
                 )}
               </Card>

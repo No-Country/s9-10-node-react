@@ -67,6 +67,80 @@
   }
 
   .modal-image {
-    
+    width: 208px;
+    height: 157px;
+    margin-bottom: 10%;
     margin-right: 2%;
+  }
+  
+
+  @media (max-width: 767px) {
+    .modal-cont {
+      display: flex;
+      flex-direction: row;
+      
+    }
+
+    .modal-image {
+      width: 119px;
+      height: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+    }
+
+
+    .modal-text {
+      width: 281px;
+      height: 61px;
+      font-size: 14px;
+      display: flex;
+      margin-top: 5px;
+    }
+
+    .custom-modal-title {
+      width: 154px;
+      height: 103px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 30px;
+    }
+
+    .modal-cancel-button {
+      width: 120px;
+      height: 32px;
+      border-radius: 30px;
+      color: white;
+      background-color: #F0900E;
+      font-size: 11px;
+      
+  }
+  .cont-btn {
+    width: 280px;
+    height: 32px;
+    margin-top: 10%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+        
+  }
+
+
+  .modal-ok-button {
+    width: 132px;
+    height: 32px;
+    border-radius: 30px;
+    color: #F0900E;
+    background-color: #FEF5E0;
+    border: 1px solid #F0900E;
+    font-size: 11px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
   }
