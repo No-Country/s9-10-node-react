@@ -12,7 +12,10 @@ export default {
         azulClaroBg: '#D4EDF7',
         azulClaroBg2: '#CCE8FF',
         greyPrimary1: '#EAF0F5',
-        greyPrimary2: '#F4FAFF'
+        greyPrimary2: '#F4FAFF',
+      },
+      boxShadow: {
+        custom: '0px 4px 4px 0px rgba(0, 0, 0, 0.15)',
       },
     },
   },
