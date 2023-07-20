@@ -14,6 +14,7 @@ const DashboardCompany = lazy(
   () => import('./pages/DashboardCompany/DashboardCompany')
 );
 const FormScreen = lazy(() => import('./pages/FormsScreen/FormScreen'));
+const CreateForms = lazy(() => import('./pages/CreateForms/CreateForms'));
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
             <Route path='ranking-equipos' element={<RankingTeam />} />
             <Route path=':profileId' element={<UserProfile />} />
             <Route path='forms' element={<FormScreen />} />
+            <Route path='forms/create' element={<CreateForms />} />
           </Route>
         </Routes>
         <FooterScreen />
