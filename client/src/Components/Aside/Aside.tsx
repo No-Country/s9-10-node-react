@@ -19,8 +19,8 @@ const Aside = () => {
   };
 
   return (
-    <div className='h-screen border-r rounded-br-3xl w-80 pl-4 py-6 flex flex-col justify-between bg-greyPrimary2 shadow-xl'>
-      <div>
+    <div className='border-r rounded-br-3xl w-80 py-6 flex flex-col justify-between bg-greyPrimary2 shadow-xl'>
+      <div className='pl-4'>  
         <div className='pr-4'>
           <div className='flex justify-between'>
             <div className='w-52 h-52 bg-azulClaroBg rounded-2xl'></div>
@@ -30,10 +30,10 @@ const Aside = () => {
           </div>
           <p className='text-xl font-bold mt-4 mb-10'>Nombre de la empresa</p>
         </div>
-        <div>
+        <div className='mb-48'>
           <Link
             to={'/user'}
-            className={`flex items-center gap-x-2 text-lg my-2 border-l-4 border-greyPrimary2 border-x-greyPrimary2 py-2 px-3 ${
+            className={`flex items-center gap-x-2 text-lg border-l-4 border-greyPrimary2 border-x-greyPrimary2 py-2 px-3 ${
               activeLink === '/user'
                 ? 'bg-azulClaroBg !border-azulPrimary text-azulSecundary'
                 : ''
@@ -51,7 +51,7 @@ const Aside = () => {
           </Link>
           <Link
             to={'/user/ranking-rol'}
-            className={`flex items-center gap-x-2 text-lg my-2 border-l-4 border-greyPrimary2 py-2 px-3 ${
+            className={`flex items-center gap-x-2 text-lg border-l-4 border-greyPrimary2 py-2 px-3 ${
               activeLink === '/user/ranking-rol'
                 ? 'bg-azulClaroBg !border-azulPrimary text-azulSecundary'
                 : ''
@@ -71,7 +71,7 @@ const Aside = () => {
           </Link>
           <Link
             to={'/user/ranking-equipos'}
-            className={`flex items-center gap-x-2 text-lg my-2 border-l-4 border-greyPrimary2 py-2 px-3 ${
+            className={`flex items-center gap-x-2 text-lg border-l-4 border-greyPrimary2 py-2 px-3 ${
               activeLink === '/user/ranking-equipos'
                 ? 'bg-azulClaroBg !border-azulPrimary text-azulSecundary'
                 : ''
@@ -91,8 +91,8 @@ const Aside = () => {
           </Link>
           <Link
             to={'/user/forms'}
-            className={`flex items-center gap-x-2 text-lg my-2 border-l-4 border-greyPrimary2 py-2 px-3 ${
-              activeLink === '/user/form'
+            className={`flex items-center gap-x-2 text-lg border-l-4 border-greyPrimary2 py-2 px-3 ${
+              activeLink === '/user/forms'
                 ? 'bg-azulClaroBg !border-azulPrimary text-azulSecundary'
                 : ''
             }`}
@@ -100,7 +100,7 @@ const Aside = () => {
           >
             <div
               className={`bg-greyPrimary1 p-2 rounded-full ${
-                activeLink === '/user/form'
+                activeLink === '/user/forms'
                   ? '!bg-azulSecundary text-white'
                   : ''
               }`}
@@ -131,8 +131,9 @@ const Aside = () => {
           </Link>
         </div>
       </div>
-      <button className='bg-azulClaroBg2 flex justify-center items-center gap-4 py-2 mr-4 rounded-x!l text-azulPrimary rounded-md'>
-        <AiOutlinePoweroff /> Cerrar sesión
+      <button className='bg-azulClaroBg2 text-azulPrimary flex items-center justify-center gap-x-2 text-sm py-2 mx-6 rounded-lg'>
+        <AiOutlinePoweroff /> 
+        <p className=''>Cerrar sesión</p>
       </button>
     </div>
   );
