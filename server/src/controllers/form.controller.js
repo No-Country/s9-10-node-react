@@ -6,7 +6,7 @@ export const createForm = async (req, res) => {
   try {
     const { title, category, questions, comments } = req.body;
 
-   //Llamamos al servicio que crea el formulario
+    // Llamamos al servicio que crea el formulario
     const newForm = await createNewForm({
       title,
       category,
@@ -14,9 +14,7 @@ export const createForm = async (req, res) => {
       comments,
     });
 
-    const createdForm = await newForm.save();
-
-    res.status(201).json(createdForm);
+    res.status(201).json(newForm);
   } catch (error) {
     if (error instanceof HttpException) {
       res.status(error.statusCode).json({ message: error.message });
@@ -27,13 +25,12 @@ export const createForm = async (req, res) => {
 };
 
 //Controller para la respuesta del usuario
-
 export const createResponse = async (req, res) => {
   try {
-    const { userId, formId, answers } = req.body;
+    const { userId, formId, answers, comments } = req.body;
 
     // Guardar la respuesta en la base de datos
-    const newResponse = await createNewResponse({userId, formId, answers})
+    const newResponse = await createNewResponse({ userId, formId, answers, comments });
 
     const savedResponse = await newResponse.save();
 
@@ -47,5 +44,5 @@ export const createResponse = async (req, res) => {
     } else {
       res.status(500).json({ message: error.message });
     }
+  }
 };
-}

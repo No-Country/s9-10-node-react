@@ -10,8 +10,9 @@ import {
   createUser,
   deleteUser,
   editUser,
-  uploadPictureAdmin,
+  uploadPictureAdmin
 } from "../controllers/admin.controller.js";
+import {calculateTechnicalSkillsScore, getScoresAndComments} from "../services/score.service.js";
 
 import { createForm } from "../controllers/form.controller.js";
 
@@ -35,7 +36,10 @@ adminRouter.put("/users/:id", editUser);
 //Crear Formulario
 adminRouter.post("/form", createForm);
 
-
+//respuestas
+// adminRouter.get("/tech-skills/:id", calculateTechnicalSkillsScore);
+adminRouter.get("/users/tech-skills/:userId", calculateTechnicalSkillsScore);
+adminRouter.get("/users/all-scores/:userId", getScoresAndComments )
 /* Queda pendiente donde se va a guardar la imagen cuando la suba el admin */
 adminRouter.post("/uploadPicture", upload.array("images"), uploadPictureAdmin);
 

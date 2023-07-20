@@ -4,21 +4,22 @@ const FormSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  category: {
-    type: String,
-    enum: ["soft skills", "technical skills"],
-    required: true,
-  },
+
   questions: [
     {
       question: {
         type: String,
         required: true,
       },
-      /*skill: {
+      skill: {
         type: String,
         required: true,
-      },*/
+      },
+      category: {
+        type: String,
+        enum: ["soft skills", "technical skills"],
+        required: true,
+      },
       type: {
         type: String,
         required: true,
@@ -46,12 +47,24 @@ const FormSchema = new mongoose.Schema({
   ],
   comments: {
     praise: {
-      type: Boolean,
-      default: false,
+      active: {
+        type: Boolean,
+        default: false,
+      },
+      content: {
+        type: String,
+        default: "",
+      },
     },
     normal: {
-      type: Boolean,
-      default: true,
+      active: {
+        type: Boolean,
+        default: false,
+      },
+      content: {
+        type: String,
+        default: "",
+      },
     },
   },
 });
