@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-
+import toJSON from "../lib/toJSON.js";
 const adminSchema = new mongoose.Schema(
   {
     username: {
@@ -16,11 +16,12 @@ const adminSchema = new mongoose.Schema(
     password: {
       type: String,
       required: true,
+      private:true
     }
   },
   {
     timestamps: true,
   }
 );
-
+adminSchema.plugin(toJSON);
 export default mongoose.model("Admin", adminSchema);
