@@ -1,9 +1,11 @@
+import { useNavigate } from 'react-router-dom';
 import { SearchBoxScreen } from '../../Components';
 import { useScreenSize } from '../../hooks';
 import { SliderScreen } from './components';
 
 function FormScreen() {
   const { width } = useScreenSize();
+  const navigate = useNavigate();
 
   return (
     <article className='md:ml-40 relative'>
@@ -19,6 +21,7 @@ function FormScreen() {
         <button
           className={`flex justify-center items-center w-16 h-16 rounded-full bg-[#73C36F] fixed bottom-[5.94rem] right-4 text-white 
         text-4xl font-bold md:absolute md:top-0 md:left-0 md:w-[14rem] md:h-12 md:text-lg md:leading-8 md:tracking-[-0.01125rem]`}
+          onClick={() => navigate('/user/forms/create')}
         >
           {width < 768 ? '+' : '+ Crear formulario'}
         </button>
