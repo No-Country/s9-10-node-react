@@ -4,21 +4,21 @@ const FormSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  category: {
-    type: String,
-    enum: ["soft skills", "technical skills"],
-    required: true,
-  },
   questions: [
     {
       question: {
         type: String,
         required: true,
       },
-      /*skill: {
+      skill: {
         type: String,
         required: true,
-      },*/
+      },
+      category: {
+        type: String,
+        enum: ["soft", "technical"],
+        required: true,
+      },
       type: {
         type: String,
         required: true,

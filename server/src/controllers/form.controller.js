@@ -32,7 +32,7 @@ export const createResponse = async (req, res) => {
   try {
     const { userId, formId, answers } = req.body;
 
-    // Guardar la respuesta en la base de datos
+    //Llamamos al servicio que crea una respuesta
     const newResponse = await createNewResponse({userId, formId, answers})
 
     const savedResponse = await newResponse.save();
