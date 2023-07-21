@@ -45,7 +45,7 @@ function SliderScreen() {
         </Slider>
       )}
       <button
-        className='hidden md:flex absolute bottom-[5.94rem] right-14 bg-black rounded-full'
+        className='hidden md:flex absolute bottom-[5.94rem] right-14 bg-[#73C36F] rounded-full'
         onClick={handleNext}
       >
         <svg
