@@ -37,16 +37,16 @@ const Register = () => {
   return (
     <>
       <HeadScreen title='Registro de Usuarios' />
-      <div className='flex flex-col justify-center min-h-screen py-12 bg-gray-100 sm:px-6 lg:px-8'>
+      <div className='flex flex-col justify-center min-h-screen py-12 bg-white sm:px-6 lg:px-8'>
         <div className='sm:mx-auto sm:w-full sm:max-w-md'>
-          <h2 className='mt-6 text-3xl font-extrabold text-center text-gray-900'>
+          <h2 className='mt-6 text-3xl font-extrabold text-center text-black'>
             Registrate
           </h2>
           <p className='mt-2 text-sm text-center text-gray-600 max-w'>
             Si ya tienes cuenta{' '}
             <a
               href='#'
-              className='font-medium text-blue-600 hover:text-blue-500'
+              className='font-medium text-[#7A8CEB] hover:text-blue-500'
               onClick={() => navigate('/register')}
             >
               Inicia sesión
@@ -59,7 +59,7 @@ const Register = () => {
             <form className='space-y-6' action='#' onSubmit={handleSubmit}>
               <div>
                 <label className='block text-sm font-medium text-gray-700'>
-                  Email
+                  Correo electrónico
                 </label>
                 <div className='mt-1'>
                   <input
@@ -67,7 +67,8 @@ const Register = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    className='relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
+                    className={`relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md 
+                    appearance-none focus:outline-none focus:ring-[#CCE8FF] focus:border-[#CCE8FF] focus:z-10 sm:text-sm`}
                     placeholder='Ingresa tu email'
                   ></input>
                 </div>
@@ -83,7 +84,8 @@ const Register = () => {
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     required
-                    className='relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
+                    className={`relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md 
+                    appearance-none focus:outline-none focus:ring-[#CCE8FF] focus:border-[#CCE8FF] focus:z-10 sm:text-sm`}
                     placeholder='Ingresa tu nombre de usuario'
                   ></input>
                 </div>
@@ -99,31 +101,20 @@ const Register = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
-                    className='relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
+                    className={`relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md 
+                    appearance-none focus:outline-none focus:ring-[#CCE8FF] focus:border-[#CCE8FF]00 focus:z-10 sm:text-sm`}
                     placeholder='Ingresa tu contraseña'
                   ></input>
                 </div>
               </div>
 
-              <div className='flex items-center justify-between'>
-                <div className='flex items-center'>
-                  <input
-                    id='remember_me'
-                    name='remember_me'
-                    type='checkbox'
-                    className='w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500'
-                  ></input>
-                  <label className='block ml-2 text-sm text-gray-900'>
-                    {' '}
-                    Recuérdame{' '}
-                  </label>
-                </div>
-              </div>
+              <div className='flex items-center justify-between'></div>
 
               <div>
                 <button
                   type='submit'
-                  className='relative flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md group hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+                  className={`relative flex justify-center w-full px-4 py-2 text-sm font-medium text-[#CCE8FF] bg-[#185D81] 
+                  rounded-md group hover:bg-[#CCE8FF] hover:text-[#185D81] transition-colors duration-300 focus:outline-none`}
                 >
                   Registrarse
                 </button>
