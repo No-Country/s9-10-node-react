@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
+import { HeadScreen } from '../../Components';
 
 const Register = () => {
   const navigate = useNavigate();
@@ -35,6 +36,7 @@ const Register = () => {
 
   return (
     <>
+      <HeadScreen title='Registro de Usuarios' />
       <div className='flex flex-col justify-center min-h-screen py-12 bg-gray-100 sm:px-6 lg:px-8'>
         <div className='sm:mx-auto sm:w-full sm:max-w-md'>
           <h2 className='mt-6 text-3xl font-extrabold text-center text-gray-900'>

@@ -1,4 +1,4 @@
-import { SearchBoxScreen } from '../../Components';
+import { HeadScreen, SearchBoxScreen } from '../../Components';
 import ParentBest from './components/ParentBest/ParentBest';
 import ParentComponent from './components/ParentComponent/ParentComponent';
 
@@ -11,16 +11,19 @@ function DashboardCompany() {
   };
 
   return (
-    <div className='md:ml-40 overflow-hidden'>
-      <SearchBoxScreen
-        handleSearch={handleSearch}
-        showSelect={true}
-        showButton={false}
-        label='¡Empresa, vean el progreso!'
-      />
-      <ParentComponent />
-      <ParentBest />
-    </div>
+    <>
+      <HeadScreen title='Dashboard - Empresa' />
+      <div className='md:ml-40 overflow-hidden'>
+        <SearchBoxScreen
+          handleSearch={handleSearch}
+          showSelect={true}
+          showButton={false}
+          label='¡Empresa, vean el progreso!'
+        />
+        <ParentComponent />
+        <ParentBest />
+      </div>
+    </>
   );
 }
 

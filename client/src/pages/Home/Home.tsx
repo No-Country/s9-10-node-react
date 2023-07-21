@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react';
-import { Loader } from '../../Components';
+import { HeadScreen, Loader } from '../../Components';
 import NavbarHome from '../../Components/NavbarHome/NavbarHome';
 
 const EndSectionScreen = lazy(
@@ -21,7 +21,8 @@ const WhyUsSection = lazy(
 const Home = () => {
   return (
     <Suspense fallback={<Loader />}>
-      <NavbarHome/>
+      <HeadScreen title='Home' />
+      <NavbarHome />
       <main className='flex flex-col justify-center items-center w-full h-full'>
         <HeadSectionScreen />
         <FunctionalitiesScreen />

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
 import userStore from '../../store/userStore';
+import { HeadScreen } from '../../Components';
 
 const Login = () => {
   const { fetchData, error } = useFetch();
@@ -32,6 +33,7 @@ const Login = () => {
 
   return (
     <>
+      <HeadScreen title='Inicio de Sesión' />
       <div className='flex flex-col justify-center min-h-screen py-12 bg-gray-100 sm:px-6 lg:px-8'>
         <div className='sm:mx-auto sm:w-full sm:max-w-md'>
           <h2 className='mt-6 text-3xl font-extrabold text-center text-gray-900'>
