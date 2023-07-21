@@ -8,3 +8,4 @@ export { default as QuestionsInput } from './QuestionsInput/QuestionsInput';
 export { default as SaveButton } from './SaveButton/SaveButton';
 export { default as ScoringScaleScreen } from './ScoringScaleScreen/ScoringScaleScreen';
 export { default as TitleScreen } from './TitleScreen/TitleScreen';
+export { default as WhiteboardScreen } from './WhiteboardScreen/WhiteboardScreen';
