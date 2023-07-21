@@ -1,10 +1,11 @@
+import { WhiteboardScreen } from '..';
 import { useCreateForms } from '../../hooks';
 
 function EmptyQuestionScreen() {
   const { isSelected } = useCreateForms();
 
   return (
-    <>
+    <WhiteboardScreen>
       {isSelected === 0 && (
         <p
           className={`text-[#0000004c] text-xl font-normal leading-7 tracking-[-0.0275rem] mx-auto mt-8 mb-8 w-72 md:text-4xl md:font-bold
@@ -13,7 +14,7 @@ function EmptyQuestionScreen() {
           Seleccione un tipo de pregunta para comenzar.
         </p>
       )}
-    </>
+    </WhiteboardScreen>
   );
 }
 

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useCreateForms } from '../../hooks';
-import { QuestionsInput, SaveButton } from '..';
+import { QuestionsInput, SaveButton, WhiteboardScreen } from '..';
 
 const DEFAULT_RADIO_BUTTONS = [
   {
@@ -27,7 +27,7 @@ function OneOptionScreen() {
   return (
     <>
       {(isSelected === 1 || isSelected === 2) && (
-        <>
+        <WhiteboardScreen>
           <QuestionsInput />
           <div className='order-1 md:order-2'>
             {radioButtons.map((radioButton) => (
@@ -68,7 +68,7 @@ function OneOptionScreen() {
             </button>
             <SaveButton />
           </div>
-        </>
+        </WhiteboardScreen>
       )}
     </>
   );

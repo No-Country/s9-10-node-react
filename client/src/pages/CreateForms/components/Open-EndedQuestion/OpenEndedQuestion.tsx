@@ -1,4 +1,4 @@
-import { QuestionsInput, SaveButton } from '..';
+import { QuestionsInput, SaveButton, WhiteboardScreen } from '..';
 import { useCreateForms } from '../../hooks';
 
 function OpenEndedQuestion() {
@@ -7,7 +7,7 @@ function OpenEndedQuestion() {
   return (
     <>
       {isSelected === 3 && (
-        <>
+        <WhiteboardScreen>
           <QuestionsInput />
           <div className='flex flex-col w-[17rem] ml-4 mt-2 md:flex-row md:justify-between md:w-[53rem] md:mt-4'>
             <div className='flex flex-wrap w-[12.5rem] md:w-[22rem]'>
@@ -32,7 +32,7 @@ function OpenEndedQuestion() {
               <SaveButton />
             </div>
           </div>
-        </>
+        </WhiteboardScreen>
       )}
     </>
   );

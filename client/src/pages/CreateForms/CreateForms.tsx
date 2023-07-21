@@ -32,15 +32,10 @@ function CreateForms() {
             className={`flex flex-col w-[21rem] min-h-[22rem] mt-[1.62rem] rounded-[0.625rem] border-[1px] border-solid border-black mx-auto
         md:w-[57.125rem] md:min-h-[25rem] md:rounded-[1.875rem] md:border-[#A7A7A7] md:mx-0 mb-4`}
           >
-            <div
-              className={`flex flex-col w-[19rem] min-h-52 rounded-[1.25rem] bg-[#E9ECFC] mx-auto my-4 md:w-[55.125rem] 
-          md:min-h-[10rem] `}
-            >
-              <EmptyQuestionScreen />
-              <OneOptionScreen />
-              <OpenEndedQuestion />
-              <ScoringScaleScreen />
-            </div>
+            <EmptyQuestionScreen />
+            <OneOptionScreen />
+            <OpenEndedQuestion />
+            <ScoringScaleScreen />
           </div>
         </article>
       </CreateFormsProvider>
