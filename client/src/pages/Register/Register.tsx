@@ -1,17 +1,53 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { message } from 'antd';
 import useFetch from '../../hooks/useFetch';
 import { HeadScreen } from '../../Components';
+import { isValidEmail, isValidText } from '../../utils';
 
 const Register = () => {
   const navigate = useNavigate();
   const { fetchData, error } = useFetch();
-  const [email, setEmail] = useState('');
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [messageApi, contextHolder] = message.useMessage();
+  const [email, setEmail] = useState<string>('');
+  const [username, setUsername] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+
+  /**
+   * The function `validateInputs` checks if an email and username are valid
+   * @param {string} email
+   * @param {string} username
+   * @returns The function `validateInputs` returns a boolean value. It returns `true` if both the
+   * email and username inputs pass the validation checks, and it returns `false` if either the email
+   * or username input fails the validation checks.
+   */
+  function validateInputs(email: string, username: string): boolean {
+    const emailRegex = isValidEmail(email);
+    if (!emailRegex) {
+      messageApi.open({
+        type: 'error',
+        content: 'El correo ingresado no es válido',
+      });
+      return false;
+    }
+
+    const textRegex = isValidText(username, 4, 200);
+    if (!textRegex) {
+      messageApi.open({
+        type: 'error',
+        content: 'El usuario debe tener entre 4 y 200 caracteres',
+      });
+      return false;
+    }
+
+    return true;
+  }
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    const isValidInputs = validateInputs(email, username);
+    if (!isValidInputs) return;
 
     await fetchData('/users/register', 'POST', {
       email,
@@ -20,12 +56,15 @@ const Register = () => {
     });
 
     if (error) {
-      alert(error);
+      messageApi.open({
+        type: 'error',
+        content: error,
+      });
       return;
     }
 
-    navigate('/login');
     clearForm();
+    navigate('/login');
   };
 
   const clearForm = () => {
@@ -36,6 +75,7 @@ const Register = () => {
 
   return (
     <>
+      {contextHolder}
       <HeadScreen title='Registro de Usuarios' />
       <div className='flex flex-col justify-center min-h-screen py-12 bg-white sm:px-6 lg:px-8'>
         <div className='sm:mx-auto sm:w-full sm:max-w-md'>
@@ -47,7 +87,7 @@ const Register = () => {
             <a
               href='#'
               className='font-medium text-[#7A8CEB] hover:text-blue-500'
-              onClick={() => navigate('/register')}
+              onClick={() => navigate('/login')}
             >
               Inicia sesión
             </a>

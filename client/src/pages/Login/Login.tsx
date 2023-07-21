@@ -1,31 +1,61 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { message } from 'antd';
 import useFetch from '../../hooks/useFetch';
 import userStore from '../../store/userStore';
 import { HeadScreen } from '../../Components';
+import { isValidEmail } from '../../utils';
 
 const Login = () => {
   const { fetchData, error } = useFetch();
   const addUser = userStore((state) => state.addUser);
+  const [messageApi, contextHolder] = message.useMessage();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
+  /**
+   * The function `validateEmail` checks if an email are valid
+   * @param {string} email
+   * @returns The function `validateInputs` returns a boolean value. It returns `true` if the
+   * email input pass the validation checks, and it returns `false` if either the email
+   * input fails the validation checks.
+   */
+  function validateEmail(email: string): boolean {
+    const emailRegex = isValidEmail(email);
+    if (!emailRegex) {
+      messageApi.open({
+        type: 'error',
+        content: 'El correo ingresado no es válido',
+      });
+      return false;
+    }
+
+    return true;
+  }
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    const isValidEmail = validateEmail(email);
+    if (!isValidEmail) return;
 
     const res = await fetchData('/users/login', 'POST', { email, password });
 
     if (error) {
-      alert(error);
+      messageApi.open({
+        type: 'error',
+        content: error,
+      });
       return;
     }
 
     addUser(res);
-    alert('Bienvenido');
+
     clearForm();
     navigate('/');
   };
+
   const clearForm = () => {
     setEmail('');
     setPassword('');
@@ -33,6 +63,7 @@ const Login = () => {
 
   return (
     <>
+      {contextHolder}
       <HeadScreen title='Inicio de Sesión' />
       <div className='flex flex-col justify-center min-h-screen py-12 bg-white sm:px-6 lg:px-8'>
         <div className='sm:mx-auto sm:w-full sm:max-w-md'>
