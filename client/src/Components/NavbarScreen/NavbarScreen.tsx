@@ -4,7 +4,7 @@ import { MdOutlineNotificationsNone } from 'react-icons/md';
 
 const NavbarScreen = () => {
   return (
-    <nav className='flex justify-between items-center p-5 border-b rounded-b-xl h-20'>
+    <nav className='flex justify-between items-center p-5 border-b rounded-b-2xl h-20'>
       <div className='flex'>
         <Link to={'/'} className='bg-azulPrimary text-white px-8 py-2 rounded-md'>Logo</Link>
       </div>
