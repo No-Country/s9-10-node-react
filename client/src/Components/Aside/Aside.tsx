@@ -7,20 +7,35 @@ import { TbNotes } from 'react-icons/tb';
 import { GoPerson } from 'react-icons/go';
 import { AiOutlinePoweroff } from 'react-icons/ai';
 import { useState } from 'react';
+import { BiSolidChevronDown, BiSolidChevronUp } from "react-icons/bi";
 
 const Aside = () => {
   const navigate = useNavigate();
   const [activeLink, setActiveLink] = useState('/user');
 
-  const handleNavLinkClick = (route) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const handleNavLinkClick = (route : string) => {
     setActiveLink(route);
-    // Navegar a la ruta deseada
     navigate(route);
+
+    if (route === '/user/ranking-equipos') {
+      setIsOpen(!isOpen);
+    } else {
+      setIsOpen(false); 
+    }
   };
+
+
+
+  const equipos = ['Recursos humanos', 'Digital team', 'Marketing', 'Backend Developers']
 
   return (
     <div className='border-r rounded-br-3xl w-80 py-6 flex flex-col justify-between bg-greyPrimary2 shadow-xl'>
+
+
+
       <div className='pl-4'>  
+        {/* ----------------------------------------------------- Information: */}
         <div className='pr-4'>
           <div className='flex justify-between'>
             <div className='w-52 h-52 bg-azulClaroBg rounded-2xl'></div>
@@ -30,15 +45,17 @@ const Aside = () => {
           </div>
           <p className='text-xl font-bold mt-4 mb-10'>Nombre de la empresa</p>
         </div>
-        <div className='mb-48'>
+        {/* ----------------------------------------------------- Links: */}
+        <div className='mb-32'>
+          {/* --------------------------------------------------- Link: Dashboard */}
           <Link
             to={'/user'}
+            onClick={() => handleNavLinkClick('/user')}
             className={`flex items-center gap-x-2 text-lg border-l-4 border-greyPrimary2 border-x-greyPrimary2 py-2 px-3 ${
               activeLink === '/user'
                 ? 'bg-azulClaroBg !border-azulPrimary text-azulSecundary'
                 : ''
             }`}
-            onClick={() => handleNavLinkClick('/user')}
           >
             <div
               className={`bg-greyPrimary1 p-2 rounded-full ${
@@ -49,14 +66,15 @@ const Aside = () => {
             </div>
             Dashboard
           </Link>
+          {/* --------------------------------------------------- Link: Administrar Roles */}
           <Link
             to={'/user/ranking-rol'}
+            onClick={() => handleNavLinkClick('/user/ranking-rol')}
             className={`flex items-center gap-x-2 text-lg border-l-4 border-greyPrimary2 py-2 px-3 ${
               activeLink === '/user/ranking-rol'
                 ? 'bg-azulClaroBg !border-azulPrimary text-azulSecundary'
                 : ''
-            }`}
-            onClick={() => handleNavLinkClick('/user/ranking-rol')}
+              }`}
           >
             <div
               className={`bg-greyPrimary1 p-2 rounded-full ${
@@ -65,58 +83,88 @@ const Aside = () => {
                   : ''
               }`}
             >
+          
               <BsPersonVcard />
             </div>
             Administrar Roles
           </Link>
-          <Link
-            to={'/user/ranking-equipos'}
-            className={`flex items-center gap-x-2 text-lg border-l-4 border-greyPrimary2 py-2 px-3 ${
-              activeLink === '/user/ranking-equipos'
-                ? 'bg-azulClaroBg !border-azulPrimary text-azulSecundary'
-                : ''
-            }`}
-            onClick={() => handleNavLinkClick('/user/ranking-equipos')}
-          >
-            <div
-              className={`bg-greyPrimary1 p-2 rounded-full ${
+          {/* --------------------------------------------------- Link: Administrar Equipos */}
+          <div>
+            <Link 
+              to={'/user/ranking-equipos'} 
+              onClick={() => handleNavLinkClick('/user/ranking-equipos')}
+              className={`flex items-center gap-x-2 text-lg border-l-4 border-greyPrimary2 py-2 px-3 ${
                 activeLink === '/user/ranking-equipos'
-                  ? '!bg-azulSecundary text-white'
+                  ? 'bg-azulClaroBg !border-azulPrimary text-azulSecundary'
                   : ''
               }`}
             >
-              <FaPeopleGroup />
+              <div>
+                <div className='flex gap-x-2'>
+                <div
+                  className={`bg-greyPrimary1 p-2 rounded-full ${
+                    activeLink === '/user/ranking-equipos'
+                      ? '!bg-azulSecundary text-white'
+                      : ''
+                  }`}
+                >
+                  <FaPeopleGroup />
+                </div>
+                <p className="flex items-center gap-x-12">
+                  Administrar Equipos {isOpen ? <BiSolidChevronUp/> : <BiSolidChevronDown/>}
+                </p>
+
+                </div>
+              </div>
+            </Link>
+            <div>
+              {isOpen && (
+                <div className='flex flex-col pl-14 border-l-2 text-sm'>
+                  {equipos.map(equipo => {
+                    return(
+                      <Link to={'/user'} className='py-2'>{equipo}</Link>
+                    )
+                  })}
+                </div>
+              )}
             </div>
-            Administrar Equipos
-          </Link>
+          </div>
+          {/* --------------------------------------------------- Link: Formularios */}
           <Link
             to={'/user/forms'}
-            className={`flex items-center gap-x-2 text-lg border-l-4 border-greyPrimary2 py-2 px-3 ${
+            onClick={() => handleNavLinkClick('/user/forms')}
+            className={`flex items-center justify-between gap-x-2 text-lg border-l-4 border-greyPrimary2 py-2 px-3 ${
               activeLink === '/user/forms'
                 ? 'bg-azulClaroBg !border-azulPrimary text-azulSecundary'
                 : ''
             }`}
-            onClick={() => handleNavLinkClick('/user/forms')}
           >
-            <div
-              className={`bg-greyPrimary1 p-2 rounded-full ${
-                activeLink === '/user/forms'
-                  ? '!bg-azulSecundary text-white'
-                  : ''
-              }`}
-            >
-              <TbNotes />
+            <div className='flex gap-x-2'>
+              {/* ----- Icon */}
+              <div
+                className={`bg-greyPrimary1 p-2 rounded-full ${
+                  activeLink === '/user/forms'
+                    ? '!bg-azulSecundary text-white'
+                    : ''
+                }`}
+              >
+                <TbNotes />
+              </div>
+              {/* ----- Link */}
+              Formularios
             </div>
-            Formularios
+            {/* ----- Coutn Forms */}
+            <p className='bg-orangePrincipal text-white h-5 w-5 flex justify-center items-center rounded-full text-sm mr-2'>3</p>
           </Link>
+          {/* --------------------------------------------------- Link: Perfil */}
           <Link
             to={'/user/profile'}
-            className={`flex items-center gap-x-2 text-lg my-2 border-l-4 border-greyPrimary2 py-2 px-3 ${
+            onClick={() => handleNavLinkClick('/user/profile')}
+            className={`flex items-center gap-x-2 text-lg border-l-4 border-greyPrimary2 py-2 px-3 ${
               activeLink === '/user/profile'
                 ? 'bg-azulClaroBg !border-azulPrimary text-azulSecundary'
                 : ''
             }`}
-            onClick={() => handleNavLinkClick('/user/profile')}
           >
             <div
               className={`bg-greyPrimary1 p-2 rounded-full ${
@@ -131,10 +179,16 @@ const Aside = () => {
           </Link>
         </div>
       </div>
+
+
+      {/* ----------------------------------------------------- Cerrar sesión: */}
       <button className='bg-azulClaroBg2 text-azulPrimary flex items-center justify-center gap-x-2 text-sm py-2 mx-6 rounded-lg'>
         <AiOutlinePoweroff /> 
         <p className=''>Cerrar sesión</p>
       </button>
+
+
+
     </div>
   );
 };
