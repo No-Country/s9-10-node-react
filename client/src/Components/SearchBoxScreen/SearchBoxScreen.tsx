@@ -1,7 +1,7 @@
-import { useState } from 'react';
 import { TermsSearchScreen } from './components';
 import { useScreenSize } from '../../hooks';
 import { searchOptions, SearchBoxProps } from './models';
+import { useSearch } from './hook';
 
 function SearchBoxScreen({
   handleSearch,
@@ -10,7 +10,7 @@ function SearchBoxScreen({
   handleCreate,
   label,
 }: SearchBoxProps) {
-  const [search, setSearch] = useState<string>('');
+  const { search, setSearch, handleCreateTags, clearInput } = useSearch();
   const { width } = useScreenSize();
 
   const inputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -25,7 +25,8 @@ function SearchBoxScreen({
 
       <div className='flex relative search-contenedor justify-center items-center mt-6 md:w-min mx-auto md:mx-0'>
         <input
-          className={`w-[283px] md:w-[293px] h-10 border-[1px] border-[#2085B0] rounded-3xl pl-9 pr-2 mr-4 bg-[#FAFDFF]`}
+          className={`w-[283px] md:w-[293px] h-10 border-[1px] border-[#2085B0] rounded-3xl pl-9 pr-2 mr-4 bg-[#FAFDFF]
+          focus:ring-[#DCF0DB] focus:border-[#DCF0DB] appearance-none focus:outline-none`}
           type='search'
           placeholder='Buscador'
           value={search}
@@ -35,6 +36,8 @@ function SearchBoxScreen({
           onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
             if (e.key === 'Enter') {
               handleSearch(search);
+              handleCreateTags(search);
+              clearInput();
             }
           }}
         />

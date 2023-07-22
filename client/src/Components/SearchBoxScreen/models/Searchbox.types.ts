@@ -30,15 +30,7 @@ export const searchOptions: TermsSearch[] = [
 
 export const TAGS: TermsSearch[] = [
   {
-    id: '1',
-    term: 'All',
-  },
-  {
-    id: '2',
-    term: 'Frontend',
-  },
-  {
-    id: '3',
-    term: 'Backend',
+    id: '',
+    term: '',
   },
 ];

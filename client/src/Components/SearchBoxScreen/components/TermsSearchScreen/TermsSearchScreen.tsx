@@ -1,34 +1,80 @@
-import { useState } from 'react';
-import { FilterOutlined } from '@ant-design/icons';
 import { useScreenSize } from '../../../../hooks';
-import { SearchBoxPropsBase, TAGS, TermsSearch } from '../../models';
+import { SearchBoxPropsBase, TermsSearch } from '../../models';
+import { useSearch } from '../../hook';
+import { tagsStore } from '../../../../store';
 
 function TermsSearchScreen({ handleSearch }: SearchBoxPropsBase) {
   const { width } = useScreenSize();
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  const { isOpen, toggleMenu, deleteTags } = useSearch();
+  const tags = tagsStore((state) => state.tags);
 
   return (
     <>
       {width < 768 ? (
         <div className=''>
           <button onClick={toggleMenu}>
-            <FilterOutlined style={{ fontSize: '29px' }} />
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              width='24'
+              height='24'
+              viewBox='0 0 24 24'
+              fill='none'
+            >
+              <path
+                fillRule='evenodd'
+                clipRule='evenodd'
+                d='M5.00023 8.725V6.061C4.98354 4.93965 5.87888 4.01699 7.00023 4H17.0002C18.1216 4.01699 19.0169 4.93965 19.0002 6.061V8.725C19.001 8.99684 18.8959 9.25831 18.7072 9.454L14.2932 13C14.1045 13.1957 13.9995 13.4572 14.0002 13.729V18.938C14.0024 19.3242 13.7891 19.6794 13.4472 19.859L11.4472 20.889C11.133 21.0462 10.7593 21.0269 10.4629 20.8383C10.1665 20.6496 9.99087 20.3192 10.0002 19.968V13.729C10.001 13.4572 9.89592 13.1957 9.70723 13L5.29323 9.453C5.10479 9.25755 4.99972 8.9965 5.00023 8.725Z'
+                stroke='#185D81'
+                strokeWidth='1.5'
+                strokeLinecap='round'
+                strokeLinejoin='round'
+              />
+            </svg>
           </button>
           {isOpen && (
-            <div className='absolute  top-full right-0 w-48 bg-white border border-gray-300 rounded shadow'>
+            <div
+              className={`absolute  top-full right-3 w-48 bg-[#DCF0DB] border-[1px] border-solid border-[#73C36F] rounded shadow z-40
+            `}
+            >
               <ul className='list-none'>
-                {TAGS?.length > 0 &&
-                  TAGS?.map((item: TermsSearch) => (
+                {tags?.[0]?.id !== '' &&
+                  tags?.map((item: TermsSearch) => (
                     <li key={item?.id}>
                       <button
-                        className='block py-2 px-4 text-gray-800 hover:bg-gray-200 w-48'
+                        className={`flex py-2 px-4 text-[#73C36F] hover:bg-[#73C36F] w-48 hover:text-[#DCF0DB] transition-colors
+                        duration-200 items-center justify-between`}
                         onClick={() => handleSearch(item?.term)}
                       >
                         {item?.term}
+                        <a onClick={() => deleteTags(item?.id)}>
+                          <svg
+                            xmlns='http://www.w3.org/2000/svg'
+                            width='14'
+                            height='14'
+                            viewBox='0 0 14 14'
+                            fill='none'
+                          >
+                            <path
+                              fillRule='evenodd'
+                              clipRule='evenodd'
+                              d='M1 6.99981C1.00021 4.13755 3.02226 1.67401 5.82957 1.1158C8.63688 0.557584 11.4476 2.06016 12.5428 4.70462C13.6379 7.34908 12.7126 10.3989 10.3326 11.989C7.95262 13.579 4.78087 13.2665 2.75704 11.2424C1.63191 10.1172 0.999885 8.59106 1 6.99981Z'
+                              fill='#40903C'
+                              stroke='#40903C'
+                              strokeLinecap='round'
+                              strokeLinejoin='round'
+                            />
+                            <path
+                              fillRule='evenodd'
+                              clipRule='evenodd'
+                              d='M4.75 9.24608L6.99987 6.99707L4.75 9.24608ZM6.99987 6.9978L9.24888 4.74707L6.99987 6.9978ZM6.99987 6.99707L9.24974 9.24608L6.99987 6.99707ZM6.99987 6.9978L4.75 4.74707L6.99987 6.9978Z'
+                              fill='#40903C'
+                            />
+                            <path
+                              d='M4.39651 8.89246C4.20121 9.08769 4.20115 9.40427 4.39638 9.59957C4.5916 9.79487 4.90819 9.79493 5.10349 9.5997L4.39651 8.89246ZM7.35336 7.35069C7.54866 7.15547 7.54872 6.83888 7.35349 6.64358C7.15827 6.44828 6.84168 6.44822 6.64638 6.64345L7.35336 7.35069ZM6.64618 6.64438C6.45099 6.83972 6.45111 7.1563 6.64645 7.35149C6.84179 7.54667 7.15837 7.54655 7.35356 7.35122L6.64618 6.64438ZM9.60257 5.10049C9.79776 4.90515 9.79764 4.58857 9.6023 4.39338C9.40696 4.19819 9.09038 4.19832 8.89519 4.39365L9.60257 5.10049ZM7.35336 6.64345C7.15806 6.44822 6.84147 6.44828 6.64625 6.64358C6.45102 6.83888 6.45108 7.15547 6.64638 7.35069L7.35336 6.64345ZM8.89625 9.5997C9.09155 9.79493 9.40813 9.79487 9.60336 9.59957C9.79858 9.40427 9.79852 9.08769 9.60323 8.89246L8.89625 9.5997ZM6.64625 7.35128C6.84147 7.54658 7.15806 7.54664 7.35336 7.35142C7.54866 7.15619 7.54872 6.83961 7.35349 6.64431L6.64625 7.35128ZM5.10362 4.39358C4.9084 4.19828 4.59181 4.19822 4.39651 4.39345C4.20121 4.58867 4.20115 4.90526 4.39638 5.10056L5.10362 4.39358ZM5.10349 9.5997L7.35336 7.35069L6.64638 6.64345L4.39651 8.89246L5.10349 9.5997ZM7.35356 7.35122L9.60257 5.10049L8.89519 4.39365L6.64618 6.64438L7.35356 7.35122ZM6.64638 7.35069L8.89625 9.5997L9.60323 8.89246L7.35336 6.64345L6.64638 7.35069ZM7.35349 6.64431L5.10362 4.39358L4.39638 5.10056L6.64625 7.35128L7.35349 6.64431Z'
+                              fill='#DCF0DB'
+                            />
+                          </svg>
+                        </a>
                       </button>
                     </li>
                   ))}
@@ -38,14 +84,44 @@ function TermsSearchScreen({ handleSearch }: SearchBoxPropsBase) {
         </div>
       ) : (
         <>
-          {TAGS?.length > 0 &&
-            TAGS?.map((item: TermsSearch) => (
+          {tags?.[0]?.id !== '' &&
+            tags?.map((item: TermsSearch) => (
               <button
                 key={item?.id}
-                className={`mr-3 min-w-[96px] h-8 bg-red-300 rounded-3xl text-sm font-medium uppercase px-1`}
+                className={`mr-3 min-w-[4.5rem] h-8 bg-[#DCF0DB] rounded-3xl text-sm font-normal px-1 border-[1px] border-solid
+                border-[#73C36F] flex items-center justify-center gap-2 text-[#40903C] leading-[1.3125rem] tracking-[0.01563rem]`}
                 onClick={() => handleSearch(item?.term)}
               >
                 {item?.term}
+                <a onClick={() => deleteTags(item?.id)}>
+                  <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    width='14'
+                    height='14'
+                    viewBox='0 0 14 14'
+                    fill='none'
+                  >
+                    <path
+                      fillRule='evenodd'
+                      clipRule='evenodd'
+                      d='M1 6.99981C1.00021 4.13755 3.02226 1.67401 5.82957 1.1158C8.63688 0.557584 11.4476 2.06016 12.5428 4.70462C13.6379 7.34908 12.7126 10.3989 10.3326 11.989C7.95262 13.579 4.78087 13.2665 2.75704 11.2424C1.63191 10.1172 0.999885 8.59106 1 6.99981Z'
+                      fill='#40903C'
+                      stroke='#40903C'
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                    />
+                    <path
+                      fillRule='evenodd'
+                      clipRule='evenodd'
+                      d='M4.75 9.24608L6.99987 6.99707L4.75 9.24608ZM6.99987 6.9978L9.24888 4.74707L6.99987 6.9978ZM6.99987 6.99707L9.24974 9.24608L6.99987 6.99707ZM6.99987 6.9978L4.75 4.74707L6.99987 6.9978Z'
+                      fill='#40903C'
+                    />
+                    <path
+                      d='M4.39651 8.89246C4.20121 9.08769 4.20115 9.40427 4.39638 9.59957C4.5916 9.79487 4.90819 9.79493 5.10349 9.5997L4.39651 8.89246ZM7.35336 7.35069C7.54866 7.15547 7.54872 6.83888 7.35349 6.64358C7.15827 6.44828 6.84168 6.44822 6.64638 6.64345L7.35336 7.35069ZM6.64618 6.64438C6.45099 6.83972 6.45111 7.1563 6.64645 7.35149C6.84179 7.54667 7.15837 7.54655 7.35356 7.35122L6.64618 6.64438ZM9.60257 5.10049C9.79776 4.90515 9.79764 4.58857 9.6023 4.39338C9.40696 4.19819 9.09038 4.19832 8.89519 4.39365L9.60257 5.10049ZM7.35336 6.64345C7.15806 6.44822 6.84147 6.44828 6.64625 6.64358C6.45102 6.83888 6.45108 7.15547 6.64638 7.35069L7.35336 6.64345ZM8.89625 9.5997C9.09155 9.79493 9.40813 9.79487 9.60336 9.59957C9.79858 9.40427 9.79852 9.08769 9.60323 8.89246L8.89625 9.5997ZM6.64625 7.35128C6.84147 7.54658 7.15806 7.54664 7.35336 7.35142C7.54866 7.15619 7.54872 6.83961 7.35349 6.64431L6.64625 7.35128ZM5.10362 4.39358C4.9084 4.19828 4.59181 4.19822 4.39651 4.39345C4.20121 4.58867 4.20115 4.90526 4.39638 5.10056L5.10362 4.39358ZM5.10349 9.5997L7.35336 7.35069L6.64638 6.64345L4.39651 8.89246L5.10349 9.5997ZM7.35356 7.35122L9.60257 5.10049L8.89519 4.39365L6.64618 6.64438L7.35356 7.35122ZM6.64638 7.35069L8.89625 9.5997L9.60323 8.89246L7.35336 6.64345L6.64638 7.35069ZM7.35349 6.64431L5.10362 4.39358L4.39638 5.10056L6.64625 7.35128L7.35349 6.64431Z'
+                      fill='#DCF0DB'
+                    />
+                  </svg>
+                </a>
               </button>
             ))}
         </>
