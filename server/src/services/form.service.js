@@ -129,6 +129,13 @@ export const createNewResponse = async ({ userId, formId, answers }) => {
           400
         );
       }
+    } else if (type === "open") {
+      if (answer.length > 400) {
+        throw new HttpException(
+          "Respuesta no válida para pregunta abierta. Supera el límite de caracteres permitido.",
+          400
+        );
+      }
     }
 
     // Crear la respuesta individual
