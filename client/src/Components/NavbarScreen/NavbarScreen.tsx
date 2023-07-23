@@ -16,9 +16,9 @@ const NavbarScreen = () => {
         <button className='hidden md:block bg-bluePrimary text-white p-3 rounded-full text-2xl ml-10'>
           <MdOutlineNotificationsNone/>
         </button>
-        <div className='md:hidden border-2 p-2 border-bluePrimary text-bluePrimary rounded-md text-xl'>
+        <button className='md:hidden border-2 p-2 border-bluePrimary text-bluePrimary rounded-md text-xl'>
           <GrMenu/>
-        </div>
+        </button>
       </div>
     </nav>
   );
