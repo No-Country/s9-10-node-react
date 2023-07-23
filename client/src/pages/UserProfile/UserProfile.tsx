@@ -6,9 +6,12 @@ const UserProfile = () => {
   const { id } = useParams();
 
   return (
-    <div>
-      <ProfileInfo />
-    </div>
+    <>
+      <HeadScreen title='Perfil de Usuario' />
+      <div>
+        <ProfileInfo />
+      </div>
+    </>
   );
 };
 
