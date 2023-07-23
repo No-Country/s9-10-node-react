@@ -28,7 +28,7 @@ const Toolbar = () => {
                 onClick={() => handleNavLinkClick('/user')}
                 className={`flex flex-col items-center text-2xl text-textPrimary gap-y-1 border-t-4 border-greyPrimary2 py-2 px-3 w-full ${
                     activeLink === '/user'
-                      ? 'bg-azulClaroBg !border-azulPrimary text-azulSecundary'
+                      ? 'bg-azulClaroBg !border-bluePrimary text-bluePrimary'
                       : ''
                   }`}
             >
@@ -40,7 +40,7 @@ const Toolbar = () => {
                 onClick={() => handleNavLinkClick('/user/ranking-rol')}
                 className={`flex flex-col items-center text-2xl text-textPrimary gap-y-1 border-t-4 border-greyPrimary2 py-2 px-3 w-full ${
                     activeLink === '/user/ranking-rol'
-                        ? 'bg-azulClaroBg !border-azulPrimary text-azulSecundary'
+                        ? 'bg-azulClaroBg !border-bluePrimary text-bluePrimary'
                         : ''
                 }`}
             >
@@ -52,7 +52,7 @@ const Toolbar = () => {
                 onClick={() => handleNavLinkClick('/user/ranking-equipos')}
                 className={`flex flex-col items-center text-2xl text-textPrimary gap-y-1 border-t-4 border-greyPrimary2 py-2 px-3 w-full ${
                     activeLink === '/user/ranking-equipos'
-                        ? 'bg-azulClaroBg !border-azulPrimary text-azulSecundary'
+                        ? 'bg-azulClaroBg !border-bluePrimary text-bluePrimary'
                         : ''
                 }`}
             >
@@ -64,7 +64,7 @@ const Toolbar = () => {
                 onClick={() => handleNavLinkClick('/user/forms')}
                 className={`flex flex-col items-center text-2xl text-textPrimary gap-y-1 border-t-4 border-greyPrimary2 py-2 px-3 w-full ${
                     activeLink === '/user/forms'
-                        ? 'bg-azulClaroBg !border-azulPrimary text-azulSecundary'
+                        ? 'bg-azulClaroBg !border-bluePrimary text-bluePrimary'
                         : ''
                 }`}
             >
