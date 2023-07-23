@@ -12,7 +12,7 @@ const Aside = () => {
   const navigate = useNavigate();
   const [activeLink, setActiveLink] = useState('/user');
 
-  const handleNavLinkClick = (route) => {
+  const handleNavLinkClick = (route: string) => {
     setActiveLink(route);
     // Navegar a la ruta deseada
     navigate(route);
@@ -70,13 +70,13 @@ const Aside = () => {
             Administrar Roles
           </Link>
           <Link
-            to={'/user/ranking-equipos'}
+            to={'/user/crear-equipos'}
             className={`flex items-center gap-x-2 text-lg border-l-4 border-greyPrimary2 py-2 px-3 ${
-              activeLink === '/user/ranking-equipos'
+              activeLink === '/user/crear-equipos'
                 ? 'bg-azulClaroBg !border-azulPrimary text-azulSecundary'
                 : ''
             }`}
-            onClick={() => handleNavLinkClick('/user/ranking-equipos')}
+            onClick={() => handleNavLinkClick('/user/crear-equipos')}
           >
             <div
               className={`bg-greyPrimary1 p-2 rounded-full ${

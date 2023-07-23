@@ -9,7 +9,7 @@ import Megaphone from "../BestTeams/img/Megaphone_2.png";
 import Vector from "../BestTeams/img/Vector.png";
 import Front from "../BestTeams/img/front.png";
 import Ux from "../BestTeams/img/Draw_Square.png"
-import BtnDelet from "../Btn/BtnDelet/BtnDelet";
+import BtnDelet from "../../../../Components/BtnDelet/BtnDelet";
 
 
 
@@ -166,7 +166,7 @@ const BestTeamsMobile: React.FC = () => {
                     </div>
                     <div className="edit-edit-mobile">Editar</div>
                   </Link>
-                  <BtnDelet onDelete={() => handleDelete(item.id)} />
+                  <BtnDelet key={item.id} onDelete={() => handleDelete(item.id)} />
                 </div>
               )}
             </Card>
