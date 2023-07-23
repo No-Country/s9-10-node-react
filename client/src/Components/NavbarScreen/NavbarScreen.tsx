@@ -13,7 +13,7 @@ const NavbarScreen = () => {
           <Link to={'/'} className=''>Sobre nosotros</Link>
           <Link to={'/'} className=''>Contacto</Link>
         </div>
-        <button className='hidden md:block bg-azulPrimary text-white p-3 rounded-full text-2xl ml-10'>
+        <button className='hidden md:block bg-bluePrimary text-white p-3 rounded-full text-2xl ml-10'>
           <MdOutlineNotificationsNone/>
         </button>
         <div className='md:hidden border-2 p-2 border-bluePrimary text-bluePrimary rounded-md text-xl'>
