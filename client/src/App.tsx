@@ -1,6 +1,7 @@
 import { Suspense, lazy } from 'react';
 import { Route, BrowserRouter, Routes } from 'react-router-dom';
 import { FooterScreen, Loader } from './Components';
+import CrearEquiposDesktop from './pages/AdministrarEquipos/Components/CrearEquipos/CrearEquiposDesktop';
 
 const Home = lazy(() => import('./pages/Home/Home'));
 const Logout = lazy(() => import('./pages/Login/Login'));
@@ -32,6 +33,7 @@ const App = () => {
             <Route path=':profileId' element={<UserProfile />} />
             <Route path='forms' element={<FormScreen />} />
             <Route path='forms/create' element={<CreateForms />} />
+            <Route path='crear-equipos' element={<CrearEquiposDesktop />} />
           </Route>
         </Routes>
         <FooterScreen />

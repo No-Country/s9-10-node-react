@@ -1,19 +1,20 @@
-import React, { useRef, useState } from "react";
-import { RightCircleFilled, EditOutlined } from "@ant-design/icons";
+import React, { useState } from "react";
+import { EditOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import { Card } from "antd";
-import { motion } from "framer-motion";
-import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "./BestTeams.css";
-import People from "./img/People_Group.png";
-import Backen from "./img/Database.png";
-import Megaphone from "./img/Megaphone_2.png";
-import Vector from "./img/Vector.png";
-import Front from "./img/front.png";
-import Ux from "./img/Draw_Square.png";
+import "./CrearEquiposSesktop.css";
+import People from "../../../DashboardCompany/components/BestTeams/img/People_Group.png";
+import Backen from "../../../DashboardCompany/components/BestTeams/img/Database.png";
+import Megaphone from "../../../DashboardCompany/components/BestTeams/img/Megaphone_2.png";
+import Vector from "../../../DashboardCompany/components/BestTeams/img/Vector.png";
+import Front from "../../../DashboardCompany/components/BestTeams/img/front.png";
+import Ux from "../../../DashboardCompany/components/BestTeams/img/Draw_Square.png";
 import BtnDelet from "../../../../Components/BtnDelet/BtnDelet";
+
+import SearchEquipos from "../../../../Components/SearchBoxScreen/SearchEquipos";
+
 
 interface CardData {
   id: number;
@@ -23,9 +24,13 @@ interface CardData {
   empleados: string;
 }
 
-const BestTeams: React.FC = () => {
-  const sliderRef = useRef<Slider>(null);
+const CrearEquiposDesktop: React.FC = () => {
+  
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+
+  const handleSearch = () => {
+    // Lógica para manejar la búsqueda
+  };
 
   const handleDelete = (teamId: number) => {
     // Acciones necesarias para eliminar el equipo con el teamId proporcionado.
@@ -76,10 +81,6 @@ const BestTeams: React.FC = () => {
       empleados: "4 Empleados",
     },
   ];
-
-  const handleNext = () => {
-    sliderRef.current?.slickNext();
-  };
 
   const getIconByTitle = (title: string) => {
     const iconMap: { [key: string]: React.ReactNode } = {
@@ -138,69 +139,73 @@ const BestTeams: React.FC = () => {
   };
 
   return (
-    <>
-      <h2 className="textCardTeam font-inter">Por equipos</h2>
-      <div className="contenedorCardTeam">
-        <Slider
-          ref={sliderRef}
-          slidesToShow={3.5}
-          slidesToScroll={1}
-          dots={false}
-          infinite={true}
-          initialSlide={0}
-        >
+    <div className="conte-equipos">
+      <div className="equipos-encabezado">
+        <h2 className="textCardTeam-equipos font-inter">Equipos</h2>
+        <div className="equipo-etiqueta">
+          <div className="equipo-equipo">Equipo</div>
+          <div className="equipo-number">9</div>
+        </div>
+        <div className="empleados-etiqueta">
+          <div className="empleado-empleado">Empleados</div>
+          <div className="empleado-number">43</div>
+        </div>
+      </div>
+      <SearchEquipos
+       showSelect={true}
+       handleSearch={handleSearch}
+       showButton={true}
+       label="Buscar"
+       />
+      <div className="contenedorCard-equipos">
+        <div className="cards-container">
           {data.map((item) => (
-            <motion.div key={item.id} className="item-team">
-              <div className="hr">{getIconByTitle(item.name)}</div>
+            <div key={item.id} className="item-team-equipos">
+              <div className="hr-equipos">{getIconByTitle(item.name)}</div>
               <Card
-                className={`mb-6 card-team card-${item.id}`}
+                className={`mb-6 card-team-equipos card-${item.id}`}
                 onMouseEnter={() => handleCardMouseEnter(item.id)}
                 onMouseLeave={handleCardMouseLeave}
               >
-                <div className="card-content-team">
+                <div className="card-content-equipos">
                   <Card.Meta
                     title={
                       <>
-                        <p className="item-name font-inter">{item.name}</p>
+                        <p className="item-name-equipos font-inter">{item.name}</p>
                       </>
                     }
                     description={
                       <>
-                        <span className="item-description">
+                        <span className="item-description-equipos">
                           {item.description}
                         </span>
                         <br />
-                        <span className="item-empleados">{item.empleados}</span>
+                        <span className="item-empleados-equipos">{item.empleados}</span>
                       </>
                     }
                   />
                 </div>
                 {hoveredCard === item.id && (
-                  <div className="footer-card">
-                    <Link to="ranking-equipos" className="edit-cont">
+                  <div className="footer-card-equipos">
+                    <Link to="/user/ranking-equipos" className="edit-cont-equipos">
                       <div className="edit-icon">
                         <EditOutlined />
                       </div>
                       <div className="edit-edit">Editar</div>
                     </Link>
-                    <BtnDelet key={item.id} onDelete={() => handleDelete(item.id)} />
+                    <BtnDelet
+                      key={item.id}
+                      onDelete={() => handleDelete(item.id)}
+                    />
                   </div>
                 )}
               </Card>
-            </motion.div>
+            </div>
           ))}
-        </Slider>
+        </div>
       </div>
-
-      <CustomNextArrow onClick={handleNext} />
-    </>
+    </div>
   );
 };
 
-const CustomNextArrow: React.FC<{ onClick: () => void }> = ({ onClick }) => (
-  <div className="next-arrow flecha-team" onClick={onClick}>
-    <RightCircleFilled />
-  </div>
-);
-
-export default BestTeams;
+export default CrearEquiposDesktop;
