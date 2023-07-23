@@ -13,7 +13,7 @@ const ProfileInfo = () => {
     }
 
     return (
-        <div className='border-r border-b rounded-br-3xl px-5 py-14 flex flex-col gap-y-5 items-center bg-azulClaroBg3 md:h-screen md:w-80'>
+        <div className='border-b-2 rounded-br-3xl px-5 py-14 flex flex-col gap-y-5 items-center bg-azulClaroBg3 md:h-screen md:w-80'>
             <div className='flex gap-x-5 items-center md:flex-col md:mb-10'>
                 <img src={profileData.image} alt="" className='w-20 h-20 md:h-60 md:w-60 md:mb-10 rounded-full md:rounded-none'/>
                 <div className='flex flex-col gap-y-2'>

@@ -59,7 +59,7 @@ const Aside = () => {
             <div className='bg-blue-950 w-52 h-52 rounded-xl flex items-center justify-center'>
               <img src={logoNC} alt="" className=''/>
             </div>
-            <button className='flex text-2xl'>
+            <button className='flex text-2xl text-bluePrimary'>
               <BiLogOut />
             </button>
           </div>
