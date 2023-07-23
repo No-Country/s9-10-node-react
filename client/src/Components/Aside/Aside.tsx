@@ -27,7 +27,24 @@ const Aside = () => {
 
 
 
-  const equipos = ['Recursos humanos', 'Digital team', 'Marketing', 'Backend Developers']
+  const equipos = [
+    {
+      group: 'Recursos humanos',
+      id: 1
+    }, 
+    {
+      group: 'Digital team', 
+      id: 2 
+    },
+    {  
+      group: 'Marketing', 
+      id: 3
+    },
+    {
+      group: 'Backend Developers',
+      id: 4
+    }
+  ]
 
   return (
     <div className='border-r rounded-br-3xl w-80 py-6 flex flex-col justify-between bg-greyPrimary2 shadow-xl'>
@@ -122,7 +139,7 @@ const Aside = () => {
                 <div className='flex flex-col pl-14 border-l-2 text-sm'>
                   {equipos.map(equipo => {
                     return(
-                      <Link to={'/user'} className='py-2'>{equipo}</Link>
+                      <Link to={'/user'} key={equipo.id} className='py-2'>{equipo.group}</Link>
                     )
                   })}
                 </div>
