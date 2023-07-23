@@ -1,11 +1,15 @@
 import { useScreenSize } from '../../../../hooks';
 
-function SaveButton() {
+interface SaveButtonProps {
+  saveOptionsQuestion: () => void;
+}
+
+function SaveButton({ saveOptionsQuestion }: SaveButtonProps) {
   const { width } = useScreenSize();
 
   return (
     <button
-      onClick={() => console.log('clicked')}
+      onClick={saveOptionsQuestion}
       className={`flex items-center justify-center w-[8.5rem] h-8 gap-1 rounded-[0.625rem] border-[1px] border-solid
                 border-[#2085B0] shadow-custom2 bg-[#2085B0] md:w-[12.6875rem] md:h-12`}
     >

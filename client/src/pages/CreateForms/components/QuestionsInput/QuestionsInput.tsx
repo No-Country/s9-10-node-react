@@ -1,12 +1,25 @@
+import { useCreateForms } from '../../hooks';
+
 function QuestionsInput() {
+  const { question, setQuestion, clearInputQuestion } = useCreateForms();
+
   return (
     <div className='flex w-full items-center justify-center mt-4 gap-2 md:mt-6'>
       <input
         type='text'
+        name='question'
         placeholder='Escriba su pregunta'
-        className={`w-60 h-6 bg-white rounded-[0.625rem] px-2 md:w-[49.8125rem] md:h-9 text-base font-normal leading-6 tracking-[-0.022rem] text-[#0000007f] md:text-xl md:leading-7 md:tracking-[-0.0275rem]`}
+        value={question}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          setQuestion(e.target.value)
+        }
+        className={`w-60 h-6 bg-white rounded-[0.625rem] px-2 md:w-[49.8125rem] md:h-9 text-base font-normal leading-6 
+        tracking-[-0.022rem] text-[#0000007f] md:text-xl md:leading-7 md:tracking-[-0.0275rem]`}
       />
-      <button className='flex items-center justify-center bg-white w-6 h-6 rounded-full shadow-md md:w-9 md:h-9'>
+      <button
+        className='flex items-center justify-center bg-white w-6 h-6 rounded-full shadow-md md:w-9 md:h-9'
+        onClick={clearInputQuestion}
+      >
         <svg
           xmlns='http://www.w3.org/2000/svg'
           width='24'

@@ -1,28 +1,14 @@
-import { useState } from 'react';
 import { useCreateForms } from '../../hooks';
 import { QuestionsInput, SaveButton, WhiteboardScreen } from '..';
 
-const DEFAULT_RADIO_BUTTONS = [
-  {
-    id: 1,
-    title: 'Opción',
-  },
-  {
-    id: 2,
-    title: 'Opción',
-  },
-];
-
 function OneOptionScreen() {
-  const [radioButtons, setRadioButtons] = useState(DEFAULT_RADIO_BUTTONS);
-  const { isSelected } = useCreateForms();
-
-  function addRadioButtons() {
-    setRadioButtons((prevRadioButtons) => [
-      ...prevRadioButtons,
-      { id: prevRadioButtons.length + 1, title: 'Opción' },
-    ]);
-  }
+  const {
+    isSelected,
+    radioButtons,
+    addRadioButtons,
+    handleOptionInputChange,
+    saveOptionsQuestion,
+  } = useCreateForms();
 
   return (
     <>
@@ -30,17 +16,20 @@ function OneOptionScreen() {
         <WhiteboardScreen>
           <QuestionsInput />
           <div className='order-1 md:order-2'>
-            {radioButtons.map((radioButton) => (
+            {Object.keys(radioButtons).map((radioButton, index) => (
               <div
-                key={radioButton.id}
+                key={index}
                 className={`flex items-center justify-start gap-4 ml-4 mt-5 md:mb-5 md:ml-6`}
               >
                 <input type='radio' name={isSelected === 1 ? 'one' : ''} />
                 <input
                   type='text'
-                  placeholder={`${radioButton.title} ${radioButton.id}`}
+                  name={radioButton}
+                  placeholder={`Opción ${index + 1}`}
                   className={`bg-transparent text-black text-base font-normal leading-6 tracking-[-0.022rem] md:text-xl md:leading-7
                     md:tracking-[-0.0275rem]`}
+                  value={radioButtons[radioButton]}
+                  onChange={handleOptionInputChange}
                 />
               </div>
             ))}
@@ -66,7 +55,7 @@ function OneOptionScreen() {
                 Agregar una opción
               </span>
             </button>
-            <SaveButton />
+            <SaveButton saveOptionsQuestion={saveOptionsQuestion} />
           </div>
         </WhiteboardScreen>
       )}
