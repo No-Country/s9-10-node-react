@@ -1,0 +1,408 @@
+.conte-equipos {
+  width: 100%;
+  height: 100%;
+}
+
+.equipos-encabezado {
+  width: 1199px;
+  height: 136px;
+  margin-right: 90px;
+  background-color: #e9ecfc;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.textCardTeam-equipos {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 45px;
+  width: 456px;
+  height: 48px;
+  color: #08212B;
+  display: flex;
+  align-items: center;
+}
+
+.equipo-etiqueta {
+  position: absolute;
+  background: #7a8ceb;
+  width: 160px;
+  height: 48;
+  border-radius: 16px;
+  display: flex;
+  gap: 10px;
+  margin-left: 30%;
+  z-index: 1;
+}
+
+.equipo-equipo {
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  font-weight: 600;
+  font-family: "Inter", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 25%;
+}
+
+.equipo-number {
+  color: white;
+  font-size: 30px;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.empleados-etiqueta {
+  background: #a6b2f2;
+  width: 160px;
+  height: 48;
+  border-radius: 0px 16px 16px 0px;
+  display: flex;
+  gap: 10px;
+}
+
+.empleado-empleado {
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  font-weight: 600;
+  font-family: "Inter", sans-serif;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 15%;
+}
+
+.empleado-number {
+  color: white;
+  font-size: 30px;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  text-align: center;
+}
+
+/**Card**/
+
+.contenedorCard-equipos {
+  display: flex;
+  
+}
+
+
+.cards-container{
+    margin-left: 11%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    align-items: center;
+    gap: 20px;
+
+}
+
+
+
+.item-team-equipos {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  margin-top: 5%;
+  
+}
+
+.hr-equipos {
+  color: #e4e4e4;
+  width: 64px;
+  height: 64px;
+  margin-left: 35%;
+  border-radius: 16px;
+  background: #185d81;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 3;
+}
+
+.card-team-equipos {
+  width: 224px;
+  height: 176px;
+  margin-top: 30px;
+  border-radius: 30px;
+  position: relative;
+  z-index: 2;
+  border: 1px solid #185d81;
+  background: #e4e4e4;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-team-equipos:hover {
+  background: #cce8ff;
+}
+
+.footer-card-equipos {
+  position: relative;
+  margin-top: -25px;
+  margin-left: -25px;
+  width: 224px;
+  height: 56px;
+  background: #185d81;
+  border-radius: 0px 0px 30px 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit-cont-equipos {
+  margin-left: 56px;
+  color: #cce8ff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.delet-cont {
+  margin-right: 56px;
+  color: #cce8ff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.card-content-equipos {
+  font-weight: 500;
+  font-size: 19.22px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.item-name-equipos {
+  color: #185d81;
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 29px;
+  letter-spacing: -0.022em;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.item-description-equipos,
+.item-empleados-equipos {
+  color: #185d81;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.022em;
+  text-align: center;
+}
+
+
+
+
+/* Estilos para el contenedor principal */
+.search-contenedor {
+    position: relative;
+    margin-top: 2%;
+    margin-left: 11%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    
+    
+    
+  }
+  
+
+.input-search {
+    width: 283px;
+    height: 40px;
+    border: 1px solid #2085B0;
+    border-radius: 30px;
+    padding-left: 30px;
+    padding-right: 8px;
+    background-color: #FAFDFF;
+  }
+  
+  /* Estilos para el ícono SVG */
+  .icon-search {
+   position: absolute;
+   margin-right: 33%;
+  }
+  
+  /* Estilos para el select */
+  .select-search {
+    width: 140px;
+    height: 32px;
+    border: 1px solid #40903C;
+    border-radius: 18px;
+    background-color: #DCF0DB;
+    padding: 4px 16px;
+    margin-left: 4px;
+    color: #40903C;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.6;
+    text-align: center;
+  }
+  
+  /* Estilos para el botón */
+  .button-search {
+    width: 192px;
+    height: 48px;
+    margin-left: 25.5%;
+    border-radius: 100px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    background-color: #73C36F;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.6;
+    gap: 10px;
+   
+  }
+  
+
+  .modal-conte {
+    width: 415px;
+    height: 383px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+
+  }
+
+  .modal-barra {
+    width: 380px;
+    height: 6px;
+    margin-left: 5%;
+    margin-top: 0%;
+
+  }
+
+  .modal-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+
+  }
+
+  
+  .modal-title-progres {
+    font-family: 'Inter', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    margin-left: 28px;
+
+  }
+  
+  .modal-parra {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    width: 319px;
+    height: 58px;
+  }
+
+  .modal-parra-progres {
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    width: 319px;
+    height: 58px;
+    margin-left: 30px;
+  }
+
+  .conte-input-modal {
+    display: flex;
+    gap: 10%;
+    margin-left: 45px;
+  }
+  
+  .modal-img {
+    font-size: 8px;
+    width: 48px;
+    height: 48px;
+    border-radius: 11px;
+    background: #185d81;
+  }
+
+  .modal-agregar {
+    background: #F0900E;
+    width: 24px;
+    height: 24px;
+    border-radius: 100px;
+    padding: 1px 6px 1px 6px;
+    color: white;
+    position: absolute;
+    margin-top: 7%;
+    margin-left: 6%;
+   
+  }
+
+  .modal-imput {
+    width: 300px;
+    height: 48px;
+    border-radius: 8px;
+    border: 1px solid #7A8CEB;
+    padding: 12px 12px 12px 16px;
+    background: #D3D9F8;
+  }
+
+  .cont-btn {
+    display: flex;
+    gap: 100px;
+    margin-left: 50px;
+  }
+
+  .btn-cancel {
+    width: 144px;
+    height: 40px;
+    border-radius: 30px;
+    border: 1px solid #73c36f;
+    background: #EDF7ED;
+    color: #73C36F;
+  }
+
+  .btn-crear {
+    width: 144px;
+    height: 40px;
+    border-radius: 30px;
+    background: #73C36F;
+    color: white;
+  }
+
+  .vector-flecha {
+    width: 24px;
+    height: 24px;
+    background: #40903C;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    padding-right: 1px;
+    cursor: pointer;
+  }
+
+  .conte-img-progreso {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

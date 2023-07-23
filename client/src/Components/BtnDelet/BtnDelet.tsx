@@ -48,6 +48,13 @@ const BtnDelet: React.FC<BtnDeletProps> = ({ onDelete }) => {
         footer={[
           <>
             <div className="cont-btn">
+            <div
+                key="cancel-button"
+                onClick={handleCancel}
+                className="modal-cancel-button"
+              >
+                Cancelar
+              </div>
               <div
                 key="ok-button"
                 onClick={handleOk}
@@ -57,13 +64,7 @@ const BtnDelet: React.FC<BtnDeletProps> = ({ onDelete }) => {
                 Eliminar equipo
               </div>
               ,
-              <div
-                key="cancel-button"
-                onClick={handleCancel}
-                className="modal-cancel-button"
-              >
-                Cancelar
-              </div>
+              
             </div>
           </>,
         ]}

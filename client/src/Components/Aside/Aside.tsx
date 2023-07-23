@@ -27,7 +27,24 @@ const Aside = () => {
 
 
 
-  const equipos = ['Recursos humanos', 'Digital team', 'Marketing', 'Backend Developers']
+  const equipos = [
+    {
+      group: 'Recursos humanos',
+      id: 1
+    }, 
+    {
+      group: 'Digital team', 
+      id: 2 
+    },
+    {  
+      group: 'Marketing', 
+      id: 3
+    },
+    {
+      group: 'Backend Developers',
+      id: 4
+    }
+  ]
 
   return (
     <div className='border-r rounded-br-3xl w-80 py-6 flex flex-col justify-between bg-greyPrimary2 shadow-xl'>
@@ -53,13 +70,13 @@ const Aside = () => {
             onClick={() => handleNavLinkClick('/user')}
             className={`flex items-center gap-x-2 text-lg border-l-4 border-greyPrimary2 border-x-greyPrimary2 py-2 px-3 ${
               activeLink === '/user'
-                ? 'bg-azulClaroBg !border-azulPrimary text-azulSecundary'
+                ? 'bg-azulClaroBg !border-bluePrimary text-azulSecundary'
                 : ''
             }`}
           >
             <div
               className={`bg-greyPrimary1 p-2 rounded-full ${
-                activeLink === '/user' ? '!bg-azulSecundary text-white' : ''
+                activeLink === '/user' ? '!bg-bluePrimary text-white' : ''
               }`}
             >
               <LuLayoutDashboard />
@@ -72,14 +89,14 @@ const Aside = () => {
             onClick={() => handleNavLinkClick('/user/ranking-rol')}
             className={`flex items-center gap-x-2 text-lg border-l-4 border-greyPrimary2 py-2 px-3 ${
               activeLink === '/user/ranking-rol'
-                ? 'bg-azulClaroBg !border-azulPrimary text-azulSecundary'
+                ? 'bg-azulClaroBg !border-bluePrimary text-azulSecundary'
                 : ''
               }`}
           >
             <div
               className={`bg-greyPrimary1 p-2 rounded-full ${
                 activeLink === '/user/ranking-rol'
-                  ? '!bg-azulSecundary text-white'
+                  ? '!bg-bluePrimary text-white'
                   : ''
               }`}
             >
@@ -95,7 +112,7 @@ const Aside = () => {
               onClick={() => handleNavLinkClick('/user/ranking-equipos')}
               className={`flex items-center gap-x-2 text-lg border-l-4 border-greyPrimary2 py-2 px-3 ${
                 activeLink === '/user/ranking-equipos'
-                  ? 'bg-azulClaroBg !border-azulPrimary text-azulSecundary'
+                  ? 'bg-azulClaroBg !border-bluePrimary text-azulSecundary'
                   : ''
               }`}
             >
@@ -104,7 +121,7 @@ const Aside = () => {
                 <div
                   className={`bg-greyPrimary1 p-2 rounded-full ${
                     activeLink === '/user/ranking-equipos'
-                      ? '!bg-azulSecundary text-white'
+                      ? '!bg-bluePrimary text-white'
                       : ''
                   }`}
                 >
@@ -122,7 +139,7 @@ const Aside = () => {
                 <div className='flex flex-col pl-14 border-l-2 text-sm'>
                   {equipos.map(equipo => {
                     return(
-                      <Link to={'/user'} className='py-2'>{equipo}</Link>
+                      <Link to={'/user'} key={equipo.id} className='py-2'>{equipo.group}</Link>
                     )
                   })}
                 </div>
@@ -135,7 +152,7 @@ const Aside = () => {
             onClick={() => handleNavLinkClick('/user/forms')}
             className={`flex items-center justify-between gap-x-2 text-lg border-l-4 border-greyPrimary2 py-2 px-3 ${
               activeLink === '/user/forms'
-                ? 'bg-azulClaroBg !border-azulPrimary text-azulSecundary'
+                ? 'bg-azulClaroBg !border-bluePrimary text-azulSecundary'
                 : ''
             }`}
           >
@@ -144,7 +161,7 @@ const Aside = () => {
               <div
                 className={`bg-greyPrimary1 p-2 rounded-full ${
                   activeLink === '/user/forms'
-                    ? '!bg-azulSecundary text-white'
+                    ? '!bg-bluePrimary text-white'
                     : ''
                 }`}
               >
@@ -162,14 +179,14 @@ const Aside = () => {
             onClick={() => handleNavLinkClick('/user/profile')}
             className={`flex items-center gap-x-2 text-lg border-l-4 border-greyPrimary2 py-2 px-3 ${
               activeLink === '/user/profile'
-                ? 'bg-azulClaroBg !border-azulPrimary text-azulSecundary'
+                ? 'bg-azulClaroBg !border-bluePrimary text-azulSecundary'
                 : ''
             }`}
           >
             <div
               className={`bg-greyPrimary1 p-2 rounded-full ${
                 activeLink === '/user/profile'
-                  ? '!bg-azulSecundary text-white'
+                  ? '!bg-bluePrimary text-white'
                   : ''
               }`}
             >

@@ -5,10 +5,9 @@ import Toolbar from '../Toolbar/Toolbar';
 
 const Root = () => {
   return (
-    <div className=''>
-      <div>
-        <NavbarScreen />
-      </div>
+    <div>
+      <NavbarScreen />
+
       <div className='md:flex'>
         <div className='hidden md:block'>
           <Aside />
@@ -17,9 +16,8 @@ const Root = () => {
           <Outlet />
         </main>
       </div>
-      <div className='fixed bottom-0 w-full md:hidden'>
-        <Toolbar />
-      </div>
+      
+      <Toolbar />
     </div>
   );
 };
