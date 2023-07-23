@@ -40,7 +40,7 @@ const Login = () => {
     const isValidEmail = validateEmail(email);
     if (!isValidEmail) return;
 
-    const res = await fetchData('/users/login', 'POST', { email, password });
+    const res = await fetchData('/admin/login', 'POST', { email, password });
 
     if (error) {
       messageApi.open({
