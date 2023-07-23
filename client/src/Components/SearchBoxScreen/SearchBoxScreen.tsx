@@ -9,6 +9,8 @@ function SearchBoxScreen({
   showButton,
   handleCreate,
   label,
+  showTags = true,
+  buttonLabel = 'Crear',
 }: SearchBoxProps) {
   const { search, setSearch, handleCreateTags, clearInput } = useSearch();
   const { width } = useScreenSize();
@@ -64,7 +66,7 @@ function SearchBoxScreen({
             />
           </svg>
         </div>
-        <TermsSearchScreen handleSearch={handleSearch} />
+        {showTags && <TermsSearchScreen handleSearch={handleSearch} />}
         {width >= 768 && showSelect && (
           <select
             className={`w-36 h-8 rounded-[1.125rem] bg-[#DCF0DB] px-4 ml-1 border-[1px] border-solid border-[#40903C] flex items-center 
@@ -82,12 +84,12 @@ function SearchBoxScreen({
         )}
         {showButton && (
           <button
-            className={`flex w-36 h-8 rounded-[6.25rem] py-[1.3rem] bg-[#2D3648] items-center justify-center text-sm font-bold
+            className={`flex min-w-[9rem] h-8 rounded-[6.25rem] py-[1.3rem] bg-[#73C36F] items-center justify-center text-sm font-bold
         leading-7 tracking-[-0.00938rem] text-white absolute right-0 top-[-60px] md:-top-1 md:-right-44 md:w-48 md:h-12 md:px-[1.95rem]
-        md:text-lg md:tracking-[-0.01125rem]`}
+        md:text-lg md:tracking-[-0.01125rem] gap-2`}
             onClick={handleCreate}
           >
-            Crear
+            {buttonLabel}
           </button>
         )}
       </div>

@@ -14,6 +14,7 @@ export interface SearchBoxProps {
   label: string;
   handleCreate?: () => void;
   buttonLabel?: string;
+  showTags?: boolean;
 }
 
 export const searchOptions: TermsSearch[] = [
