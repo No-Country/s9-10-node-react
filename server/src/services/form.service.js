@@ -1,14 +1,40 @@
+import jwt from "jsonwebtoken";
 import Form from "../models/form.model.js";
-import Response from "../models/answer.model.js";
-import { HttpException } from "../utils/HttpException.js";
 import User from "../models/user.model.js";
+import Response from "../models/answer.model.js";
+import { TOKEN_SECRET } from "../config.js";
+import Admin from "../models/admin.model.js";
+import { HttpException } from "../utils/HttpException.js";
 
 // Crear un formulario
-export const createNewForm = async ({ title, questions, comments }) => {
+export const createNewForm = async ({
+  title,
+  description,
+  token,
+  questions,
+  comments,
+}) => {
   // Validar los datos recibidos
   if (!title || !questions || !comments) {
     throw new HttpException("Faltan campos obligatorios en el formulario", 400);
   }
+
+  // Validar longitud máxima de la descripción
+  if (description && description.length > 400) {
+    throw new HttpException(
+      "La descripción del formulario no puede superar los 400 caracteres",
+      400
+    );
+  }
+
+  // Extraer el username del admin que crea el formulario
+
+  // Verificar y decodificar el token para obtener el ID del administrador
+  const decodedToken = jwt.verify(token, TOKEN_SECRET);
+  const adminId = decodedToken.id;
+
+  // Consultar el administrador por su ID en la base de datos
+  const admin = await Admin.findById(adminId);
 
   // Validar el tipo de preguntas y opciones
   for (const question of questions) {
@@ -74,6 +100,8 @@ export const createNewForm = async ({ title, questions, comments }) => {
   // Crear el formulario
   const newForm = await Form.create({
     title,
+    description,
+    createdBy: admin.username,
     questions,
     comments,
   });

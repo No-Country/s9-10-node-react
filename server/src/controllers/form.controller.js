@@ -4,12 +4,16 @@ import { HttpException } from "../utils/HttpException.js";
 //Controller para la creación de un formulario
 export const createForm = async (req, res) => {
   try {
-    const { title, category, questions, comments } = req.body;
+    const { title, description, questions, comments } = req.body;
 
+    // Obtener el token desde la cookie
+    const token = req.cookies.token;
+    
     // Llamamos al servicio que crea el formulario
     const newForm = await createNewForm({
       title,
-      category,
+      description,
+      token,
       questions,
       comments,
     });
@@ -30,7 +34,13 @@ export const createResponse = async (req, res) => {
     const { userId, evaluatedUserId, formId, answers, comments } = req.body;
 
     // Guardar la respuesta en la base de datos
-    const newResponse = await createNewResponse({ userId, evaluatedUserId, formId, answers, comments });
+    const newResponse = await createNewResponse({
+      userId,
+      evaluatedUserId,
+      formId,
+      answers,
+      comments,
+    });
 
     const savedResponse = await newResponse.save();
 
@@ -38,7 +48,7 @@ export const createResponse = async (req, res) => {
       message: "Respuesta creada con éxito",
       response: savedResponse,
     });
-  } catch (error) {   
+  } catch (error) {
     if (error instanceof HttpException) {
       res.status(error.statusCode).json({ message: error.message });
     } else {
