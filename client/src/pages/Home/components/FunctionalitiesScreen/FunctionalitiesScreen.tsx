@@ -1,6 +1,6 @@
 function FunctionalitiesScreen() {
   return (
-    <article className='flex flex-col justify-center items-center w-full h-[976px] md:h-[800px]'>
+    <article className='flex flex-col justify-center items-center w-full h-[976px] md:h-[800px] bg-white'>
       <h2
         className={`text-2xl md:text-[2.5rem] font-bold text-black leading-[120%] tracking-[-0.528px] md:leading-[150%] 
           mt-8 md:mt-16 mb-4 md:mb-2 text-center md:text-5xl md:leading-[leading-[3.75rem] md:tracking-[-0.055rem]`}
