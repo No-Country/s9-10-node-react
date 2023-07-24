@@ -28,6 +28,11 @@ const CreateFormsProvider = ({ children }: CreateFormsProviderProps) => {
   const [scaleEnd, setScaleEnd] = useState<string>('');
   const [scaleStep, setScaleStep] = useState<string>('');
   const [showAlert, setShowAlert] = useState<boolean>(false);
+  const [showInputsMessage, setShowInputsMessage] = useState<boolean>(false);
+  const [rolSelected, setRolSelected] = useState<string>('');
+  const [title, setTitle] = useState<string>('');
+  const [description, setDescription] = useState<string>('');
+  const [showSuccessModal, setShowSuccessModal] = useState<boolean>(false);
 
   // function to reset the state
   function clearInputQuestion() {
@@ -219,15 +224,22 @@ const CreateFormsProvider = ({ children }: CreateFormsProviderProps) => {
     clearInputQuestion();
     setMaxCharacters('');
     setRadioButtons(DEFAULT_RADIO_BUTTONS);
+    setRolSelected('');
+    setTitle('');
+    setDescription('');
   }
 
   //function to save the form in the DB
   async function handleSaveForm() {
     handleGetLocalStorage();
 
+    form.questions.map((question) => {
+      question.skill = rolSelected;
+    });
+
     const newData = {
-      title: 'Prueba 2',
-      comments: 'no hay comentarios',
+      title: title,
+      comments: { praise: false, normal: false },
       questions: form.questions,
     };
 
@@ -242,10 +254,7 @@ const CreateFormsProvider = ({ children }: CreateFormsProviderProps) => {
     }
 
     handleClearLocalStorage();
-    messageApi.open({
-      type: 'success',
-      content: 'Tu formulario ha sido almacenado correctamente',
-    });
+    setShowSuccessModal(true);
   }
 
   return (
@@ -275,6 +284,16 @@ const CreateFormsProvider = ({ children }: CreateFormsProviderProps) => {
         handleSaveForm,
         showAlert,
         setShowAlert,
+        showInputsMessage,
+        setShowInputsMessage,
+        rolSelected,
+        setRolSelected,
+        title,
+        setTitle,
+        description,
+        setDescription,
+        showSuccessModal,
+        setShowSuccessModal,
       }}
     >
       {contextHolder}

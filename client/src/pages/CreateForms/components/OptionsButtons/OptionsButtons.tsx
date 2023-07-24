@@ -7,8 +7,13 @@ function OptionsButtons() {
   const [isHovered, setIsHovered] = useState<boolean>(false);
   const [hasHovered, setHasHovered] = useState<boolean>(false);
   const [selected, setSelected] = useState<number>(0);
-  const { handleClearLocalStorage, handleSaveForm, setShowAlert, showAlert } =
-    useCreateForms();
+  const {
+    handleClearLocalStorage,
+    setShowAlert,
+    showAlert,
+    showInputsMessage,
+    setShowInputsMessage,
+  } = useCreateForms();
 
   return (
     <>
@@ -125,7 +130,7 @@ function OptionsButtons() {
           }`}
           onClick={() => {
             setSelected(3);
-            handleSaveForm();
+            setShowInputsMessage(!showInputsMessage);
           }}
         >
           <svg

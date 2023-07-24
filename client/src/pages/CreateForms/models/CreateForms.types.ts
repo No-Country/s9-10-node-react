@@ -20,13 +20,10 @@ interface Questions {
 }
 
 export interface Forms {
-  title: string;
   questions: Questions[];
-  comments: string;
 }
 
 export const DEFAULT_FORMS: Forms = {
-  title: '',
   questions: [
     {
       options: [''],
@@ -36,7 +33,6 @@ export const DEFAULT_FORMS: Forms = {
       type: '',
     },
   ],
-  comments: '',
 };
 
 export interface CreateFormsContextInterface {
@@ -50,7 +46,6 @@ export interface CreateFormsContextInterface {
   addRadioButtons: () => void;
   saveOptionsQuestion: () => void;
   handleOptionInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-
   maxCharacters: string;
   setMaxCharacters: (value: string) => void;
   saveOpenQuestion: () => void;
@@ -65,6 +60,16 @@ export interface CreateFormsContextInterface {
   handleSaveForm: () => void;
   showAlert: boolean;
   setShowAlert: (value: boolean) => void;
+  showInputsMessage: boolean;
+  setShowInputsMessage: (value: boolean) => void;
+  rolSelected: string;
+  setRolSelected: (value: string) => void;
+  title: string;
+  setTitle: (value: string) => void;
+  description: string;
+  setDescription: (value: string) => void;
+  showSuccessModal: boolean;
+  setShowSuccessModal: (value: boolean) => void;
 }
 
 export const EmptyContext: CreateFormsContextInterface = {
@@ -92,4 +97,41 @@ export const EmptyContext: CreateFormsContextInterface = {
   handleSaveForm: () => {},
   showAlert: false,
   setShowAlert: () => {},
+  showInputsMessage: false,
+  setShowInputsMessage: () => {},
+  rolSelected: '',
+  setRolSelected: () => {},
+  title: '',
+  setTitle: () => {},
+  description: '',
+  setDescription: () => {},
+  showSuccessModal: false,
+  setShowSuccessModal: () => {},
 };
+
+export const ROLES = [
+  {
+    key: '1',
+    label: 'Backend',
+  },
+  {
+    key: '2',
+    label: 'Frontend',
+  },
+  {
+    key: '3',
+    label: 'UX/UI',
+  },
+  {
+    key: '4',
+    label: 'No Code',
+  },
+  {
+    key: '5',
+    label: 'Team Leader',
+  },
+  {
+    key: '6',
+    label: 'Project Manager',
+  },
+];

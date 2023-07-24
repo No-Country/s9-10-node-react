@@ -1,7 +1,8 @@
 import { Suspense, lazy } from 'react';
-import { HeadScreen, Loader } from '../../Components';
+import { HeadScreen, Loader, SuccessModal } from '../../Components';
 import { CreateFormsProvider } from './context/CreateFormsProvider';
 import { ScoringScaleScreen } from './components';
+import { useCreateForms } from './hooks';
 
 const EmptyQuestionScreen = lazy(
   () => import('./components/EmptyQuestionScreen/EmptyQuestionScreen')
@@ -19,10 +20,18 @@ const OptionsButtons = lazy(
 const TitleScreen = lazy(() => import('./components/TitleScreen/TitleScreen'));
 
 function CreateForms() {
+  const { showSuccessModal, setShowSuccessModal } = useCreateForms();
+
   return (
     <Suspense fallback={<Loader />}>
       <CreateFormsProvider>
         <HeadScreen title='Crear Formularios' />
+        <SuccessModal
+          title='¡El formulario ha sido creado!'
+          content='El formulario ya está disponible para ser distribuido entre los empleados.'
+          hasOpened={showSuccessModal}
+          setHasOpened={setShowSuccessModal}
+        />
         <article className='md:ml-40 relative'>
           <div className='w-full h-[4.3125rem] bg-[#E9ECFC] absolute -top-5 left-0 rounded-b-2xl md:hidden -z-20' />
           <TitleScreen />

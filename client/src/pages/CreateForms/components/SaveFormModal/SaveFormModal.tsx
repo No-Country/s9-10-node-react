@@ -1,26 +1,44 @@
 import { Modal } from 'antd';
 import { useScreenSize } from '../../../../hooks';
+import { useCreateForms } from '../../hooks';
+import { ROLES } from '../../models';
 
 function SaveFormModal() {
   const { width } = useScreenSize();
+  const {
+    showInputsMessage,
+    setShowInputsMessage,
+    setRolSelected,
+    title,
+    setTitle,
+    description,
+    setDescription,
+    handleSaveForm,
+  } = useCreateForms();
 
   return (
     <Modal
       title=''
-      open={true}
+      closable={false}
+      open={showInputsMessage}
       width={width < 768 ? '21.125rem' : '34.3125rem'}
-      onCancel={() => console.log('cancel')}
+      onCancel={() => setShowInputsMessage(!showInputsMessage)}
       footer={[
-        <div className='flex w-full items-center justify-between'>
+        <div className='flex w-full items-center justify-between px-2 md:px-8'>
           <button
             className={`flex items-center justify-center h-8 py-[0.625rem] px-6 rounded-[1.875rem] border-[1px] border-solid] border-[#73C36F]
             bg-[#F5FBF4] text-[#73C36F] text-xs font-bold leading-7 tracking-[0.01563rem]`}
+            onClick={() => setShowInputsMessage(!showInputsMessage)}
           >
             Cancelar
           </button>
           <button
             className={`flex items-center justify-center w-[9.25rem] h-8 gap-[0.64956rem] rounded-[6.25rem] bg-[#73C36F] shadow-custom
             text-white text-xs font-bold leading-[1.94863rem] tracking-[-0.0075rem]`}
+            onClick={() => {
+              handleSaveForm();
+              setShowInputsMessage(!showInputsMessage);
+            }}
           >
             <svg
               xmlns='http://www.w3.org/2000/svg'
@@ -39,10 +57,71 @@ function SaveFormModal() {
         </div>,
       ]}
     >
-      <div className='flex h-[15.875rem] px-[1.37rem]'>
-        <div className='flex flex-col self-start'>
-          <p>Agregue un nombre (opcional)</p>
-          <input type='text' />
+      <div className='flex h-[15.875rem] px-[1.37rem] md:h-[27.5625rem] md:px-0 md:justify-center'>
+        <div className='flex flex-col mt-4 md:mt-8'>
+          <p
+            className={`text-[#2D3648] text-xs font-normal leading-[1.125rem] tracking-[-0.0165rem] md:text-xl md:leading-[1.875rem]
+            md:tracking-[-0.0275rem] md:text-left`}
+          >
+            Agregue un nombre{' '}
+            <span
+              className={`text-[0.625rem] tracking-[-0.01375rem] md:text-[0.875rem] md:tracking-[-0.01925rem]`}
+            >
+              (opcional)
+            </span>
+          </p>
+          <input
+            type='text'
+            className={`flex w-40 h-6 rounded-[0.625rem] border-[1px] border-solid border-[#2D3648] bg-[#d9d9d94c;
+          ] mt-2 focus:outline-none focus:ring-[#73C36F] focus:border-[#73C36F] focus:z-10 md:w-[26.6875rem] md:h-10 md:mt-4 px-3`}
+            placeholder='Titulo del formulario'
+            value={title}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setTitle(e.target.value)
+            }
+          />
+          <p
+            className={`text-[#2D3648] text-xs font-normal leading-[1.125rem] tracking-[-0.0165rem] mt-4 md:text-xl md:leading-[1.875rem]
+            md:tracking-[-0.0275rem] md:text-left md:mt-6`}
+          >
+            Agregue una descripción{' '}
+            <span
+              className={`text-[0.625rem] tracking-[-0.01375rem] md:text-[0.875rem] md:tracking-[-0.01925rem]`}
+            >
+              (opcional)
+            </span>
+          </p>
+          <textarea
+            className={`flex w-[11.625rem] h-6 rounded-[0.625rem] border-[1px] border-solid border-[#2D3648] bg-[#d9d9d94c;
+          ] mt-2 focus:outline-none focus:ring-[#73C36F] focus:border-[#73C36F] focus:z-10 md:w-[26.6875rem] md:h-20 md:mt-4 px-3
+          resize-none`}
+            maxLength={400}
+            rows={3}
+            placeholder='Descripcion'
+            value={description}
+            onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
+              setDescription(e.target.value)
+            }
+          />
+          <p
+            className={`text-[#2D3648] text-xs font-normal leading-[1.125rem] tracking-[-0.0165rem] mt-4 md:text-xl md:leading-[1.875rem]
+            md:tracking-[-0.0275rem] md:text-left md:mt-6`}
+          >
+            Seleccione un rol para este formulario
+          </p>
+          <select
+            className={`w-[12.3125rem] h-6 rounded-[0.625rem] bg-[#d9d9d94c] border-[1px] border-solid border-[#2D3648] mt-2  text-[#73C36F] focus:outline-none focus:ring-[#73C36F] focus:border-[#73C36F] focus:z-10 hover:bg-[#F5FBF4] md:mt-6
+            md:w-[26.6875rem] md:h-10`}
+            onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
+              setRolSelected(e.target.value);
+            }}
+          >
+            {ROLES?.map((role) => (
+              <option key={role.key} value={role.label}>
+                {role.label}
+              </option>
+            ))}
+          </select>
         </div>
       </div>
     </Modal>
