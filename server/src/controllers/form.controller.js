@@ -27,10 +27,10 @@ export const createForm = async (req, res) => {
 //Controller para la respuesta del usuario
 export const createResponse = async (req, res) => {
   try {
-    const { userId, formId, answers, comments } = req.body;
+    const { userId, evaluatedUserId, formId, answers, comments } = req.body;
 
     // Guardar la respuesta en la base de datos
-    const newResponse = await createNewResponse({ userId, formId, answers, comments });
+    const newResponse = await createNewResponse({ userId, evaluatedUserId, formId, answers, comments });
 
     const savedResponse = await newResponse.save();
 
@@ -38,7 +38,7 @@ export const createResponse = async (req, res) => {
       message: "Respuesta creada con éxito",
       response: savedResponse,
     });
-  } catch (error) {
+  } catch (error) {   
     if (error instanceof HttpException) {
       res.status(error.statusCode).json({ message: error.message });
     } else {

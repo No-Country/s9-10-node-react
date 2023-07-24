@@ -6,11 +6,11 @@ const ResponseSchema = new mongoose.Schema({
     ref: "User",
     required: true,
   },
-  // evaluatedUserId: {
-  //   type: mongoose.Schema.Types.ObjectId,
-  //   ref: "User",
-  //   required: true,
-  // },
+  evaluatedUserId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
   formId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Form",
