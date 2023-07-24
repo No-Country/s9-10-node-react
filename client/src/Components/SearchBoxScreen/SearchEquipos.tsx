@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { TeamOutlined } from "@ant-design/icons";
+import { TeamOutlined, FilterOutlined } from "@ant-design/icons";
+import { Menu, Dropdown } from "antd";
 import { useScreenSize } from "../../hooks";
 import { searchOptions, SearchBoxProps } from "./models";
 import { Modal } from "antd";
@@ -17,6 +18,22 @@ function SearchEquipos({
   const [search, setSearch] = useState<string>("");
   const [groupName, setGroupName] = useState<string>("");
   const { width } = useScreenSize();
+  const [selectedOption, setSelectedOption] = useState<string>("");
+
+  const menu = (
+    <Menu
+      theme="light"
+      selectedKeys={[selectedOption]}
+      onSelect={(item) => {
+        setSelectedOption(item.key as string);
+        handleSearch(item.key);
+      }}
+    >
+      {searchOptions.map((option) => (
+        <Menu.Item key={option?.term}>{option?.term}</Menu.Item>
+      ))}
+    </Menu>
+  );
 
   const handleGroupNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setGroupName(e.target.value);
@@ -96,7 +113,6 @@ function SearchEquipos({
             />
           </svg>
         </div>
-
         {width >= 768 && showSelect && (
           <select
             className="select-search"
@@ -111,6 +127,24 @@ function SearchEquipos({
             ))}
           </select>
         )}
+        {/* Renderiza el ícono de filtro si el ancho de pantalla es menor a 768 */}
+        <div className="filter-mobile">
+          {width < 768 && showSelect && (
+            <>
+              <Dropdown
+                overlay={menu}
+                trigger={["click"]}
+                placement="bottomLeft"
+              >
+                <span className="filter-icon">
+                  <FilterOutlined 
+                  style={{color:'#185D81'}}
+                  />
+                </span>
+              </Dropdown>
+            </>
+          )}
+        </div>
         {showButton && (
           <button className="button-search" onClick={showModal}>
             <TeamOutlined />
@@ -160,7 +194,7 @@ function SearchEquipos({
       >
         <div className="modal-conte">
           <div className="conte-img-progreso">
-            <button onClick={hideSuccessModal}  className="vector-flecha">
+            <button onClick={hideSuccessModal} className="vector-flecha">
               <img src={Flecha} alt="felcha" />
             </button>
             <img
@@ -171,7 +205,7 @@ function SearchEquipos({
           </div>
           <h2 className="modal-title-progres">Añadir miembros al equipo</h2>
           <p className="modal-parra-progres">
-            Selecione los miembris que desea que sean parte del equipo.
+            Selecione los miembros que desea que sean parte del equipo.
           </p>
 
           {/* SEARCH */}
