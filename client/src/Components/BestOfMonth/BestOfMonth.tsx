@@ -105,7 +105,7 @@ const BestOfMonth = ({ bestPersons }: BestOfMonthProps) => {
   };
 
   return (
-    <div className="pr-16 pl-28" {...(width < 768 && { className: 'px-4' })}>
+    <div className="px-6 md:px-16">
       <SearchBoxScreen
         label="Editar equipo de Digital Team"
         showButton={true}
