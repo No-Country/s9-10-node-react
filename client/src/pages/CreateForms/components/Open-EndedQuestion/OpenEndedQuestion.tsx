@@ -2,7 +2,8 @@ import { QuestionsInput, SaveButton, WhiteboardScreen } from '..';
 import { useCreateForms } from '../../hooks';
 
 function OpenEndedQuestion() {
-  const { isSelected } = useCreateForms();
+  const { isSelected, saveOpenQuestion, maxCharacters, setMaxCharacters } =
+    useCreateForms();
 
   return (
     <>
@@ -20,6 +21,10 @@ function OpenEndedQuestion() {
               <input
                 type='number'
                 className={`w-12 h-6 rounded-[0.625rem] bg-white pl-3 md:w-16 md:h-8`}
+                value={maxCharacters}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  setMaxCharacters(e.target.value)
+                }
               />
               <p
                 className={`text-[#0000007f text-xs font-normal leading-[1.125rem] tracking-[-0.0165rem] mt-[0.81rem] md:text-base
@@ -29,7 +34,7 @@ function OpenEndedQuestion() {
               </p>
             </div>
             <div className='mx-auto mt-6 mb-4 md:mx-0 md:mt-0'>
-              <SaveButton />
+              <SaveButton saveOptionsQuestion={saveOpenQuestion} />
             </div>
           </div>
         </WhiteboardScreen>

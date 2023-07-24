@@ -50,8 +50,21 @@ export interface CreateFormsContextInterface {
   addRadioButtons: () => void;
   saveOptionsQuestion: () => void;
   handleOptionInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  form: Forms;
-  setForm: (value: Forms) => void;
+
+  maxCharacters: string;
+  setMaxCharacters: (value: string) => void;
+  saveOpenQuestion: () => void;
+  scaleStart: string;
+  setScaleStart: (value: string) => void;
+  scaleEnd: string;
+  setScaleEnd: (value: string) => void;
+  scaleStep: string;
+  setScaleStep: (value: string) => void;
+  saveScaleQuestion: () => void;
+  handleClearLocalStorage: () => void;
+  handleSaveForm: () => void;
+  showAlert: boolean;
+  setShowAlert: (value: boolean) => void;
 }
 
 export const EmptyContext: CreateFormsContextInterface = {
@@ -65,6 +78,18 @@ export const EmptyContext: CreateFormsContextInterface = {
   addRadioButtons: () => {},
   saveOptionsQuestion: () => {},
   handleOptionInputChange: () => {},
-  form: DEFAULT_FORMS,
-  setForm: () => {},
+  maxCharacters: '',
+  setMaxCharacters: () => {},
+  saveOpenQuestion: () => {},
+  scaleStart: '',
+  setScaleStart: () => {},
+  scaleEnd: '',
+  setScaleEnd: () => {},
+  scaleStep: '',
+  setScaleStep: () => {},
+  saveScaleQuestion: () => {},
+  handleClearLocalStorage: () => {},
+  handleSaveForm: () => {},
+  showAlert: false,
+  setShowAlert: () => {},
 };
