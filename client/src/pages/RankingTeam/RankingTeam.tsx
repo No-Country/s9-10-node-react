@@ -8,6 +8,7 @@ const bestPersons = [
     job: 'Software Engineer',
     score: '91%',
     praises: 6,
+    email: 'johndoe@gmail.com',
   },
   {
     name: 'John Doe',
@@ -15,6 +16,7 @@ const bestPersons = [
     job: 'Frontend Developer',
     score: '89%',
     praises: 3,
+    email: 'johndoe@gmail.com',
   },
   {
     name: 'John Doe',
@@ -22,6 +24,7 @@ const bestPersons = [
     job: 'Backend Developer',
     score: '87%',
     praises: 2,
+    email: 'johndoe@gmail.com',
   },
   {
     name: 'John Doe',
@@ -29,6 +32,7 @@ const bestPersons = [
     job: 'Software Engineer',
     score: '91%',
     praises: 6,
+    email: 'johndoe@gmail.com',
   },
   {
     name: 'John Doe',
@@ -36,6 +40,7 @@ const bestPersons = [
     job: 'Frontend Developer',
     score: '89%',
     praises: 3,
+    email: 'johndoe@gmail.com',
   },
   {
     name: 'John Doe',
@@ -43,6 +48,7 @@ const bestPersons = [
     job: 'Backend Developer',
     score: '87%',
     praises: 2,
+    email: 'johndoe@gmail.com',
   },
   {
     name: 'John Doe',
@@ -50,6 +56,7 @@ const bestPersons = [
     job: 'Software Engineer',
     score: '91%',
     praises: 6,
+    email: 'johndoe@gmail.com',
   },
   {
     name: 'John Doe',
@@ -58,6 +65,7 @@ const bestPersons = [
     score: '89%',
 
     praises: 3,
+    email: 'johndoe@gmail.com',
   },
   {
     name: 'John Doe',
@@ -66,6 +74,7 @@ const bestPersons = [
 
     score: '87%',
     praises: 2,
+    email: 'johndoe@gmail.com',
   },
   {
     name: 'John Doe',
@@ -73,14 +82,15 @@ const bestPersons = [
     job: 'Software Engineer',
     score: '91%',
     praises: 6,
+    email: 'johndoe@gmail.com',
   },
 ];
 
 const RankingTeam = () => {
   return (
     <>
-      <HeadScreen title='Ranking Equipos' />
-      <div className=''>
+      <HeadScreen title="Ranking Equipos" />
+      <div className="">
         <BestOfMonth bestPersons={bestPersons} />
       </div>
     </>
