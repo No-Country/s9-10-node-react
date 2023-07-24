@@ -15,6 +15,7 @@ export default {
         
         orangePrincipal: '#F0900E',
         orangeSecondary: '#EAC159',
+        orangeTertiary: '#FEF5E0',
         violetPrimary: '#7A8CEB',
         violetSecondary: '#A6B2F2',
         violetTertiary: '#D3D9F8',

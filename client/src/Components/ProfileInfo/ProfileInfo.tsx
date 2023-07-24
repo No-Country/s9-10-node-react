@@ -13,16 +13,16 @@ const ProfileInfo = () => {
     }
 
     return (
-        <div className='border-b-2 rounded-b-2xl p-5 flex flex-col gap-y-5 items-center bg-azulClaroBg3 md:h-screen'>
+        <div className='border-b-2 rounded-br-3xl px-5 py-14 flex flex-col gap-y-5 items-center bg-azulClaroBg3 md:h-screen md:w-80'>
             <div className='flex gap-x-5 items-center md:flex-col md:mb-10'>
-                <img src={profileData.image} alt="" className='w-20 h-20 md:h-60 md:w-60 md:mb-10'/>
+                <img src={profileData.image} alt="" className='w-20 h-20 md:h-60 md:w-60 md:mb-10 rounded-full md:rounded-none'/>
                 <div className='flex flex-col gap-y-2'>
                     <p className='text-xl md:text-2xl font-bold md:text-center md:mb-2'>{profileData.name}</p>
                     <p className='text-xl text-center hidden md:block'>Roles:</p>
                     <div className='flex gap-x-4'>
                         {profileData.skills.map(skill => {
                             return(
-                                <p className='bg-azulClaroBg border border-azulPrimary text-azulPrimary px-4 rounded-2xl text-sm md:text-lg'>{skill}</p>
+                                <p className='bg-azulClaroBg2 border border-bluePrimary text-bluePrimary px-4 rounded-2xl text-sm md:text-lg'>{skill}</p>
                             )
                         })}
                     </div>
@@ -38,7 +38,7 @@ const ProfileInfo = () => {
 
 
             <div className='hidden md:flex gap-x-4'>
-                <Link to={'https://github.com'} target='_blank' className='text-2xl bg-blueQuaternary text-white p-2 rounded-full'>
+                <Link to={'https://github.com'} target='_blank' className='text-2xl bg-blueQuaternary text-white p-2 rounded-full -ml-1'>
                     <AiFillGithub/>
                 </Link>
                 <Link to={'https://www.instagram.com'} target='_blank' className='text-2xl bg-blueQuaternary text-white p-2 rounded-full'>

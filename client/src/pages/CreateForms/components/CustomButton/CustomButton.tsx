@@ -1,20 +1,20 @@
+import { useCreateForms } from '../../hooks';
+
 interface CustomButtonProps {
-  isSelected?: number;
   id?: number;
   label: string;
   isEnabled: boolean;
   handleClick?: () => void;
-  handleGetId: (id: number) => void;
 }
 
 function CustomButton({
-  isSelected = 0,
   id = 1000,
   label,
   isEnabled,
   handleClick,
-  handleGetId,
 }: CustomButtonProps) {
+  const { isSelected, setIsSelected } = useCreateForms();
+
   return (
     <button
       className={`flex items-center justify-center w-[21rem] h-10 rounded-[0.625rem] text-black text-xl font-normal
@@ -25,7 +25,7 @@ function CustomButton({
       }`}
       onClick={() => {
         handleClick();
-        handleGetId(id);
+        setIsSelected(id);
       }}
       disabled={!isEnabled}
     >

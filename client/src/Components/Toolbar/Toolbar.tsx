@@ -22,7 +22,7 @@ const Toolbar = () => {
 
 
     return (
-        <div className="fixed bottom-0 w-full md:hidden bg-navBackground flex justify-between items-center px-5 h-16 border-t-2">
+        <div className="fixed bottom-0 w-full md:hidden bg-navBackground flex justify-between items-center px-5 h-16 ">
             <Link 
                 to={'/user'} 
                 onClick={() => handleNavLinkClick('/user')}
@@ -48,10 +48,10 @@ const Toolbar = () => {
                 <p className="text-xs w-16 text-center">Roles</p>
             </Link>
             <Link 
-                to={'/user/ranking-equipos'} 
-                onClick={() => handleNavLinkClick('/user/ranking-equipos')}
+                to={'/user/crear-equipos'} 
+                onClick={() => handleNavLinkClick('/user/crear-equipos')}
                 className={`flex flex-col items-center text-2xl text-textPrimary gap-y-1 border-t-4 border-greyPrimary2 py-2 px-3 w-full ${
-                    activeLink === '/user/ranking-equipos'
+                    activeLink === '/user/crear-equipos'
                         ? 'bg-azulClaroBg !border-bluePrimary text-bluePrimary'
                         : ''
                 }`}

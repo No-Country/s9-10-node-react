@@ -1,30 +1,61 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { message } from 'antd';
 import useFetch from '../../hooks/useFetch';
 import userStore from '../../store/userStore';
+import { HeadScreen } from '../../Components';
+import { isValidEmail } from '../../utils';
 
 const Login = () => {
   const { fetchData, error } = useFetch();
   const addUser = userStore((state) => state.addUser);
+  const [messageApi, contextHolder] = message.useMessage();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
+  /**
+   * The function `validateEmail` checks if an email are valid
+   * @param {string} email
+   * @returns The function `validateInputs` returns a boolean value. It returns `true` if the
+   * email input pass the validation checks, and it returns `false` if either the email
+   * input fails the validation checks.
+   */
+  function validateEmail(email: string): boolean {
+    const emailRegex = isValidEmail(email);
+    if (!emailRegex) {
+      messageApi.open({
+        type: 'error',
+        content: 'El correo ingresado no es válido',
+      });
+      return false;
+    }
+
+    return true;
+  }
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const res = await fetchData('/users/login', 'POST', { email, password });
+    const isValidEmail = validateEmail(email);
+    if (!isValidEmail) return;
+
+    const res = await fetchData('/admin/login', 'POST', { email, password });
 
     if (error) {
-      alert(error);
+      messageApi.open({
+        type: 'error',
+        content: error,
+      });
       return;
     }
 
     addUser(res);
-    alert('Bienvenido');
+
     clearForm();
     navigate('/');
   };
+
   const clearForm = () => {
     setEmail('');
     setPassword('');
@@ -32,16 +63,18 @@ const Login = () => {
 
   return (
     <>
-      <div className='flex flex-col justify-center min-h-screen py-12 bg-gray-100 sm:px-6 lg:px-8'>
+      {contextHolder}
+      <HeadScreen title='Inicio de Sesión' />
+      <div className='flex flex-col justify-center min-h-screen py-12 bg-white sm:px-6 lg:px-8'>
         <div className='sm:mx-auto sm:w-full sm:max-w-md'>
-          <h2 className='mt-6 text-3xl font-extrabold text-center text-gray-900'>
+          <h2 className='mt-6 text-3xl font-extrabold text-center text-black'>
             Inicia sesión en tu cuenta
           </h2>
           <p className='mt-2 text-sm text-center text-gray-600 max-w'>
             O{' '}
             <a
               href='#'
-              className='font-medium text-blue-600 hover:text-blue-500'
+              className='font-medium text-[#7A8CEB] hover:text-blue-500'
               onClick={() => navigate('/register')}
             >
               Crea una cuenta
@@ -54,7 +87,7 @@ const Login = () => {
             <form className='space-y-6' action='#' onSubmit={handleSubmit}>
               <div>
                 <label className='block text-sm font-medium text-gray-700'>
-                  Email
+                  Correo electrónico
                 </label>
                 <div className='mt-1'>
                   <input
@@ -62,7 +95,8 @@ const Login = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    className='relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
+                    className={`relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md 
+                    appearance-none focus:outline-none focus:ring-[#CCE8FF] focus:border-[#CCE8FF] focus:z-10 sm:text-sm`}
                     placeholder='Ingresa tu email'
                   ></input>
                 </div>
@@ -78,7 +112,8 @@ const Login = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
-                    className='relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
+                    className={`relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md 
+                    appearance-none focus:outline-none focus:ring-[#CCE8FF] focus:border-[#CCE8FF] focus:z-10 sm:text-sm`}
                     placeholder='Ingresa tu contraseña'
                   ></input>
                 </div>
@@ -101,7 +136,7 @@ const Login = () => {
                 <div className='text-sm'>
                   <a
                     href='#'
-                    className='font-medium text-blue-600 hover:text-blue-500'
+                    className='font-medium text-[#7A8CEB] hover:text-blue-500'
                   >
                     Olvidaste tu contraseña?
                   </a>
@@ -111,63 +146,14 @@ const Login = () => {
               <div>
                 <button
                   type='submit'
-                  className='relative flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md group hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+                  className={`relative flex justify-center w-full px-4 py-2 text-sm font-medium text-[#CCE8FF] bg-[#185D81] 
+                  rounded-md group hover:bg-[#CCE8FF] hover:text-[#185D81] transition-colors duration-300`}
                 >
                   Iniciar sesión
                 </button>
               </div>
             </form>
-            <div className='mt-6'>
-              <div className='relative'>
-                <div className='absolute inset-0 flex items-center'>
-                  <div className='w-full border-t border-gray-300'></div>
-                </div>
-                <div className='relative flex justify-center text-sm'>
-                  <span className='px-2 text-gray-500 bg-gray-100'>
-                    O continua con
-                  </span>
-                </div>
-              </div>
-
-              <div className='grid grid-cols-3 gap-3 mt-6'>
-                <div>
-                  <a
-                    href='#'
-                    className='flex items-center justify-center w-full px-8 py-3 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50'
-                  >
-                    <img
-                      className='w-5 h-5'
-                      src='https://www.svgrepo.com/show/512120/facebook-176.svg'
-                      alt=''
-                    />
-                  </a>
-                </div>
-                <div>
-                  <a
-                    href='#'
-                    className='flex items-center justify-center w-full px-8 py-3 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50'
-                  >
-                    <img
-                      className='w-5 h-5'
-                      src='https://www.svgrepo.com/show/513008/twitter-154.svg'
-                      alt=''
-                    />
-                  </a>
-                </div>
-                <div>
-                  <a
-                    href='#'
-                    className='flex items-center justify-center w-full px-8 py-3 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50'
-                  >
-                    <img
-                      className='w-6 h-6'
-                      src='https://www.svgrepo.com/show/506498/google.svg'
-                      alt=''
-                    />
-                  </a>
-                </div>
-              </div>
-            </div>
+            <div className='mt-6'></div>
           </div>
         </div>
       </div>

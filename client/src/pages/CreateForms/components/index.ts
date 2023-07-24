@@ -1,4 +1,11 @@
 export { default as CustomButton } from './CustomButton/CustomButton';
+export { default as EmptyQuestionScreen } from './EmptyQuestionScreen/EmptyQuestionScreen';
 export { default as MenuButtons } from './MenuButtons/MenuButtons';
+export { default as OneOptionScreen } from './OneOptionScreen/OneOptionScreen';
+export { default as OpenEndedQuestion } from './Open-EndedQuestion/OpenEndedQuestion';
 export { default as OptionsButtons } from './OptionsButtons/OptionsButtons';
+export { default as QuestionsInput } from './QuestionsInput/QuestionsInput';
+export { default as SaveButton } from './SaveButton/SaveButton';
+export { default as ScoringScaleScreen } from './ScoringScaleScreen/ScoringScaleScreen';
 export { default as TitleScreen } from './TitleScreen/TitleScreen';
+export { default as WhiteboardScreen } from './WhiteboardScreen/WhiteboardScreen';

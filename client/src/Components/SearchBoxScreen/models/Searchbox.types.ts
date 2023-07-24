@@ -14,6 +14,7 @@ export interface SearchBoxProps {
   label: string;
   handleCreate?: () => void;
   buttonLabel?: string;
+  showTags?: boolean;
 }
 
 export const searchOptions: TermsSearch[] = [
@@ -30,15 +31,7 @@ export const searchOptions: TermsSearch[] = [
 
 export const TAGS: TermsSearch[] = [
   {
-    id: '1',
-    term: 'All',
-  },
-  {
-    id: '2',
-    term: 'Frontend',
-  },
-  {
-    id: '3',
-    term: 'Backend',
+    id: '',
+    term: '',
   },
 ];
