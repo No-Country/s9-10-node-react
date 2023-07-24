@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useCreateForms } from '../../hooks';
 import { ModalAlert } from '../../../../Components';
+import { SaveFormModal } from '..';
 
 function OptionsButtons() {
   const [isHovered, setIsHovered] = useState<boolean>(false);
@@ -15,7 +16,10 @@ function OptionsButtons() {
         onDelete={handleClearLocalStorage}
         isModalOpen={showAlert}
         setIsModalOpen={setShowAlert}
+        title='¿Realmente deseas eliminar el formulario?'
+        content='El formulario se eliminará y los empleados ya no tendrán acceso. '
       />
+      <SaveFormModal />
       <div
         className={`flex w-[21rem] items-center justify-between mx-auto mt-[1.38rem] md:w-[56.125rem] md:mx-0`}
       >
@@ -28,7 +32,6 @@ function OptionsButtons() {
           onClick={() => {
             setSelected(1);
             setShowAlert(!showAlert);
-            //handleClearLocalStorage();
           }}
         >
           <svg
