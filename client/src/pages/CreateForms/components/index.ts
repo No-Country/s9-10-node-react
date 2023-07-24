@@ -6,6 +6,7 @@ export { default as OpenEndedQuestion } from './Open-EndedQuestion/OpenEndedQues
 export { default as OptionsButtons } from './OptionsButtons/OptionsButtons';
 export { default as QuestionsInput } from './QuestionsInput/QuestionsInput';
 export { default as SaveButton } from './SaveButton/SaveButton';
+export { default as SaveFormModal } from './SaveFormModal/SaveFormModal';
 export { default as ScoringScaleScreen } from './ScoringScaleScreen/ScoringScaleScreen';
 export { default as TitleScreen } from './TitleScreen/TitleScreen';
 export { default as WhiteboardScreen } from './WhiteboardScreen/WhiteboardScreen';
