@@ -8,6 +8,7 @@ import { GoPerson } from 'react-icons/go';
 import { AiOutlinePoweroff } from 'react-icons/ai';
 import { useState } from 'react';
 import { BiSolidChevronDown, BiSolidChevronUp } from "react-icons/bi";
+import logoNC from '../../../public/Logo NC.png'
 
 const Aside = () => {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ const Aside = () => {
     setActiveLink(route);
     navigate(route);
 
-    if (route === '/user/ranking-equipos') {
+    if (route === '/user/crear-equipos') {
       setIsOpen(!isOpen);
     } else {
       setIsOpen(false); 
@@ -53,14 +54,16 @@ const Aside = () => {
 
       <div className='pl-4'>  
         {/* ----------------------------------------------------- Information: */}
-        <div className='pr-4'>
+        <div className='pr-4 ml-4'>
           <div className='flex justify-between'>
-            <div className='w-52 h-52 bg-azulClaroBg rounded-2xl'></div>
-            <button className='flex text-2xl'>
+            <div className='bg-blue-950 w-52 h-52 rounded-xl flex items-center justify-center'>
+              <img src={logoNC} alt="" className=''/>
+            </div>
+            <button className='flex text-2xl text-bluePrimary'>
               <BiLogOut />
             </button>
           </div>
-          <p className='text-xl font-bold mt-4 mb-10'>Nombre de la empresa</p>
+          <p className='text-xl font-bold mt-4 mb-10'>No Country</p>
         </div>
         {/* ----------------------------------------------------- Links: */}
         <div className='mb-32'>
@@ -68,9 +71,9 @@ const Aside = () => {
           <Link
             to={'/user'}
             onClick={() => handleNavLinkClick('/user')}
-            className={`flex items-center gap-x-2 text-lg border-l-4 border-greyPrimary2 border-x-greyPrimary2 py-2 px-3 ${
+            className={`flex items-center gap-x-2 text-lg border-l-4 border-greyPrimary2 border-x-greyPrimary2 py-2 px-3  ${
               activeLink === '/user'
-                ? 'bg-azulClaroBg !border-bluePrimary text-azulSecundary'
+                ? 'bg-azulClaroBg !border-bluePrimary text-bluePrimary'
                 : ''
             }`}
           >
@@ -89,7 +92,7 @@ const Aside = () => {
             onClick={() => handleNavLinkClick('/user/ranking-rol')}
             className={`flex items-center gap-x-2 text-lg border-l-4 border-greyPrimary2 py-2 px-3 ${
               activeLink === '/user/ranking-rol'
-                ? 'bg-azulClaroBg !border-bluePrimary text-azulSecundary'
+                ? 'bg-azulClaroBg !border-bluePrimary text-bluePrimary'
                 : ''
               }`}
           >
@@ -108,11 +111,11 @@ const Aside = () => {
           {/* --------------------------------------------------- Link: Administrar Equipos */}
           <div>
             <Link 
-              to={'/user/ranking-equipos'} 
-              onClick={() => handleNavLinkClick('/user/ranking-equipos')}
+              to={'/user/crear-equipos'} 
+              onClick={() => handleNavLinkClick('/user/crear-equipos')}
               className={`flex items-center gap-x-2 text-lg border-l-4 border-greyPrimary2 py-2 px-3 ${
-                activeLink === '/user/ranking-equipos'
-                  ? 'bg-azulClaroBg !border-bluePrimary text-azulSecundary'
+                activeLink === '/user/crear-equipos'
+                  ? 'bg-azulClaroBg !border-bluePrimary text-bluePrimary'
                   : ''
               }`}
             >
@@ -120,7 +123,7 @@ const Aside = () => {
                 <div className='flex gap-x-2'>
                 <div
                   className={`bg-greyPrimary1 p-2 rounded-full ${
-                    activeLink === '/user/ranking-equipos'
+                    activeLink === '/user/crear-equipos'
                       ? '!bg-bluePrimary text-white'
                       : ''
                   }`}
@@ -136,7 +139,7 @@ const Aside = () => {
             </Link>
             <div>
               {isOpen && (
-                <div className='flex flex-col pl-14 border-l-2 text-sm'>
+                <div className='flex flex-col pl-14 border-l text-sm border-gray-400'>
                   {equipos.map(equipo => {
                     return(
                       <Link to={'/user'} key={equipo.id} className='py-2'>{equipo.group}</Link>
@@ -152,11 +155,11 @@ const Aside = () => {
             onClick={() => handleNavLinkClick('/user/forms')}
             className={`flex items-center justify-between gap-x-2 text-lg border-l-4 border-greyPrimary2 py-2 px-3 ${
               activeLink === '/user/forms'
-                ? 'bg-azulClaroBg !border-bluePrimary text-azulSecundary'
+                ? 'bg-azulClaroBg !border-bluePrimary text-bluePrimary'
                 : ''
             }`}
           >
-            <div className='flex gap-x-2'>
+            <div className='flex items-center gap-x-2'>
               {/* ----- Icon */}
               <div
                 className={`bg-greyPrimary1 p-2 rounded-full ${
@@ -179,7 +182,7 @@ const Aside = () => {
             onClick={() => handleNavLinkClick('/user/profile')}
             className={`flex items-center gap-x-2 text-lg border-l-4 border-greyPrimary2 py-2 px-3 ${
               activeLink === '/user/profile'
-                ? 'bg-azulClaroBg !border-bluePrimary text-azulSecundary'
+                ? 'bg-azulClaroBg !border-bluePrimary text-bluePrimary'
                 : ''
             }`}
           >

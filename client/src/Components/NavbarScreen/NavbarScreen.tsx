@@ -9,16 +9,19 @@ const NavbarScreen = () => {
         <Link to={'/'} className='bg-bluePrimary text-white px-8 py-2 rounded-md'>Logo</Link>
       </div>
       <div className='flex items-center'>
-        <div className='hidden md:flex gap-6 ml-10 text-lg text-azulPrimary'>
+        <div className='hidden md:flex gap-6 ml-10 text-lg text-bluePrimary'>
           <Link to={'/'} className=''>Sobre nosotros</Link>
           <Link to={'/'} className=''>Contacto</Link>
         </div>
-        <button className='hidden md:block bg-bluePrimary text-white p-3 rounded-full text-2xl ml-10'>
-          <MdOutlineNotificationsNone/>
-        </button>
-        <div className='md:hidden border-2 p-2 border-bluePrimary text-bluePrimary rounded-md text-xl'>
-          <GrMenu/>
+        <div className='hidden md:block relative'>
+          <div className='bg-orangePrincipal w-4 h-4 rounded-full absolute right-0 top0'></div>
+          <button className='bg-bluePrimary text-white p-3 rounded-full text-2xl ml-10'>
+            <MdOutlineNotificationsNone/>
+          </button>
         </div>
+        <button className='md:hidden border-2 p-2 border-bluePrimary text-bluePrimary rounded-md text-xl'>
+          <GrMenu/>
+        </button>
       </div>
     </nav>
   );
