@@ -2,6 +2,7 @@ import per1 from '../../../public/per1.png';
 import { AiFillGithub } from 'react-icons/ai';
 import { BsInstagram } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
+import BtnLinkProfilePresent from '../Buttons/BtnLinkProfilePresent';
 
 const ProfileInfo = () => {
   const profileData = {
@@ -11,7 +12,7 @@ const ProfileInfo = () => {
   };
 
   return (
-    <div className="flex flex-col items-center px-5 border-b-2 rounded-br-3xl py-14 gap-y-5 bg-azulClaroBg3 md:h-full md:w-80">
+    <div className="flex flex-col items-center px-5 border-b-2 rounded-b-3xl md:rounded-br-3xl py-8 md:py-14 gap-y-5 bg-azulClaroBg3 md:h-full md:w-80">
       <div className="flex items-center gap-x-5 md:flex-col md:mb-10">
         <img
           src={profileData.image}
@@ -36,10 +37,8 @@ const ProfileInfo = () => {
       </div>
 
       {/* Ingresar en este div tus botones morados */}
-      <div className="flex text-white gap-x-2 md:hidden">
-        <p className="px-5 py-1 bg-violetPrimary rounded-3xl">Presentacion</p>
-        <p className="px-5 py-1 bg-violetPrimary rounded-3xl">Portfolio</p>
-        <p className="px-5 py-1 bg-violetPrimary rounded-3xl">Curriculum</p>
+      <div className="flex md:hidden">
+        <BtnLinkProfilePresent/>
       </div>
 
       <div className="hidden md:flex gap-x-4">

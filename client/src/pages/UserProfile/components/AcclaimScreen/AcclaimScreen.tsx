@@ -35,7 +35,7 @@ function AcclaimScreen() {
 
   return (
     <article>
-      <div className='flex flex-col mt-5 md:mx-[76px] w-[336px] md:w-[912px] self-center md:self-start md:ml-[508px] md:mr-5'>
+      <div className='flex flex-col mt-5 w-[336px] md:w-[912px] self-center md:self-start md:mr-5'>
         <h3 className='text-left text-xl font-bold text-black leading-[150%] tracking-tight order-2 md:order-1'>
           Elogios
         </h3>

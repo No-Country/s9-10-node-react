@@ -5,33 +5,22 @@ import { CiMail } from 'react-icons/ci';
 import { BiPhoneCall } from 'react-icons/bi';
 import CopyToClipboard from './components/CopyToClipboard/CopyToClipboard';
 import ProgressBar from '../../Components/ProgressBar.tsx/ProgressBar';
+import BtnLinkProfilePresent from '../../Components/Buttons/BtnLinkProfilePresent';
 
 const UserProfile = () => {
   return (
     <>
       <HeadScreen title="Perfil de Usuario" />
-      <div className="flex h-full">
+      <div className="flex flex-col md:flex-row h-full">
         <div>
           <ProfileInfo />
         </div>
         <div className="w-full">
-          <div className="flex justify-between w-full px-8 py-4 text-white bg-violetQuaternary">
-            <div>
-              <h1 className="text-4xl font-medium text-black">Perfil</h1>
-            </div>
-            <div className="flex gap-4 ">
-              <p className="flex items-center justify-center px-5 py-1 bg-violetPrimary rounded-3xl">
-                Presentacion
-              </p>
-              <p className="flex items-center justify-center px-5 py-1 bg-violetPrimary rounded-3xl">
-                Portfolio
-              </p>
-              <p className="flex items-center justify-center px-5 py-1 bg-violetPrimary rounded-3xl">
-                Curriculum
-              </p>
-            </div>
+          <div className="hidden md:flex justify-between px-8 py-4 text-white bg-violetQuaternary">
+            <h1 className="text-4xl font-medium text-black">Perfil</h1>
+            <BtnLinkProfilePresent/>
           </div>
-          <div className="px-20 py-8">
+          <div className="px-8 md:px-14 py-8">
             <div>
               <h1 className="text-2xl font-semibold">Datos de contacto</h1>
               <div className="flex justify-between pt-6">
