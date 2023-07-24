@@ -8,15 +8,15 @@ const Root = () => {
     <div>
       <NavbarScreen />
 
-      <div className='md:flex'>
-        <div className='hidden md:block'>
+      <div className="md:flex">
+        <div className="hidden md:block">
           <Aside />
         </div>
-        <main className=''>
+        <main className="w-full">
           <Outlet />
         </main>
       </div>
-      
+
       <Toolbar />
     </div>
   );

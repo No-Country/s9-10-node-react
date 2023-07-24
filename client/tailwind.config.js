@@ -12,7 +12,7 @@ export default {
         azulClaroBg3: '#E5F3FF',
         greyPrimary1: '#EAF0F5',
         greyPrimary2: '#F4FAFF',
-        
+
         orangePrincipal: '#F0900E',
         orangeSecondary: '#EAC159',
         orangeTertiary: '#FEF5E0',
@@ -24,6 +24,7 @@ export default {
         blueSecondary: '#2085B0',
         blueTertiary: '#27A3D8',
         blueQuaternary: '#52B5E0',
+        celesteClaro: '#E9ECFC',
       },
       boxShadow: {
         custom: '0px 4px 4px 0px rgba(0, 0, 0, 0.15)',

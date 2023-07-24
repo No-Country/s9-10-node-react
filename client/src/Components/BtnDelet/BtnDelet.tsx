@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Modal } from 'antd';
+//import { Modal } from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
-import Objetos from './OBJECTS.jpg';
+//import Objetos from './OBJECTS.jpg';
 import './BtnDelet.css';
 import { ModalAlert } from '..';
 

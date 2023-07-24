@@ -130,7 +130,7 @@ const Aside = () => {
                 >
                   <FaPeopleGroup />
                 </div>
-                <p className="flex items-center gap-x-12">
+                <p className="flex items-center gap-x-10">
                   Administrar Equipos {isOpen ? <BiSolidChevronUp/> : <BiSolidChevronDown/>}
                 </p>
 

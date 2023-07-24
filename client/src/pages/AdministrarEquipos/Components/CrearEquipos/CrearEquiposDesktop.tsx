@@ -48,7 +48,7 @@ const CrearEquiposDesktop: React.FC = () => {
     {
       id: 2,
       position: 2,
-      name: "Backend Developers",
+      name: "Backend",
       description: "1 Team Leader",
       empleados: "4 Empleados",
     },
@@ -69,7 +69,7 @@ const CrearEquiposDesktop: React.FC = () => {
     {
       id: 5,
       position: 5,
-      name: "Front end Developers",
+      name: "Front end",
       description: "1 Team Leader",
       empleados: "4 Empleados",
     },
@@ -91,7 +91,7 @@ const CrearEquiposDesktop: React.FC = () => {
           style={{ filter: "brightness(0) invert(1)", width: "38px" }}
         />
       ),
-      "Backend Developers": (
+      "Backend": (
         <img
           src={Backen}
           alt="Base de datos"
@@ -112,7 +112,7 @@ const CrearEquiposDesktop: React.FC = () => {
           style={{ filter: "brightness(0) invert(1)", width: "22px" }}
         />
       ),
-      "Front end Developers": (
+      "Front end": (
         <img
           src={Front}
           alt="Front end"
@@ -142,6 +142,7 @@ const CrearEquiposDesktop: React.FC = () => {
     <div className="conte-equipos">
       <div className="equipos-encabezado">
         <h2 className="textCardTeam-equipos font-inter">Equipos</h2>
+        <div className="cont-etiquetas">
         <div className="equipo-etiqueta">
           <div className="equipo-equipo">Equipo</div>
           <div className="equipo-number">9</div>
@@ -149,6 +150,7 @@ const CrearEquiposDesktop: React.FC = () => {
         <div className="empleados-etiqueta">
           <div className="empleado-empleado">Empleados</div>
           <div className="empleado-number">43</div>
+        </div>
         </div>
       </div>
       <SearchEquipos

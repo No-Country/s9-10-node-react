@@ -6,11 +6,20 @@
 .equipos-encabezado {
   width: 1199px;
   height: 136px;
-  margin-right: 90px;
+
   background-color: #e9ecfc;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
+  
+}
+
+.cont-etiquetas {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  
 }
 
 .textCardTeam-equipos {
@@ -21,8 +30,10 @@
   height: 48px;
   color: #08212B;
   display: flex;
-  align-items: center;
+  margin-right: 24%;
 }
+
+
 
 .equipo-etiqueta {
   position: absolute;
@@ -32,7 +43,7 @@
   border-radius: 16px;
   display: flex;
   gap: 10px;
-  margin-left: 30%;
+  margin-right: 19%;
   z-index: 1;
 }
 
@@ -86,6 +97,251 @@
   font-family: "Inter", sans-serif;
   font-weight: 600;
   text-align: center;
+}
+
+
+@media (max-width: 767px) {
+  .conte-equipos {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .equipos-encabezado {
+    width: 420px;
+    height: 163px;
+    background-color: #e9ecfc;
+    border-radius: 0px 0px 16px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10%;
+    
+  }
+  
+  .textCardTeam-equipos {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30px;
+    width: 291px;
+    height: 23px;
+    color: #08212B;
+    display: flex;
+    margin-right: 20%;
+    margin-top: 5%;
+    justify-content: center;
+    
+   
+  }
+
+  .cont-etiquetas {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 45px;
+  }
+  
+  .equipo-etiqueta {
+    /* position: absolute; */
+    background: #7a8ceb;
+    width: 129px;
+    height: 48px;
+    border-radius: 16px;
+    display: flex;
+    margin-right: 60%;
+    /* z-index: 1; */
+  }
+  
+  .equipo-equipo {
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    font-weight: 600;
+    font-family: "Inter", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    
+  }
+  
+  .equipo-number {
+    color: white;
+    font-size: 24px;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .empleados-etiqueta {
+    background: #a6b2f2;
+    width: 191px;
+    height: 48px;
+    border-radius: 0px 16px 16px 0px;
+    margin-left: 23%;
+    
+  }
+  
+  .empleado-empleado {
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    font-weight: 600;
+    font-family: "Inter", sans-serif;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .empleado-number {
+    color: white;
+    font-size: 24px;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+/**Filter**/
+  .filter-mobile {
+    position: absolute;
+    margin-left: 122%;
+    margin-bottom: 8px;
+    font-size: 18px;  
+    display: flex;
+    
+  }
+
+  .search-contenedor {
+    margin-right: 15%;
+    display: flex !important;
+    flex-direction: column-reverse !important;
+    justify-content: center !important;
+    align-items: center !important;
+    
+  }
+
+  /* .input-search {
+    
+    
+    
+  } */
+
+  /**Btn CREA EQUIPOS**/
+
+  .button-search {
+    margin-right: 20%;
+    position: absolute;
+    margin-bottom: 20%;
+    
+  }
+
+  .icon-search {
+    display: flex;
+    margin-right: 98% !important;
+  }
+
+/**Card**/
+
+.contenedorCard-equipos {
+  display: flex !important;
+  flex-wrap: wrap !important;
+}
+
+.cards-container {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  margin-right: -8%;
+  margin-left: 8px !important;
+
+}
+
+.card-team-equipos {
+  width: 152px !important;
+  height: 128px !important;
+  border-radius: 19px !important;
+}
+
+.item-team-equipos {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  margin-top: 8% !important;
+ 
+}
+
+.hr-equipos {
+  color: #e4e4e4;
+  width: 44px !important;
+  height: 44px !important;
+  margin-top: 5% !important;
+  margin-left: 35% !important;
+  border-radius: 13px !important;
+  background: #185d81;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 3;
+
+}
+
+.item-name-equipos {
+  color: #185d81;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  line-height: 20px !important;
+  text-align: center !important;
+  margin-top: 10px !important;
+}
+
+.item-description-equipos,
+.item-empleados-equipos {
+  color: #185d81;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  line-height: 17px !important;
+  text-align: center !important;
+}
+
+.footer-card-equipos {
+  position: relative;
+  margin-top: -25px;
+  margin-left: -25px;
+  width: 152px !important;
+  height: 38px !important;
+  background: #185d81;
+  border-radius: 0px 0px 19px 19px !important;
+  display: flex !important;
+  justify-content: space-between !important;
+}
+
+.edit-cont-equipos {
+  margin-left: 12% !important;
+  color: #cce8ff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.delet-cont {
+  margin-right: 8% !important;
+  color: #cce8ff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+
+
 }
 
 /**Card**/
