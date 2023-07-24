@@ -7,7 +7,7 @@ function FooterScreen() {
 
   return (
     <footer
-      className={`flex flex-col w-full justify-center items-center h-20 ${
+      className={`hidden md:flex flex-col w-full justify-center items-center h-20 ${
         isPathname && width >= 768 ? 'md:h-[288px]' : 'md:h-[91px]'
       } p-3 static bottom-0 bg-[#185D81]`}
     >

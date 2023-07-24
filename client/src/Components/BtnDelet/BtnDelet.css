@@ -1,15 +1,15 @@
 .cont-btn {
     display: flex;
+    margin-left: 10%;
 }
 
 .modal-cancel-button {
     width: 152px;
     height: 40px;
     padding: 10px 24px 10px 24px;
-    margin-left: 40%;
-    margin-right: 20px;
+    margin-left: 7%;
+    margin-right: 10%;
     border-radius: 30px;
-    gap: 10px;
     color: white;
     background-color: #73C36F;
     display: flex;
@@ -19,7 +19,7 @@
 }
 
 .modal-ok-button {
-    width: auto;
+    width: 250px;
     height: 40px;
     padding: 10px 24px 10px 24px;
     border-radius: 30px;
@@ -31,6 +31,7 @@
     align-items: center;
     cursor: pointer;
     border: 1px solid #73C36F;
+    margin-right: 0%;
 }
 
 
@@ -83,8 +84,8 @@
     }
 
     .modal-image {
-      width: 119px;
-      height: 20px;
+      width: 159px;
+      height: 10px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -112,36 +113,41 @@
     .modal-cancel-button {
       width: 120px;
       height: 32px;
-      border-radius: 30px;
+      border-radius: 23px;
       color: white;
       background-color: #73C36F;
-      font-size: 11px;
+      font-size: 9px;
       
   }
   .cont-btn {
-    width: 280px;
+    width: 270px;
     height: 32px;
-    margin-top: 10%;
-    display: flex;
-    justify-content: right;
-    align-items: center;
-        
+    margin-top: 25%;
+    display: flex !important;
+    justify-content: right !important;
   }
 
 
   .modal-ok-button {
-    width: 132px;
+    width: auto;
     height: 32px;
-    border-radius: 30px;
+    border-radius: 23px;
     color: #73C36F;
     background-color: #FEF5E0;
     border: 1px solid #73C36F;
-    font-size: 11px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 25px;
-}
+    font-size: 9px;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin-right: 20% !important;
+    padding: 8px 19px 8px 19px !important;
+    gap: 30px;
+  }
 
+  .modal-alert {
+    margin-right: 23%;
+  }
+
+  
   }

@@ -10,7 +10,7 @@ const ProgressBar = ({ value, text }: ProgressBarProps) => {
   const percentage = value;
   const textValue = text;
   return (
-    <div style={{ width: '150px' }}>
+    <div className='w-40 md:w-52 mx-auto'>
       <CircularProgressbar
         value={percentage}
         text={textValue}

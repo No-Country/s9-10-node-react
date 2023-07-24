@@ -4,11 +4,13 @@ import { Menu, Dropdown } from "antd";
 import { useScreenSize } from "../../hooks";
 import { searchOptions, SearchBoxProps } from "./models";
 import { Modal } from "antd";
-import "../../pages/AdministrarEquipos/Components/CrearEquipos/CrearEquiposSesktop.css";
+import { Link } from "react-router-dom"
+ import "../../pages/AdministrarEquipos/Components/CrearEquipos/CrearEquiposSesktop.css";
 import Barra from "./models/img/Progress Bar.png";
 import Imagen from "./models/img/Gallery_2.png";
 import Flecha from "./models/img/vectorFlecha.png";
 import BarraProgreso from "./models/img/Progress.png";
+import Grupo from "./models/img/Group 80.png";
 
 function SearchEquipos({
   handleSearch,
@@ -45,6 +47,17 @@ function SearchEquipos({
 
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isSuccessModalVisible, setIsSuccessModalVisible] = useState(false);
+  const [isThirdModalVisible, setIsThirdModalVisible] = useState(false);
+
+  //tercer modal
+
+  const hideThirdModal = () => {
+    setIsThirdModalVisible(false);
+  };
+  
+
+
+  
 
   // Función para mostrar el modal
   const showModal = () => {
@@ -64,7 +77,13 @@ function SearchEquipos({
   // Función para ocultar el segundo modal
   const hideSuccessModal = () => {
     setIsSuccessModalVisible(false);
+
   };
+
+  const handleAddMembers = () => {
+    setIsSuccessModalVisible(false);
+    setIsThirdModalVisible(true);
+  }
 
   // Función para manejar la creación del equipo y mostrar el segundo modal
   const handleCreateTeam = () => {
@@ -137,9 +156,7 @@ function SearchEquipos({
                 placement="bottomLeft"
               >
                 <span className="filter-icon">
-                  <FilterOutlined 
-                  style={{color:'#185D81'}}
-                  />
+                  <FilterOutlined style={{ color: "#185D81" }} />
                 </span>
               </Dropdown>
             </>
@@ -157,6 +174,7 @@ function SearchEquipos({
         visible={isModalVisible}
         onCancel={hideModal}
         footer={null}
+        className="modal"
       >
         <div className="modal-conte">
           <img src={Barra} alt="Barra de progreso" className="modal-barra" />
@@ -191,11 +209,12 @@ function SearchEquipos({
         visible={isSuccessModalVisible}
         onCancel={hideSuccessModal}
         footer={null}
+        className="modal"
       >
         <div className="modal-conte">
           <div className="conte-img-progreso">
             <button onClick={hideSuccessModal} className="vector-flecha">
-              <img src={Flecha} alt="felcha" />
+              <img src={Flecha} alt="felcha" className="flecha-mobal" />
             </button>
             <img
               src={BarraProgreso}
@@ -209,7 +228,7 @@ function SearchEquipos({
           </p>
 
           {/* SEARCH */}
-          <div className="search-contenedor">
+          <div className="search-contenedor search-mobal">
             <input
               className="input-search"
               type="search"
@@ -251,14 +270,30 @@ function SearchEquipos({
           {/* SEARCH */}
 
           <div className="cont-btn">
-            <button onClick={hideModal} className="btn-cancel">
+            <button onClick={hideModal} className="btn-cancel btn-anada">
               Añadir más tarde
             </button>
-            <button onClick={hideSuccessModal} className="btn-crear">
+            <button onClick={handleAddMembers} className="btn-crear">
               Añadir
             </button>
           </div>
         </div>
+      </Modal>
+      <Modal
+        title=""
+        visible={isThirdModalVisible}
+        onCancel={hideThirdModal}  
+        footer={null}
+        className="modal"
+      >
+        <div className="modal-conte-equipo">
+        <div className="barra-progreso">.</div>
+        <h2 className="modal-title-equipo">Equipo <span className="title-naranja">{groupName}</span></h2>
+        <p className="modal-parra-equipo">Creado exitosamente</p>
+        <img src={Grupo} alt="Grupo" />
+        <Link to="/user"><button className="btn-crear">Ir al equipo</button></Link>
+        </div>
+
       </Modal>
     </>
   );

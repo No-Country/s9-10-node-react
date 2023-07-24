@@ -30,7 +30,7 @@ const CopyToClipboard: React.FC<CopyToClipboardProps> = ({
   };
 
   return (
-    <div className="relative flex items-center justify-start w-2/5 gap-2 p-2 border rounded border-violetPrimary text-violetPrimary">
+    <div className="relative flex items-center justify-start gap-2 p-2 border rounded border-violetPrimary text-violetPrimary w-full md:w-1/2">
       {React.cloneElement(children, {
         className: 'ml-8copy-button',
         onClick: handleCopyClick,

@@ -1,59 +1,57 @@
 import { useState } from 'react';
 import { useScreenSize } from '../../../../hooks';
+import { AiFillStar } from 'react-icons/ai';
 
 const acclaims = [
   {
     id: 1,
     acclaim:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa illo laudantium sequi cum esse reiciendis.',
+      '"Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa illo laudantium sequi cum esse reiciendis."',
   },
   {
     id: 2,
     acclaim:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa illo laudantium sequi cum esse reiciendis.',
+      '"Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa illo laudantium sequi cum esse reiciendis."',
   },
   {
     id: 3,
     acclaim:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa illo laudantium sequi cum esse reiciendis.',
+      '"Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa illo laudantium sequi cum esse reiciendis."',
   },
   {
     id: 4,
     acclaim:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa illo laudantium sequi cum esse reiciendis.',
+      '"Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa illo laudantium sequi cum esse reiciendis."',
   },
   {
     id: 5,
     acclaim:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa illo laudantium sequi cum esse reiciendis.',
+      '"Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa illo laudantium sequi cum esse reiciendis."',
   },
 ];
 
 function AcclaimScreen() {
   const [progress, setProgress] = useState<number>(50);
-  const { width } = useScreenSize();
+  // const { width } = useScreenSize();
 
   return (
     <article>
-      <div className='flex flex-col mt-5 w-[336px] md:w-[912px] self-center md:self-start md:mr-5'>
-        <h3 className='text-left text-xl font-bold text-black leading-[150%] tracking-tight order-2 md:order-1'>
+      <div className='flex flex-col self-center md:self-start'>
+        <h3 className='text-left text-xl font-bold text-black leading-[150%] tracking-tight mb-3'>
           Elogios
         </h3>
-        <div className='flex flex-col md:flex-row md:gap-4 md:w-full overflow-x-scroll order-3 md:order-2'>
+        <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-5'>
           {acclaims.map((acclaim) => (
             <div
               key={acclaim?.id}
-              className={`flex w-full md:min-w-[293px] min-h-[144px] my-3 rounded-3xl border-solid border-[1.74px] justify-center 
-            items-center`}
-            >
-              <p className='text-lg text-black font-medium leading-[150%] tracking-tight text-justify mx-3'>
-                {acclaim?.acclaim}
-              </p>
+              className={`bg-violetQuaternary border border-violetPrimary rounded-xl text-violetPrimary py-5 px-3 relative`}>
+              <div className='text-yellow-400 bg-white w-7 h-7 flex justify-center items-center rounded-full text-xl border border-gray-300 absolute -top-3 -right-2'><AiFillStar/></div>
+              <p className='text-lg font-medium leading-[150%] tracking-tight text-justify mx-3'>{acclaim?.acclaim}</p>
             </div>
           ))}
         </div>
         {/* progressbar */}
-        <div
+        {/* <div
           className={`flex flex-col w-[336px] md:w-[868px] h-32 md:h-[154px] items-center justify-center mt-8 md:mt-12 rounded-[26px] 
           gap-8 order-1 md:order-3 border-2 border-solid border-[#EDF0F7] mb-5 md:mb-0`}
         >
@@ -71,7 +69,7 @@ function AcclaimScreen() {
               style={{ width: `${progress}%` }}
             />
           </div>
-        </div>
+        </div> */}
       </div>
     </article>
   );
