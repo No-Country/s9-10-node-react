@@ -8,7 +8,7 @@ function HeadScreen({ title }: HeadScreenProps) {
   return (
     <>
       <Helmet>
-        <title>{`${title} - FeedbackApp`}</title>
+        <title>{`${title} - QualyUp`}</title>
         <meta
           name='description'
           content={`Nuestra web app es la herramienta perfecta para gestionar tu equipo. Puedes registrar a tus empleados, asignarles roles, 
