@@ -7,6 +7,7 @@ import { ModalAlert } from '..';
 
 interface BtnDeletProps {
   onDelete: () => void;
+  
 }
 
 const BtnDelet: React.FC<BtnDeletProps> = ({ onDelete }) => {
@@ -87,6 +88,7 @@ const BtnDelet: React.FC<BtnDeletProps> = ({ onDelete }) => {
         onDelete={onDelete}
         isModalOpen={isModalOpen}
         setIsModalOpen={setIsModalOpen}
+        
       />
     </>
   );

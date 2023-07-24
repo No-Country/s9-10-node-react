@@ -1,6 +1,7 @@
 import { DeleteOutlined } from '@ant-design/icons';
 import { Modal } from 'antd';
 import Objetos from './OBJECTS.jpg';
+import './BtnDelet.css';
 
 interface ModalProps {
   onDelete: () => void;
@@ -33,6 +34,7 @@ pertenecientes.`,
       open={isModalOpen}
       onCancel={handleCancel}
       width={672}
+      className='modal-alert'
       footer={[
         <>
           <div className='cont-btn'>
@@ -47,9 +49,9 @@ pertenecientes.`,
               <DeleteOutlined />
               Eliminar equipo
             </div>
-            ,
+            
           </div>
-        </>,
+        </>
       ]}
     >
       <div className='modal-cont'>

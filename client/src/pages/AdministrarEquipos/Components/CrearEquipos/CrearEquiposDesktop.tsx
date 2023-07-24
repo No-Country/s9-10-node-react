@@ -145,7 +145,7 @@ const CrearEquiposDesktop: React.FC = () => {
         <div className="cont-etiquetas">
         <div className="equipo-etiqueta">
           <div className="equipo-equipo">Equipo</div>
-          <div className="equipo-number">9</div>
+          <div className="equipo-number">6</div>
         </div>
         <div className="empleados-etiqueta">
           <div className="empleado-empleado">Empleados</div>

@@ -147,7 +147,7 @@
     height: 48px;
     border-radius: 16px;
     display: flex;
-    margin-right: 60%;
+    margin-right: 61%;
     /* z-index: 1; */
   }
   
@@ -209,7 +209,7 @@
 /**Filter**/
   .filter-mobile {
     position: absolute;
-    margin-left: 122%;
+    margin-left: 115%;
     margin-bottom: 8px;
     font-size: 18px;  
     display: flex;
@@ -217,7 +217,8 @@
   }
 
   .search-contenedor {
-    margin-right: 15%;
+    margin-right: 11%;
+    margin-top: 10% !important;
     display: flex !important;
     flex-direction: column-reverse !important;
     justify-content: center !important;
@@ -234,15 +235,15 @@
   /**Btn CREA EQUIPOS**/
 
   .button-search {
-    margin-right: 20%;
+    margin-right: 25%;
     position: absolute;
-    margin-bottom: 20%;
+    margin-bottom: 44%;
     
   }
 
   .icon-search {
     display: flex;
-    margin-right: 98% !important;
+    margin-right: 90% !important;
   }
 
 /**Card**/
@@ -536,7 +537,7 @@
 
   .modal-conte {
     width: 415px;
-    height: 383px;
+    height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -661,4 +662,259 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .modal-conte-equipo {
+    width: 415px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+  }
+
+  .modal-title-equipo {
+    font-family: 'Inter', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    margin-left: 28px;
+    color: #060606;
+  }
+
+  .modal-parra-equipo {
+    font-family: 'Inter', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    margin-left: 28px;
+    color: #060606;
+  }
+
+  .title-naranja {
+    font-family: 'Inter', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    margin-left: 28px;
+    color: #F0900E;
+  }
+
+  .barra-progreso {
+    width: 300px;
+    height: 4px;
+    background: #7A8CEB;
+  }
+
+  @media (max-width: 767px) {
+    .modal {
+      padding: 20px 2px;
+      margin-left: 4%;
+      
+    }
+
+
+    .modal-conte {
+      width: 328px !important;
+      height: 500px !important;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  
+    }
+  
+    .modal-barra {
+      width: 200px;
+      height: 4px;
+      margin-right: 28%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  
+    }
+  
+    .modal-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      margin-right: 20%;
+  
+    }
+  
+    
+    .modal-title-progres {
+      font-family: 'Inter', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      margin-right: 19%;
+      margin-left: 0%;
+  
+    }
+    
+    .modal-parra {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      width: 284px;
+      height: 45x;
+      margin-right: 19%;
+    }
+  
+    .modal-parra-progres {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      width: 284px;
+      height: 45px;
+      margin-right: 21%;
+    }
+  
+    .conte-input-modal {
+     
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-right: 35%;
+      gap: 15px;
+      
+    }
+    
+    .modal-img {
+      font-size: 8px;
+      width: 48px;
+      height: 48px;
+      border-radius: 11px;
+      background: #185d81;
+    }
+  
+    .modal-agregar {
+      background: #F0900E;
+      width: 24px;
+      height: 24px;
+      border-radius: 100px;
+      padding: 1px 6px 1px 6px;
+      color: white;
+      position: absolute;
+      margin-left: 9%;
+      margin-bottom: 12%;
+     
+    }
+  
+    .modal-imput {
+      width: 258px;
+      height: 48px;
+      border-radius: 8px;
+      border: 1px solid #7A8CEB;
+      padding: 12px 12px 12px 16px;
+      background: #D3D9F8;
+    }
+  
+    .cont-btn {
+      display: flex;
+      gap: 10%;
+      margin-right: 40%;
+    }
+  
+    .btn-cancel {
+      font-size: 13px;
+      width: 113px;
+      height: 32px;
+      border-radius: 23px;
+      border: 1px solid #73c36f;
+      background: #EDF7ED;
+      color: #73C36F;
+    }
+
+    .btn-anade {
+      font-size: 13px;
+      width: 190px;
+      height: 32px;
+      border-radius: 23px;
+      border: 1px solid #73c36f;
+      background: #EDF7ED;
+      color: #73C36F;
+    }
+  
+    .btn-crear {
+      font-size: 13px;
+      width: 113px;
+      height: 32px;
+      border-radius: 23px;
+      background: #73C36F;
+      color: white;
+    }
+  
+    .vector-flecha {
+      width: 24px !important;
+      height: 24px !important;
+      background: #40903C;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 100%;
+      padding-right: 20px;
+      
+    }
+  
+    .conte-img-progreso {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 10%;
+    }
+
+    .search-mobal {
+      margin-right: 25%;
+    }
+
+    .flecha-mobal {
+      height: 10px;
+      width: 10px;
+      margin-left: 20px;
+    }
+
+    .modal-conte-equipo {
+      width: 328px !important;
+      height: 500px !important;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5%;
+      padding-right: 20%;
+
+    }
+  
+    .modal-title-equipo {
+      font-family: 'Inter', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      margin-right: 15%;
+      color: #060606;
+    }
+  
+    .modal-parra-equipo {
+      font-family: 'Inter', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      margin-right: 15%;
+      color: #060606;
+    }
+  
+    .title-naranja {
+      font-family: 'Inter', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      margin-left: 2px;
+      color: #F0900E;
+    }
+  
+    .barra-progreso {
+      width: 200px;
+      height: 4px;
+      background: #7A8CEB;
+    }
+    
+
   }
