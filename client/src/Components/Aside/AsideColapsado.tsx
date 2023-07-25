@@ -1,5 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { BiLogOut } from 'react-icons/bi';
+import { TbLogout } from 'react-icons/tb';
 import { LuLayoutDashboard } from 'react-icons/lu';
 import { BsPersonVcard } from 'react-icons/bs';
 import { FaPeopleGroup } from 'react-icons/fa6';
@@ -7,20 +7,19 @@ import { TbNotes } from 'react-icons/tb';
 import { GoPerson } from 'react-icons/go';
 import { AiOutlinePoweroff } from 'react-icons/ai';
 import { useState } from 'react';
-import { BiSolidChevronDown, BiSolidChevronUp } from "react-icons/bi";
-import logoNC from '../../../public/Logo NC.png'
+// import { BiSolidChevronDown, BiSolidChevronUp } from "react-icons/bi";
+import logoNC from '../../../public/Logo NC.png';
 
-interface AsideProps {
+interface AsideColapsadoProps {
     handleLogout: () => void;
   }
-  
 
-const Aside: React.FC<AsideProps> = ({ handleLogout }) => {
+const AsideColapsado: React.FC<AsideColapsadoProps> = ({ handleLogout }) => {
   const navigate = useNavigate();
   const [activeLink, setActiveLink] = useState('/user');
 
   const [isOpen, setIsOpen] = useState(false);
-  const handleNavLinkClick = (route : string) => {
+  const handleNavLinkClick = (route: string) => {
     console.log('Logout button clicked');
     setActiveLink(route);
     navigate(route);
@@ -28,11 +27,9 @@ const Aside: React.FC<AsideProps> = ({ handleLogout }) => {
     if (route === '/user/crear-equipos') {
       setIsOpen(!isOpen);
     } else {
-      setIsOpen(false); 
+      setIsOpen(false);
     }
   };
-
-
 
   const equipos = [
     {
@@ -54,10 +51,7 @@ const Aside: React.FC<AsideProps> = ({ handleLogout }) => {
   ]
 
   return (
-    <div className='border-r rounded-br-3xl w-80 py-6 flex flex-col justify-between bg-greyPrimary2 shadow-xl'>
-
-
-
+    <div className='w-[72px] h-[876px] top-68 p-15 flex flex-col justify-between bg-greyPrimary2 shadow-xl border-r rounded-br-3xl'>
       <div className='pl-4'>  
         {/* ----------------------------------------------------- Information: */}
         <div className='pr-4 ml-4'>
@@ -66,10 +60,10 @@ const Aside: React.FC<AsideProps> = ({ handleLogout }) => {
               <img src={logoNC} alt="" className=''/>
             </div>
             <button className='flex text-2xl text-bluePrimary' onClick={handleLogout}>
-              <BiLogOut />
+              <TbLogout />
             </button>
           </div>
-          <p className='text-xl font-bold mt-4 mb-10'>No Country</p>
+          {/* <p className='text-xl font-bold mt-4 mb-10'>No Country</p> */}
         </div>
         {/* ----------------------------------------------------- Links: */}
         <div className='mb-32'>
@@ -90,7 +84,7 @@ const Aside: React.FC<AsideProps> = ({ handleLogout }) => {
             >
               <LuLayoutDashboard />
             </div>
-            Dashboard
+            
           </Link>
           {/* --------------------------------------------------- Link: Administrar Roles */}
           <Link
@@ -109,10 +103,9 @@ const Aside: React.FC<AsideProps> = ({ handleLogout }) => {
                   : ''
               }`}
             >
-          
               <BsPersonVcard />
             </div>
-            Administrar Roles
+            
           </Link>
           {/* --------------------------------------------------- Link: Administrar Equipos */}
           <div>
@@ -136,9 +129,9 @@ const Aside: React.FC<AsideProps> = ({ handleLogout }) => {
                 >
                   <FaPeopleGroup />
                 </div>
-                <p className="flex items-center gap-x-10">
-                  Administrar Equipos {isOpen ? <BiSolidChevronUp/> : <BiSolidChevronDown/>}
-                </p>
+                
+                 {/* {isOpen ? <BiSolidChevronUp/> : <BiSolidChevronDown/>} */}
+                
 
                 </div>
               </div>
@@ -177,10 +170,10 @@ const Aside: React.FC<AsideProps> = ({ handleLogout }) => {
                 <TbNotes />
               </div>
               {/* ----- Link */}
-              Formularios
+              
             </div>
             {/* ----- Coutn Forms */}
-            <p className='bg-orangePrincipal text-white h-5 w-5 flex justify-center items-center rounded-full text-sm mr-2'>3</p>
+            {/* <p className='bg-orangePrincipal text-white h-5 w-5 flex justify-center items-center rounded-full text-sm mr-2'>3</p> */}
           </Link>
           {/* --------------------------------------------------- Link: Perfil */}
           <Link
@@ -201,7 +194,7 @@ const Aside: React.FC<AsideProps> = ({ handleLogout }) => {
             >
               <GoPerson />
             </div>
-            Perfil
+            
           </Link>
         </div>
       </div>
@@ -210,14 +203,11 @@ const Aside: React.FC<AsideProps> = ({ handleLogout }) => {
       {/* ----------------------------------------------------- Cerrar sesión: */}
       <button className='bg-azulClaroBg2 text-azulPrimary flex items-center justify-center gap-x-2 text-sm py-2 mx-6 rounded-lg'>
         <AiOutlinePoweroff /> 
-        <p className=''>Cerrar sesión</p>
+        
       </button>
-
-
 
     </div>
   );
 };
 
-export default Aside;
-
+export default AsideColapsado;

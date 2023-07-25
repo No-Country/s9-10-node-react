@@ -22,7 +22,7 @@ const Toolbar = () => {
 
 
     return (
-        <div className="fixed bottom-0 w-full md:hidden bg-navBackground flex justify-between items-center px-5 h-16 ">
+        <div className="fixed bottom-0 w-full md:hidden bg-navBackground flex justify-between items-center px-5 h-16 z-20">
             <Link 
                 to={'/user'} 
                 onClick={() => handleNavLinkClick('/user')}
