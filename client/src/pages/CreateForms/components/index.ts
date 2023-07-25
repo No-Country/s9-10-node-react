@@ -8,5 +8,6 @@ export { default as QuestionsInput } from './QuestionsInput/QuestionsInput';
 export { default as SaveButton } from './SaveButton/SaveButton';
 export { default as SaveFormModal } from './SaveFormModal/SaveFormModal';
 export { default as ScoringScaleScreen } from './ScoringScaleScreen/ScoringScaleScreen';
+export { default as SuccessModal } from './SuccessModal/SuccessModal';
 export { default as TitleScreen } from './TitleScreen/TitleScreen';
 export { default as WhiteboardScreen } from './WhiteboardScreen/WhiteboardScreen';
