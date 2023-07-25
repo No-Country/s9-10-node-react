@@ -1,28 +1,35 @@
 interface TextActions {
   id: number;
+  title: string;
   text: string;
+  image: string;
 }
 
 const textActions: TextActions[] = [
   {
     id: 1,
-    text: 'Plataforma personalizada: Ajustada a tu empresa, adaptable y flexible a desafíos.',
+    title: 'Plataforma personalizada:',
+    text: `Ajustada a tu empresa, adaptable y flexible a desafíos.`,
+    image: '/home7.png',
   },
   {
     id: 2,
-    text: `Participación activa de empleado: Ideas, sugerencias y preocupaciones valoradas.`,
+    title: 'Participación activa de empleado:',
+    text: `Ideas, sugerencias y preocupaciones valoradas.`,
+    image: '/home7.png',
   },
   {
     id: 3,
-    text: `Potentes herramientas
-    de análisis: 
-    Para decisiones informadas 
+    title: 'Potentes herramientas de análisis:',
+    text: `Para decisiones informadas 
     y métricas valiosas.`,
+    image: '/home7.png',
   },
   {
     id: 4,
-    text: `Comunicación abierta 
-    y transparente: Fomentando confianza y colaboración.`,
+    title: 'Comunicación abierta y transparente:',
+    text: `Fomentando confianza y colaboración.`,
+    image: '/home7.png',
   },
 ];
 
@@ -55,19 +62,23 @@ function WhyUsSection() {
           </button>
         </div>
       </div>
-      <div className='flex flex-col md:flex-row justify-center items-center w-full mt-14 md:mt-32 md:gap-[160px]'>
+      <div className='flex flex-col md:flex-row justify-center items-center w-full mt-14 md:mt-32 md:gap-[4rem]'>
         <img
-          src='https://th.bing.com/th/id/R.1228d494b2f79ba87f65a667ba53989d?rik=nofvPe3NI0Y28Q&pid=ImgRaw&r=0'
+          src='/home6.png'
           alt=' programación'
           loading='lazy'
-          className='hidden md:flex w-[360px] h-[360px] object-cover'
+          className='hidden md:flex w-[48.8125rem] h-[36.3125rem] object-contain z-10'
+        />
+        <div
+          className={`hidden md:flex absolute w-[51.25rem] h-[40.9375rem] bg-[#E9ECFC] left-0 rounded-r-[25rem]`}
         />
         <div className='flex flex-col justify-center items-center'>
           <h2
-            className={`text-2xl text-black font-bold text-center mx-6 leading-7 tracking-[-0.58px] mb-4
-            md:text-[40px] md:leading-[60px] md:tracking-[-0.88px] md:w-[502px] md:text-left md:mb-8`}
+            className={`text-2xl text-black font-bold text-center leading-7 tracking-[-0.58px] mb-4
+            md:text-[2.5rem] md:leading-[60px] md:tracking-[-0.88px] md:w-[502px] md:text-left md:mb-8`}
           >
-            Razones por las cuales elegir nuestra plataforma
+            Razones por las cuales{' '}
+            <span className='text-[#7A8CEB]'>elegir</span> nuestra plataforma
           </h2>
           <div className='flex flex-row flex-wrap justify-center items-center w-full md:w-[530px] md:h-[466px] gap-4'>
             {textActions.map((textAction: TextActions) => (
@@ -77,13 +88,16 @@ function WhyUsSection() {
               md:w-64 md:h-[224px]`}
               >
                 <img
-                  src='https://th.bing.com/th/id/R.1228d494b2f79ba87f65a667ba53989d?rik=nofvPe3NI0Y28Q&pid=ImgRaw&r=0'
+                  src={textAction.image}
                   alt=' programación'
                   loading='lazy'
                   className=' w-full h-[90px] md:h-[116px] rounded-t-lg object-cover'
                 />
-                <div className='flex flex-col justify-center items-center w-full h-[54px] md:h-[108px] rounded-b-lg'>
-                  <p className='text-[9px] md:text-[0.9375rem] text-black font-semibold text-left mx-4 md:leading-5'>
+                <div className='flex flex-col justify-center md:justify-start w-full h-[54px] md:h-[108px] rounded-b-lg'>
+                  <p className='text-[9px] md:text-[0.9375rem] text-black font-bold mx-4 md:leading-5 md:mt-4'>
+                    {textAction.title}
+                  </p>
+                  <p className='text-[9px] md:text-[0.9375rem] text-black font-normal mx-4 md:leading-5'>
                     {textAction.text}
                   </p>
                 </div>
