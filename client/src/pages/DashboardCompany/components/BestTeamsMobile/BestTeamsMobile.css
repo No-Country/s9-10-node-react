@@ -27,7 +27,7 @@
   background: #E4E4E4;
   display: flex;
   flex-direction: column;
-  z-index: -50;
+ 
   
   
 }
@@ -37,6 +37,7 @@
   justify-content: center;
   align-items: center;
   margin: auto;
+  z-index: -50;
 }
 
 .custom-title-class {
@@ -62,18 +63,23 @@
   color: #185D81;
 }
 
+
+
+
 .hrMobil {
+  position: absolute;
   color: #e4e4e4;
   width: 43px;
   height: 43px;
-  margin-left: 16%;
   border-radius: 16px;
   background: #185d81;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  z-index: -1;
+  z-index: 1;
+  margin-left: 16%;
+  
+  
 }
 
 
@@ -90,6 +96,7 @@
   gap: 30px;
   font-size: 11px;
   
+  
 
 }
 
@@ -99,5 +106,5 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-left: 40%;
+  margin-left: 16%;
 }
