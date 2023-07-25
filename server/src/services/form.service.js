@@ -242,3 +242,10 @@ export const createNewResponse = async ({
 
   return newResponse;
 };
+
+
+
+//Obtener todos los formularios
+// export const getAllFormsInDB = async ({
+
+// })
