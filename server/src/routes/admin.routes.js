@@ -10,11 +10,18 @@ import {
   createUser,
   deleteUser,
   editUser,
-  uploadPictureAdmin
+  uploadPictureAdmin,
+  getUsersByRoleController,
+  getUsersBySubroleName,
+  getUsersByEquipName,
+  createEquip, 
+  addMembersToEquipName
 } from "../controllers/admin.controller.js";
+
 import {calculateCombinedScoreAverage, calculateSoftSkillsScore, calculateTechnicalSkillsScore, getCommentsAndPraiseCount, getScoresAndComments} from "../services/score.service.js";
 
 import { createForm } from "../controllers/form.controller.js";
+
 
 const adminRouter = Router();
 adminRouter.get("/", (req, res) => {
@@ -32,6 +39,11 @@ adminRouter.get("/users", listUsers);
 adminRouter.post("/users", createUser);
 adminRouter.delete("/users/:id", deleteUser);
 adminRouter.put("/users/:id", editUser);
+adminRouter.get("/users/roles/:roleName", getUsersByRoleController);
+adminRouter.get("/users/subrole/:subroleName", getUsersBySubroleName);
+adminRouter.get("/users/equip/:equipName", getUsersByEquipName);
+adminRouter.post("/equip", createEquip);
+adminRouter.put("/equip/:equipId", addMembersToEquipName);
 
 //Crear Formulario
 adminRouter.post("/form", createForm);

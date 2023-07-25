@@ -5,7 +5,7 @@ import Admin from "../models/admin.model.js";
 import User from "../models/user.model.js";
 import Role from "../models/role.model.js";
 import Equip from "../models/equip.model.js";
-
+import { getUsersByRoleController } from "../controllers/admin.controller.js";
 //Registrar un usuario Admin
 export const registerUser = async ({ email, password, username }) => {
   const adminFound = await Admin.findOne({ email });
@@ -93,59 +93,111 @@ export const createNewUser = async ({ email, username, password, role }) => {
   return userWithoutSensitiveFields;
 };
 
-// Editar usuario
-export const updateUser = async (id, role, equip) => {
+export const updateUser = async (id, role, subrole, equip) => {
   const updates = {};
 
+  // Buscar el ObjectId del rol correspondiente
   if (role) {
-    let roleData = await Role.findOne({ name: role });
-
+    const roleData = await Role.findOne({ name: role });
     if (!roleData) {
-      roleData = new Role({
-        name: role,
-        users: [],
-      });
+      throw new Error(`Role with name "${role}" not found`);
     }
-
     updates.role = roleData._id;
-
-    if (!roleData.users.includes(id)) {
-      roleData.users.push(id);
-    }
-
-    await roleData.save();
   }
 
-  if (equip) {
-    let equipData = await Equip.findOne({ name: equip });
-
-    if (!equipData) {
-      equipData = new Equip({
-        name: equip,
-        members: [],
-      });
-    }
-
-    updates.equip = equipData._id;
-
-    if (!equipData.members.includes(id)) {
-      equipData.members.push(id);
-    }
-
-    await equipData.save();
-  }
-
-  if (subrole) {
+  // Verificar y asignar el subrol (si está presente y es válido)
+  if (subrole === "team leader" || subrole === "employee") {
     updates.subrole = subrole;
+  } else if (subrole) {
+    throw new Error("Invalid subrole. It must be either 'team leader' or 'employee'");
   }
-  
+
+  // Buscar el ObjectId del equipo correspondiente (si está presente)
+  if (equip) {
+    const equipData = await Equip.findOne({ name: equip });
+    if (!equipData) {
+      throw new Error(`Equip with name "${equip}" not found`);
+    }
+    updates.equip = equipData._id;
+  }
+
+  // Realizar la actualización del usuario
   const user = await User.findByIdAndUpdate(id, updates, {
     new: true,
   }).populate("equip role");
 
   if (!user) {
-    throw new HttpException("User not found", 404);
+    throw new Error("User not found");
   }
 
   return user;
+};
+
+export const getUsersByRoleName = async (roleName) => {
+  // Buscar el rol por su nombre
+  const role = await Role.findOne({ name: roleName });
+
+  if (!role) {
+    throw new Error(`Role with name "${roleName}" not found`);
+  }
+
+  // Obtener los usuarios asociados al rol
+  const users = await User.find({ role: role._id });
+
+  return users;
+};
+
+export const getUsersBySubrole = async (subrole) => {
+  // Verificar si el subrole es válido
+  if (!["team leader", "employee"].includes(subrole)) {
+    throw new Error("Invalid subrole. It must be either 'team leader' or 'employee'");
+  }
+
+  // Buscar los usuarios con el subrole proporcionado
+  const users = await User.find({ subrole });
+
+  return users;
+};
+
+export const getUsersByEquip = async (equipName) => {
+  // Buscar el equipo por su nombre
+  const equip = await Equip.findOne({ name: equipName });
+
+  if (!equip) {
+    throw new Error(`Equip with name "${equipName}" not found`);
+  }
+
+  // Obtener los usuarios asociados al equipo (miembros)
+  const users = await User.find({ equip: equip._id });
+
+  return users;
+};
+
+export const createNewEquip = async ({ name, description }) => {
+  const equip = new Equip({ name, description });
+  const savedEquip = await equip.save();
+  return savedEquip;
+};
+
+export const addMembersToEquip = async (equipName, memberUsernames) => {
+  // Buscar el equipo por su nombre
+  const equip = await Equip.findOne({ name: equipName });
+  if (!equip) {
+    throw new Error(`Equip with name "${equipName}" not found`);
+  }
+
+  // Buscar los usuarios por sus nombres y obtener sus IDs
+  const memberIds = [];
+  for (const username of memberUsernames) {
+    const user = await User.findOne({ username });
+    if (user) {
+      memberIds.push(user._id);
+    }
+  }
+
+  // Agregar los miembros al equipo y guardar los cambios
+  equip.members = memberIds;
+  const savedEquip = await equip.save();
+
+  return savedEquip;
 };

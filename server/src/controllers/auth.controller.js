@@ -4,7 +4,6 @@ import jwt from "jsonwebtoken";
 import { TOKEN_SECRET } from "../config.js";
 import { createAccessToken } from "../lib/jwt.js";
 import { processImage } from "../helpers/processImage.js";
-import { updateUser } from "../services/admin.service.js";
 export const register = async (req, res) => {
   const { email, password, username } = req.body;
   try {
