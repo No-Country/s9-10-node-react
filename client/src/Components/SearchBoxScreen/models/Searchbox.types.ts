@@ -10,6 +10,10 @@ export interface SearchBoxPropsBase {
 export interface SearchBoxProps {
   showSelect: boolean;
   handleSearch: (search: string) => void;
+  showButton: boolean;
+  label: string;
+  handleCreate?: () => void;
+  buttonLabel?: string;
 }
 
 export const searchOptions: TermsSearch[] = [

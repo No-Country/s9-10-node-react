@@ -1,17 +1,13 @@
 .contenedorCard {
   width: 100%;
-  max-width: 978px;
-  margin-left: 245px;
+  max-width: 1019px;
   margin-right: 0;
   overflow: hidden;
-  
 }
 
 .item {
-  
-  margin-left: 115px; 
-  margin-right: 8px; 
- 
+  margin-left: 106px;
+  margin-right: 8px;
 }
 
 .card-first {
@@ -23,13 +19,11 @@
   width: 36px;
   height: 36px;
   margin-top: -177px;
-  margin-left: 1174px;
+  margin-left: 975px;
   padding: 10.5px 0px 10.5px 0px;
   font-size: 36px;
-  
-
+  color: #40903c;
 }
-
 
 .card {
   width: 249px;
@@ -38,12 +32,11 @@
   margin-top: 22px;
   margin-left: auto;
   border: 2px solid #595959;
-  background: #EDF0F7;
-  
+  background: #edf0f7;
 }
 
 .card-header {
-  background-color: #595959;
+  background-color: #7a8ceb;
   height: 47px;
   padding: 10px;
   color: white;
@@ -64,23 +57,20 @@
   text-align: left;
   width: 194px;
   height: 35px;
-  margin-left: 247px;
+
   margin-top: 40px;
   line-height: 36px;
-
-
+  color: #5d6ab3;
 }
 
 .text-empresa {
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 26px;
   font-weight: 700;
   line-height: 39px;
   letter-spacing: -0.022em;
   text-align: left;
   margin: 10px 0 15px 247px;
-
-
 }
 
 .avatar-container {
@@ -102,53 +92,42 @@
   margin-left: 70px;
 }
 
-
 .name {
   margin-top: 4px;
   font-weight: 500;
   font-size: 19.22px;
+  color: #424c80;
 }
 
 .description {
   margin-top: 10px;
   font-weight: 500;
   font-size: 19.22px;
+  color: #424c80;
 }
 
 .score {
   margin-top: 20px;
   font-weight: 500;
   font-size: 19.22px;
-}
-
-/** lupa input**/
-.search-contenedor {
-  margin-left: 111px;
-}
-
-
-.search-mejores {
-  margin-left: 139px;
+  color: #424c80;
 }
 
 @media (max-width: 780px) {
-  
   .search-contenedor {
-  margin-top: 40px;  
-  margin-left: 5px;
- }
+    margin-top: 40px;
+    margin-left: 5px;
+  }
 
- .search-mejores {
-  margin-left: 10px;
- }
+  .search-mejores {
+    margin-left: 10px;
+  }
 
- .mobile-specific  {
-  font-family: "Inter", sans-serif;
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 36px;
-  margin-left: 10px;
-  
+  .mobile-specific {
+    font-family: 'Inter', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 36px;
+    margin-left: 10px;
+  }
 }
-
-} 

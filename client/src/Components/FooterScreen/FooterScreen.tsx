@@ -9,7 +9,7 @@ function FooterScreen() {
     <footer
       className={`flex flex-col w-full justify-center items-center h-20 ${
         isPathname && width >= 768 ? 'md:h-[288px]' : 'md:h-[91px]'
-      } p-3 static bottom-0 bg-slate-200`}
+      } p-3 static bottom-0 bg-[#185D81]`}
     >
       <SocialMediaScreen />
     </footer>

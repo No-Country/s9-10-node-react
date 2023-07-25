@@ -10,14 +10,12 @@ const Root = () => {
         <NavbarScreen />
       </div>
       <div className='md:flex'>
-        <div className='hidden md:block w-60'>
+        <div className='hidden md:block'>
           <Aside />
         </div>
-        <div className='w-full'>
-          <main className=''>
-            <Outlet />
-          </main>
-        </div>
+        <main className=''>
+          <Outlet />
+        </main>
       </div>
       <div className='fixed bottom-0 w-full md:hidden'>
         <Toolbar />

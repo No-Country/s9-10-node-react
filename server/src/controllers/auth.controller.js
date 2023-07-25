@@ -90,6 +90,7 @@ export const profile = async (req, res) => {
   }
 };
 
+/* use by superadmin */
 export const editProfile = async (req, res) => {
   try {
     const { id } = req.params;
@@ -151,10 +152,6 @@ export const verifyToken = async (req, res) => {
     const userFound = await User.findById(user.id);
     if (!userFound) return res.sendStatus(401);
 
-    return res.json({
-      id: userFound._id,
-      username: userFound.username,
-      email: userFound.email,
-    });
+    return res.json(userFound);
   });
 };

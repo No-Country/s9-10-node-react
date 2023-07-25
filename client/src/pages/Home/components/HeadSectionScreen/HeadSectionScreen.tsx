@@ -1,4 +1,8 @@
+import { useNavigate } from 'react-router-dom';
+
 function HeadSectionScreen() {
+  const navigate = useNavigate();
+
   return (
     <article
       className={`flex flex-col md:flex-row-reverse justify-center items-center w-full 
@@ -10,16 +14,19 @@ function HeadSectionScreen() {
         loading='lazy'
         className='w-11 h-11 md:w-44 md:h-44 object-cover'
       />
-      <div className='flex flex-col justify-center items-center'>
+      <div className='flex flex-col justify-center items-center md:gap-4'>
         <h1
-          className={`text-2xl md:text-7xl font-bold text-black w-[247px] md:w-[545px] md:h-[217px] text-center 
-        md:text-left leading-[120%] md:leading-[150%] tracking-tight`}
+          className={`text-2xl md:text-[4.375rem] font-bold text-black w-[247px] md:w-[545px] md:h-[217px] text-center 
+        md:text-left leading-[120%] md:leading-[6.5625rem] tracking-tight md:tracking-[-0.09625rem] md:-mt-16`}
         >
-          Lorem ipsum dolor sit amet
+          Construye un ambiente laboral exitoso
         </h1>
-        <div className='flex items-center justify-center gap-3 md:gap-10 mt-6 md:mt-[88px] md:-ml-16'>
-          <button className='w-[158px] md:w-[212px] h-12 md:h-[73px] rounded-md bg-[#2D3648] text-white font-bold text-lg md:text-2xl'>
-            Call to action
+        <div className='flex items-center justify-center gap-3 md:gap-10 mt-6 md:mt-[118px] md:-ml-16'>
+          <button
+            className='w-[158px] md:w-[212px] h-12 md:h-[73px] rounded-md bg-[#2D3648] text-white font-bold text-lg md:text-2xl'
+            onClick={() => navigate('/login')}
+          >
+            Iniciar ahora
           </button>
           <button className='flex w-[158px] md:w-[212px] h-12 md:h-[73px] rounded-md bg-white items-center justify-center gap-2'>
             <small className='text-black font-semibold text-base md:text-2xl'>
