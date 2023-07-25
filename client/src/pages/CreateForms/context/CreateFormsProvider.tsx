@@ -253,8 +253,8 @@ const CreateFormsProvider = ({ children }: CreateFormsProviderProps) => {
       return;
     }
 
-    handleClearLocalStorage();
     setShowSuccessModal(true);
+    handleClearLocalStorage();
   }
 
   return (

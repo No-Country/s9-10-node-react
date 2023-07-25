@@ -4,8 +4,6 @@ import { ModalAlert } from '../../../../Components';
 import { SaveFormModal } from '..';
 
 function OptionsButtons() {
-  const [isHovered, setIsHovered] = useState<boolean>(false);
-  const [hasHovered, setHasHovered] = useState<boolean>(false);
   const [selected, setSelected] = useState<number>(0);
   const {
     handleClearLocalStorage,
@@ -29,11 +27,10 @@ function OptionsButtons() {
         className={`flex w-[21rem] items-center justify-between mx-auto mt-[1.38rem] md:w-[56.125rem] md:mx-0`}
       >
         <button
-          className={`group flex w-[5.5rem] h-12 py-[1.29906rem] px-[1.94863rem] rounded-[6.25rem] border-2 border-solid border-[#73c36f7f]
+          className={`group flex w-[5.5rem] h-12 py-[1.29906rem] px-[1.94863rem] rounded-[6.25rem]
           items-center justify-center shadow-custom hover:bg-[#73C36F] transition-colors duration-300 md:w-56 md:px-0 md:gap-2
+          bg-[#73c36f7f]
           ${selected === 1 && 'bg-[#73C36F]'}`}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
           onClick={() => {
             setSelected(1);
             setShowAlert(!showAlert);
@@ -50,7 +47,7 @@ function OptionsButtons() {
               fillRule='evenodd'
               clipRule='evenodd'
               d='M16.167 9H7.833C7.37295 9 7 9.37295 7 9.833V16.5C7 17.8807 8.11929 19 9.5 19H14.5C15.163 19 15.7989 18.7366 16.2678 18.2678C16.7366 17.7989 17 17.163 17 16.5V9.833C17 9.37295 16.6271 9 16.167 9Z'
-              stroke={isHovered || selected === 1 ? '#fff' : '#73C36F'}
+              stroke='#fff'
               strokeOpacity='0.5'
               strokeWidth='1.5'
               strokeLinecap='round'
@@ -60,7 +57,7 @@ function OptionsButtons() {
               fillRule='evenodd'
               clipRule='evenodd'
               d='M15 7.00008L14.894 6.78908C14.3459 5.69263 13.2253 5 11.9995 5C10.7737 5 9.6531 5.69263 9.105 6.78908L9 7.00008H15Z'
-              stroke={isHovered || selected === 1 ? '#fff' : '#73C36F'}
+              stroke='#fff'
               strokeOpacity='0.5'
               strokeWidth='1.5'
               strokeLinecap='round'
@@ -68,23 +65,21 @@ function OptionsButtons() {
             />
             <path
               d='M11.083 12.333C11.083 11.9188 10.7472 11.583 10.333 11.583C9.91879 11.583 9.583 11.9188 9.583 12.333H11.083ZM9.583 15.666C9.583 16.0802 9.91879 16.416 10.333 16.416C10.7472 16.416 11.083 16.0802 11.083 15.666H9.583ZM14.417 12.333C14.417 11.9188 14.0812 11.583 13.667 11.583C13.2528 11.583 12.917 11.9188 12.917 12.333H14.417ZM12.917 15.666C12.917 16.0802 13.2528 16.416 13.667 16.416C14.0812 16.416 14.417 16.0802 14.417 15.666H12.917ZM15 6.25C14.5858 6.25 14.25 6.58579 14.25 7C14.25 7.41421 14.5858 7.75 15 7.75V6.25ZM17 7.75C17.4142 7.75 17.75 7.41421 17.75 7C17.75 6.58579 17.4142 6.25 17 6.25V7.75ZM9 7.75C9.41421 7.75 9.75 7.41421 9.75 7C9.75 6.58579 9.41421 6.25 9 6.25V7.75ZM7 6.25C6.58579 6.25 6.25 6.58579 6.25 7C6.25 7.41421 6.58579 7.75 7 7.75V6.25ZM9.583 12.333V15.666H11.083V12.333H9.583ZM12.917 12.333V15.666H14.417V12.333H12.917ZM15 7.75H17V6.25H15V7.75ZM9 6.25H7V7.75H9V6.25Z'
-              fill={isHovered || selected === 1 ? '#fff' : '#73C36F'}
+              fill='#fff'
               fillOpacity='0.5'
             />
           </svg>
           <p
-            className={`hidden md:flex text-[#73C36F] text-lg font-bold leading-[1.94863rem] tracking-[-0.01125rem]
+            className={`hidden md:flex text-white text-lg font-bold leading-[1.94863rem] tracking-[-0.01125rem]
         group-hover:text-white text-center ${selected === 1 && 'text-white'}`}
           >
             Limpiar formulario
           </p>
         </button>
         <button
-          className={`group flex w-[5.5rem] h-12 py-[1.29906rem] px-[1.94863rem] rounded-[6.25rem] border-2 border-solid border-[#73c36f7f]
-        items-center justify-center shadow-custom hover:bg-[#73C36F] transition-colors duration-300 md:w-56 md:px-0 md:gap-2
+          className={`group flex w-[5.5rem] h-12 py-[1.29906rem] px-[1.94863rem] rounded-[6.25rem]
+        items-center justify-center shadow-custom hover:bg-[#73C36F] transition-colors duration-300 md:w-56 md:px-0 md:gap-2 bg-[#73c36f7f]
         ${selected === 2 && 'bg-[#73C36F]'}`}
-          onMouseEnter={() => setHasHovered(true)}
-          onMouseLeave={() => setHasHovered(false)}
           onClick={() => setSelected(2)}
         >
           <svg
@@ -98,7 +93,7 @@ function OptionsButtons() {
               fillRule='evenodd'
               clipRule='evenodd'
               d='M19 12.5C19 14.985 15.866 17 12 17C8.134 17 5 14.985 5 12.5C5 10.015 8.134 8 12 8C15.866 8 19 10.015 19 12.5Z'
-              stroke={hasHovered || selected === 2 ? '#fff' : '#73C36F'}
+              stroke='#fff'
               strokeOpacity='0.5'
               strokeWidth='1.5'
               strokeLinecap='round'
@@ -108,7 +103,7 @@ function OptionsButtons() {
               fillRule='evenodd'
               clipRule='evenodd'
               d='M13.75 12.4996C13.7716 13.1389 13.4429 13.7392 12.8926 14.0652C12.3422 14.3913 11.6578 14.3913 11.1075 14.0652C10.5572 13.7392 10.2284 13.1389 10.25 12.4996C10.2284 11.8603 10.5572 11.2601 11.1075 10.934C11.6578 10.6079 12.3422 10.6079 12.8926 10.934C13.4429 11.2601 13.7716 11.8603 13.75 12.4996V12.4996Z'
-              stroke={hasHovered || selected === 2 ? '#fff' : '#73C36F'}
+              stroke='#fff'
               strokeOpacity='0.5'
               strokeWidth='1.5'
               strokeLinecap='round'
@@ -116,7 +111,7 @@ function OptionsButtons() {
             />
           </svg>
           <p
-            className={`hidden md:flex text-[#73C36F] text-lg font-bold leading-[1.94863rem] tracking-[-0.01125rem]
+            className={`hidden md:flex text-white text-lg font-bold leading-[1.94863rem] tracking-[-0.01125rem]
         group-hover:text-white text-center ${selected === 2 && 'text-white'}`}
           >
             Vista previa
