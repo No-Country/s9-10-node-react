@@ -35,7 +35,7 @@ adminRouter.put("/users/:id", editUser);
 
 //Formuluarios
 adminRouter.post("/form", createForm); //Crear Formulario
-adminRouter.put("/editForm/:id", updateForm); //Editar Formulario
+//adminRouter.put("/editForm/:id", updateForm); //Editar Formulario
 
 // Obtener todos los formularios
 adminRouter.get("/forms", getAllForms);
