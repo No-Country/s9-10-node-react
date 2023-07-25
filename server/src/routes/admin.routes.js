@@ -14,7 +14,7 @@ import {
 } from "../controllers/admin.controller.js";
 import {calculateCombinedScoreAverage, calculateSoftSkillsScore, calculateTechnicalSkillsScore, getCommentsAndPraiseCount, getScoresAndComments} from "../services/score.service.js";
 
-import { createForm, getAllForms, updateForm } from "../controllers/form.controller.js";
+import { createForm, getAllForms } from "../controllers/form.controller.js";
 
 const adminRouter = Router();
 adminRouter.get("/", (req, res) => {
