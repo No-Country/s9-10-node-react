@@ -1,8 +1,9 @@
 import jwt from "jsonwebtoken";
+import { TOKEN_SECRET } from "../config.js";
 import Form from "../models/form.model.js";
 import User from "../models/user.model.js";
+import Role from "../models/role.model.js";
 import Response from "../models/answer.model.js";
-import { TOKEN_SECRET } from "../config.js";
 import Admin from "../models/admin.model.js";
 import { HttpException } from "../utils/HttpException.js";
 
@@ -11,6 +12,7 @@ export const createNewForm = async ({
   title,
   description,
   token,
+  rolesAllowed,
   questions,
   comments,
 }) => {
@@ -26,6 +28,23 @@ export const createNewForm = async ({
       400
     );
   }
+
+  //Validar campo Rol
+
+  // Validación del campo rolesAllowed
+  if (!rolesAllowed || rolesAllowed.length === 0) {
+    throw new HttpException(
+      "Rol es un campo obligatorio y debe contener al menos uno válido",
+      400
+    );
+  }
+
+  // Verificación de que los roles existan en la base de datos
+  const roles = await Role.find({ name: { $in: rolesAllowed } }).exec();
+  if (roles.length !== rolesAllowed.length) {
+    throw new HttpException("Alguno de los roles especificados no existe en la base de datos.", 400);
+  }
+
 
   // Extraer el username del admin que crea el formulario
 
@@ -102,6 +121,7 @@ export const createNewForm = async ({
     title,
     description,
     createdBy: admin.username,
+    rolesAllowed,
     questions,
     comments,
   });

@@ -4,7 +4,7 @@ import { HttpException } from "../utils/HttpException.js";
 //Controller para la creación de un formulario
 export const createForm = async (req, res) => {
   try {
-    const { title, description, questions, comments } = req.body;
+    const { title, description, rolesAllowed, questions, comments } = req.body;
 
     // Obtener el token desde la cookie
     const token = req.cookies.token;
@@ -14,6 +14,7 @@ export const createForm = async (req, res) => {
       title,
       description,
       token,
+      rolesAllowed,
       questions,
       comments,
     });

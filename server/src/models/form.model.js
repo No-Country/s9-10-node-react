@@ -12,6 +12,10 @@ const FormSchema = new mongoose.Schema({
   createdBy: {
     type: String,
   },
+  rolesAllowed: {
+    type: [String],
+    default: [],  
+  },
   questions: [
     {
       question: {
