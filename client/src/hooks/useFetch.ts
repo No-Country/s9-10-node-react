@@ -1,17 +1,11 @@
 import axios from 'axios';
-import { useState, useEffect } from 'react';
-import GetToken from '../libs/getToken';
+import { useState } from 'react';
 import { useAuthStore } from '../store/auth';
 
 const useFetch = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<any>(null);
   const token = useAuthStore((state) => state.token);
-  const { getToken } = GetToken();
-
-  useEffect(() => {
-    getToken();
-  }, [getToken]);
 
   /**
    * fetches data from a specified URL using the
