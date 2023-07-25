@@ -1,21 +1,30 @@
 function EndSectionScreen() {
   return (
     <div
-      className={`flex flex-col md:flex-row-reverse justify-center items-center w-full h-[447px] gap-[137px]
-      md:gap-[591px] md:h-[608px] bg-gray-300`}
+      className={`flex justify-center items-center w-full h-[447px] gap-[137px]
+      md:gap-[591px] md:h-[46.9375rem] relative`}
     >
-      <img
-        src='https://th.bing.com/th/id/R.1228d494b2f79ba87f65a667ba53989d?rik=nofvPe3NI0Y28Q&pid=ImgRaw&r=0'
-        alt='programación'
-        loading='lazy'
-        className='w-[150px] md:w-44 h-[150px] md:h-44 object-cover'
-      />
-      <button
-        className={`w-[212px] h-16 rounded-lg bg-[#2D3648] text-white font-bold text-lg leading-6 tracking-[-0.18]
-          md:h-[73px]`}
+      <div
+        className='flex md:h-[46.9375rem] absolute left-0 top-0 md:w-[55.75rem] z-10'
+        style={{
+          background:
+            'linear-gradient(90deg, #0C2E41 44.27%, rgba(24, 93, 129, 0.00) 84.03%)',
+        }}
       >
-        Call to action
-      </button>
+        <button
+          className={`w-[212px] h-16 rounded-lg bg-[#2D3648] text-white font-bold text-lg leading-6 tracking-[-0.18rem]
+          md:h-[73px] z-10`}
+        >
+          Call to action
+        </button>
+      </div>
+      <div>
+        <img
+          src='/home8.png'
+          alt='work-team'
+          className='md:w-[70.375rem] md:h-[46.9375rem] flex absolute right-0 top-0'
+        />
+      </div>
     </div>
   );
 }
