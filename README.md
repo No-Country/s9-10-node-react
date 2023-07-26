@@ -35,23 +35,23 @@ La FeedBack App es una aplicación web diseñada para brindar a las organizacion
 ## Autores
 **UX/UI**
 - Celina Owen [Behance](https://www.behance.net/celinaowen/) [Linkedin](https://www.linkedin.com/in/celina-owen/) 
-- Pablo Quiróz [Behance]() [Linkedin]() 
+- Pablo Quiróz [Behance](https://www.behance.net/pquiroz8) [Linkedin](https://www.linkedin.com/in/pquiroz17/) 
 
 **Front End**
 
 - Diego Panno [GitHub](https://github.com/DiegoPanno) [Linkedin](https://www.linkedin.com/in/diego-panno-565b52255/) 
-- Daniel Villega [GitHub]() [Linkedin]() 
+- Daniel Villega [GitHub](https://github.com/DanielVP26) [Linkedin]() 
 - Henry Ramirez [GitHub](https://github.com/HenryMilac) [Linkedin](https://www.linkedin.com/in/henry-ramirez-417861259/)
 - Diego Fernandez [GitHub](https://github.com/Diego-Fdez) [Linkedin](https://www.linkedin.com/in/diegofernandezdev)  
 
 **Back End**
 - Cristian Illi [GitHub](https://github.com/illiCristian) [Linkedin](https://www.linkedin.com/in/cristian-illi/)
-- Yohan Olmedo [GitHub]() [Linkedin]() 
+- Yohan Olmedo [GitHub](https://github.com/yohanolmedo) [Linkedin](https://www.linkedin.com/in/yohan-olmedo/) 
 - Christian López [GitHub](https://github.com/clopezpro) [Linkedin](https://www.linkedin.com/in/clopezpro/) 
 - Marta Alcázar Redondo [GitHub](https://www.github.com/martaalcazarr) [Linkedin](https://www.linkedin.com/in/marta-alc%C3%A1zar-redondo/) 
 
 **Team Leader**
-- Gabriel Iezzi [GitHub]() [Linkedin]() 
+- Gabriel Iezzi [GitHub](https://github.com/gabiezzi) [Linkedin](https://www.linkedin.com/in/gabriel-iezzi-13a405ba/) 
 
 ## Link deployment
 - [Link]()
