@@ -244,7 +244,7 @@ const CreateFormsProvider = ({ children }: CreateFormsProviderProps) => {
       createdBy: user.username,
     };
     console.log(newData);
-    await fetchData('/admin/form', 'POST', newData);
+    const result = await fetchData('/admin/form', 'POST', newData);
 
     if (error) {
       messageApi.open({
@@ -253,6 +253,8 @@ const CreateFormsProvider = ({ children }: CreateFormsProviderProps) => {
       });
       return;
     }
+
+    console.log(result);
 
     setShowSuccessModal(true);
     handleClearLocalStorage();

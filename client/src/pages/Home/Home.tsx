@@ -2,7 +2,6 @@ import { lazy, Suspense, useEffect } from 'react';
 import { HeadScreen, Loader } from '../../Components';
 import NavbarHome from '../../Components/NavbarHome/NavbarHome';
 import GetToken from '../../libs/getToken';
-import { useAuthStore } from '../../store';
 
 const EndSectionScreen = lazy(
   () => import('./components/EndSection/EndSectionScreen')
@@ -22,11 +21,10 @@ const WhyUsSection = lazy(
 
 const Home = () => {
   const { getToken } = GetToken();
-  const token = useAuthStore((state) => state.token);
 
   useEffect(() => {
-    if (token === '') getToken();
-  }, [token, getToken]);
+    getToken();
+  }, [getToken]);
 
   return (
     <Suspense fallback={<Loader />}>
