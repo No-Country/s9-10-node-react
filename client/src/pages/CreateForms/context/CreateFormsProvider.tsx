@@ -8,6 +8,7 @@ import {
   Forms,
 } from '../models';
 import { useFetch } from '../../../hooks';
+import { userStore } from '../../../store';
 
 const CreateFormsContext =
   createContext<CreateFormsContextInterface>(EmptyContext);
@@ -33,6 +34,7 @@ const CreateFormsProvider = ({ children }: CreateFormsProviderProps) => {
   const [title, setTitle] = useState<string>('');
   const [description, setDescription] = useState<string>('');
   const [showSuccessModal, setShowSuccessModal] = useState<boolean>(false);
+  const user = userStore((state) => state.user);
 
   // function to reset the state
   function clearInputQuestion() {
@@ -233,16 +235,15 @@ const CreateFormsProvider = ({ children }: CreateFormsProviderProps) => {
   async function handleSaveForm() {
     handleGetLocalStorage();
 
-    form.questions.map((question) => {
-      question.skill = rolSelected;
-    });
-
     const newData = {
       title: title,
+      description: description,
+      rolesAllowed: [rolSelected],
       comments: { praise: false, normal: false },
       questions: form.questions,
+      createdBy: user.username,
     };
-
+    console.log(newData);
     await fetchData('/admin/form', 'POST', newData);
 
     if (error) {
