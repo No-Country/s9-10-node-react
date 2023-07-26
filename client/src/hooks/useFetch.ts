@@ -31,7 +31,7 @@ const useFetch = () => {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
       },
-      data: body ? body : null,
+      data: body ? body : undefined,
       signal: abortController.signal,
     };
 
