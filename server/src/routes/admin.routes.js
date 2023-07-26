@@ -14,7 +14,7 @@ import {
 } from "../controllers/admin.controller.js";
 import {calculateCombinedScoreAverage, calculateSoftSkillsScore, calculateTechnicalSkillsScore, getCommentsAndPraiseCount, getScoresAndComments} from "../services/score.service.js";
 
-import { createForm, getAllForms } from "../controllers/form.controller.js";
+import { createForm, deleteForm, getAllForms, updateFormController } from "../controllers/form.controller.js";
 
 const adminRouter = Router();
 adminRouter.get("/", (req, res) => {
@@ -35,7 +35,8 @@ adminRouter.put("/users/:id", editUser);
 
 //Formuluarios
 adminRouter.post("/form", createForm); //Crear Formulario
-//adminRouter.put("/editForm/:id", updateForm); //Editar Formulario
+adminRouter.put("/editForm/:id", updateFormController); //Editar Formulario
+adminRouter.delete("/deleteForm/:id", deleteForm); //Eliminar un Formulario
 
 // Obtener todos los formularios
 adminRouter.get("/forms", getAllForms);
