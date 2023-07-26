@@ -8,6 +8,7 @@ const Equipos: React.FC = () => {
   const [users, setUsers] = useState<any[]>([]);
   const [memberName, setMemberName] = useState<string>("");
   const [members, setMembers] = useState<any[]>([]);
+  
 
   const handleGroupNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setGroupName(e.target.value);
@@ -40,7 +41,7 @@ const Equipos: React.FC = () => {
   const handleCreateTeam = async () => {
     try {
       // Agregar el token de acceso a las cabeceras de la solicitud
-      const token = "AQUÍ_EL_TOKEN_DE_ACCESO"; // Reemplazar esto con tu token de acceso real
+      const token = "AQUÍ_EL_TOKEN_DE_ACCESO"; // Reemplazarn esto con tu token de acceso real
       const headers = {
         Authorization: `Bearer ${token}`,
       };

@@ -11,7 +11,7 @@ import Imagen from "./models/img/Gallery_2.png";
 import Flecha from "./models/img/vectorFlecha.png";
 import BarraProgreso from "./models/img/Progress.png";
 import Grupo from "./models/img/Group 80.png";
-import Equipos from "../../pages/AdministrarEquipos/Equipos";
+//import Equipos from "../../pages/AdministrarEquipos/Equipos";
 import axios from "axios";
 
 function SearchEquipos({
@@ -219,6 +219,7 @@ function SearchEquipos({
               Crear equipo
             </button>
           </div>
+          {/* <Equipos /> */}
         </div>
       </Modal>
       <Modal
@@ -312,7 +313,7 @@ function SearchEquipos({
         </div>
 
       </Modal>
-      <Equipos />
+      
     </>
   );
 }

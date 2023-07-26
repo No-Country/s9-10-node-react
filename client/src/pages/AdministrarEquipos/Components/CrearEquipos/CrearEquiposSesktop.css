@@ -748,8 +748,8 @@
       font-family: 'Inter', sans-serif;
       font-size: 20px;
       font-weight: 700;
-      margin-right: 19%;
-      margin-left: 0%;
+      margin-right: 0;
+      margin-left: 15%;
   
     }
     
@@ -768,7 +768,7 @@
       font-weight: 400;
       width: 284px;
       height: 45px;
-      margin-right: 21%;
+      margin-right: 36%;
     }
   
     .conte-input-modal {
