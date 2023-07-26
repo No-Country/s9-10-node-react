@@ -235,16 +235,19 @@ const CreateFormsProvider = ({ children }: CreateFormsProviderProps) => {
   async function handleSaveForm() {
     handleGetLocalStorage();
 
+    const rolArray = [];
+    rolArray.push(rolSelected.toLowerCase());
+
     const newData = {
+      comments: { praise: false, normal: false },
       title: title,
       description: description,
-      rolesAllowed: [rolSelected],
-      comments: { praise: false, normal: false },
-      questions: form.questions,
       createdBy: user.username,
+      rolesAllowed: rolArray,
+      questions: form.questions,
     };
-    console.log(newData);
-    const result = await fetchData('/admin/form', 'POST', newData);
+
+    await fetchData('/admin/form', 'POST', newData);
 
     if (error) {
       messageApi.open({
@@ -253,8 +256,6 @@ const CreateFormsProvider = ({ children }: CreateFormsProviderProps) => {
       });
       return;
     }
-
-    console.log(result);
 
     setShowSuccessModal(true);
     handleClearLocalStorage();
