@@ -42,9 +42,11 @@ export const createNewForm = async ({
   // Verificación de que los roles existan en la base de datos
   const roles = await Role.find({ name: { $in: rolesAllowed } }).exec();
   if (roles.length !== rolesAllowed.length) {
-    throw new HttpException("Alguno de los roles especificados no existe en la base de datos.", 400);
+    throw new HttpException(
+      "Alguno de los roles especificados no existe en la base de datos.",
+      400
+    );
   }
-
 
   // Extraer el username del admin que crea el formulario
 
@@ -243,9 +245,39 @@ export const createNewResponse = async ({
   return newResponse;
 };
 
+//Editar un formulario
+export const updateFormService = async (formId, updatedFields) => {
+  const existingForm = await Form.findById(formId);
+ 
+  if (!existingForm) {
+    throw new HttpException("Formulario no encontrado", 400);
+  }
 
+  // Actualizar o crear preguntas
+  const updatedQuestions = [];
+  for (const updatedQuestion of updatedFields.questions) {
+    if (updatedQuestion._id) {
+      // Si la pregunta tiene un _id existente, actualizamos sus campos
+      const existingQuestion = existingForm.questions.find(
+        (question) => question._id.toString() === updatedQuestion._id
+      );
+      if (existingQuestion) {
+        Object.assign(existingQuestion, updatedQuestion);
+        updatedQuestions.push(existingQuestion);
+      }
+    } else {
+      // Si la pregunta no tiene _id, la agregamos como nueva pregunta
+      updatedQuestions.push(updatedQuestion);
+    }
+  }
 
-//Obtener todos los formularios
-// export const getAllFormsInDB = async ({
+  // Actualizamos las preguntas en el formulario
+  existingForm.questions = updatedQuestions;
 
-// })
+  // Actualizar los otros campos del formulario
+  Object.assign(existingForm, updatedFields);
+
+  // Guardar el formulario actualizado con las preguntas correspondientes
+  const updatedForm = await existingForm.save();
+  return updatedForm;
+};
