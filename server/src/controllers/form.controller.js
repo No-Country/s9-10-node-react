@@ -77,6 +77,26 @@ export const getAllForms = async (req, res) => {
   }
 };
 
+// Controller para obtener un formulario
+export const getFormById = async (req, res) => {
+  const formId = req.params.id;
+
+  try {
+    // Buscar el formulario por su ID
+    const form = await Form.findById(formId).select({
+      __v: 0,
+    });
+
+    if (!form) {
+      return res.status(404).json({ message: "Formulario no encontrado" });
+    }
+
+    return res.status(200).json(form);
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};
+
 export const updateFormController = async (req, res) => {
   const formId = req.params.id;
   const { _id, __v, createdBy, ...updatedFields } = req.body;
@@ -110,119 +130,3 @@ export const deleteForm = async (req, res) => {
     return res.status(500).json({ message: error.message });
   }
 };
-
-//Controller para editar un formulario
-// export const updateForm = async (req, res) => {
-//   const formId = req.params.id;
-//   const updatedFields = req.body;
-
-//   try {
-//     // Elimina campos que no se deberían actualizar (_id, questions._id y __v)
-//     delete updatedFields._id;
-//     delete updatedFields.__v;
-//     updatedFields.questions.forEach((question) => {
-//       delete question._id;
-//     });
-//     // Excluir el '_id' de cada objeto en 'questions'
-//     const updatedForm = await Form.findByIdAndUpdate(
-//       formId,
-//       { $set: updatedFields },
-//       { new: true, runValidators: true, projection: { _id : false, __v: 0 } }
-//     );
-
-//     if (!updatedForm) {
-//       return res.status(404).json({ message: "Formulario no encontrado" });
-//     }
-
-//     return res.status(200).json(updatedForm);
-//   } catch (error) {
-//     return res.status(500).json({ message: error.message });
-//   }
-// };
-
-// export const updateForm = async (req, res) => {
-//   const formId = req.params.id;
-//   const { _id, __v, ...updatedFields } = req.body;
-
-//   try {
-//     // Elimina campos que no se deberían actualizar (_id, questions._id y __v)
-
-//     const existingForm = await Form.findById(formId);
-//     if (!existingForm) {
-//       return res.status(404).json({ message: "Formulario no encontrado" });
-//     }
-
-//     // Actualizar o crear preguntas
-//     const updatedQuestions = [];
-//     for (const updatedQuestion of updatedFields.questions) {
-//       if (updatedQuestion._id) {
-//         // Si la pregunta tiene un _id existente, actualizamos sus campos
-//         const existingQuestion = existingForm.questions.find(
-//           (question) => question._id.toString() === updatedQuestion._id
-//         );
-//         if (existingQuestion) {
-//           Object.assign(existingQuestion, updatedQuestion);
-//           updatedQuestions.push(existingQuestion);
-//         }
-//       } else {
-//         // Si la pregunta no tiene _id, la agregamos como nueva pregunta
-//         updatedQuestions.push(updatedQuestion);
-//       }
-//     }
-
-//     // Actualizamos las preguntas en el formulario
-//     existingForm.questions = updatedQuestions;
-
-//     // Guardar el formulario actualizado con las preguntas correspondientes
-//     const updatedForm = await existingForm.save();
-
-//     return res.status(200).json(updatedForm);
-//   } catch (error) {
-//     return res.status(500).json({ message: error.message });
-//   }
-// };
-
-// export const updateForm = async (req, res) => {
-//   const formId = req.params.id;
-//   const { _id, __v, ...updatedFields } = req.body;
-
-//   try {
-//     // Elimina campos que no se deberían actualizar (_id, questions._id y __v)
-
-//     const existingForm = await Form.findById(formId);
-//     if (!existingForm) {
-//       return res.status(404).json({ message: "Formulario no encontrado" });
-//     }
-
-//     // Actualizar o crear preguntas
-//     const updatedQuestions = [];
-//     for (const updatedQuestion of updatedFields.questions) {
-//       if (updatedQuestion._id) {
-//         // Si la pregunta tiene un _id existente, actualizamos sus campos
-//         const existingQuestion = existingForm.questions.find(
-//           (question) => question._id.toString() === updatedQuestion._id
-//         );
-//         if (existingQuestion) {
-//           Object.assign(existingQuestion, updatedQuestion);
-//           updatedQuestions.push(existingQuestion);
-//         }
-//       } else {
-//         // Si la pregunta no tiene _id, la agregamos como nueva pregunta
-//         updatedQuestions.push(updatedQuestion);
-//       }
-//     }
-
-//     // Actualizamos las preguntas en el formulario
-//     existingForm.questions = updatedQuestions;
-
-//     // Actualizar los otros campos del formulario
-//     Object.assign(existingForm, updatedFields);
-
-//     // Guardar el formulario actualizado con las preguntas correspondientes
-//     const updatedForm = await existingForm.save();
-
-//     return res.status(200).json(updatedForm);
-//   } catch (error) {
-//     return res.status(500).json({ message: error.message });
-//   }
-// };

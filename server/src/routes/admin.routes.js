@@ -20,7 +20,7 @@ import {
 
 import {calculateCombinedScoreAverage, calculateSoftSkillsScore, calculateTechnicalSkillsScore, getCommentsAndPraiseCount, getScoresAndComments} from "../services/score.service.js";
 
-import { createForm, deleteForm, getAllForms, updateFormController } from "../controllers/form.controller.js";
+import { createForm, deleteForm, getAllForms, getFormById, updateFormController } from "../controllers/form.controller.js";
 
 
 const adminRouter = Router();
@@ -47,6 +47,7 @@ adminRouter.put("/equip/:equipId", addMembersToEquipName);
 
 //Formuluarios
 adminRouter.post("/form", createForm); //Crear Formulario
+adminRouter.get("/form/:id", getFormById); //Obtener un Formulario por ID
 adminRouter.put("/editForm/:id", updateFormController); //Editar Formulario
 adminRouter.delete("/deleteForm/:id", deleteForm); //Eliminar un Formulario
 
