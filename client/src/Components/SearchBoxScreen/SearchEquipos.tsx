@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState} from "react";
 import { TeamOutlined, FilterOutlined } from "@ant-design/icons";
 import { Menu, Dropdown } from "antd";
 import { useScreenSize } from "../../hooks";
@@ -11,6 +11,8 @@ import Imagen from "./models/img/Gallery_2.png";
 import Flecha from "./models/img/vectorFlecha.png";
 import BarraProgreso from "./models/img/Progress.png";
 import Grupo from "./models/img/Group 80.png";
+import Equipos from "../../pages/AdministrarEquipos/Equipos";
+import axios from "axios";
 
 function SearchEquipos({
   handleSearch,
@@ -21,6 +23,7 @@ function SearchEquipos({
   const [groupName, setGroupName] = useState<string>("");
   const { width } = useScreenSize();
   const [selectedOption, setSelectedOption] = useState<string>("");
+  
 
   const menu = (
     <Menu
@@ -85,11 +88,25 @@ function SearchEquipos({
     setIsThirdModalVisible(true);
   }
 
-  // Función para manejar la creación del equipo y mostrar el segundo modal
-  const handleCreateTeam = () => {
-    // Aquí  realizar las acciones necesarias para crear el equipo, por ejemplo, enviar el nombre del grupo al backend.
-    // Luego, puedes mostrar el segundo modal.
-    showSuccessModal();
+ 
+
+  const handleCreateTeam = async () => {
+    try {
+      // Realizar la petición al backend para crear el equipo
+      const response = await axios.post("http://localhost:8000/api/admin/equip", { name: groupName });
+
+      // Obtener el nombre del equipo creado desde la respuesta del backend
+      const { name } = response.data;
+
+      // Mostrar el segundo modal para añadir miembros al equipo
+      showSuccessModal();
+
+      // Guardar el nombre del equipo en el estado del componente
+      setGroupName(name);
+    } catch (error) {
+      console.error("Error al crear el equipo:", error);
+      // Aquí podrías mostrar un mensaje de error o hacer alguna otra acción en caso de error
+    }
   };
 
   return (
@@ -295,6 +312,7 @@ function SearchEquipos({
         </div>
 
       </Modal>
+      <Equipos />
     </>
   );
 }

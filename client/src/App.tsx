@@ -3,6 +3,7 @@ import { Route, BrowserRouter, Routes } from 'react-router-dom';
 import { FooterScreen, Loader } from './Components';
 import CrearEquiposDesktop from './pages/AdministrarEquipos/Components/CrearEquipos/CrearEquiposDesktop';
 
+
 const Home = lazy(() => import('./pages/Home/Home'));
 const Logout = lazy(() => import('./pages/Login/Login'));
 const Login = lazy(() => import('./pages/Login/Login'));
