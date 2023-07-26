@@ -4,7 +4,18 @@ const FormSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-
+  description: {
+    type: String,
+    default: "",
+    maxlength: 400,
+  },
+  createdBy: {
+    type: String,
+  },
+  rolesAllowed: {
+    type: [String],
+    default: [],  
+  },
   questions: [
     {
       question: {

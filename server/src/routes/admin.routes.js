@@ -14,7 +14,7 @@ import {
 } from "../controllers/admin.controller.js";
 import {calculateCombinedScoreAverage, calculateSoftSkillsScore, calculateTechnicalSkillsScore, getCommentsAndPraiseCount, getScoresAndComments} from "../services/score.service.js";
 
-import { createForm } from "../controllers/form.controller.js";
+import { createForm, getAllForms } from "../controllers/form.controller.js";
 
 const adminRouter = Router();
 adminRouter.get("/", (req, res) => {
@@ -33,8 +33,12 @@ adminRouter.post("/users", createUser);
 adminRouter.delete("/users/:id", deleteUser);
 adminRouter.put("/users/:id", editUser);
 
-//Crear Formulario
-adminRouter.post("/form", createForm);
+//Formuluarios
+adminRouter.post("/form", createForm); //Crear Formulario
+//adminRouter.put("/editForm/:id", updateForm); //Editar Formulario
+
+// Obtener todos los formularios
+adminRouter.get("/forms", getAllForms);
 
 //respuestas
 adminRouter.get("/users/soft-skills/:userId", calculateSoftSkillsScore);
