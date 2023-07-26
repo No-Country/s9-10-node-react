@@ -2,13 +2,14 @@ import { useNavigate } from 'react-router-dom';
 import { HeadScreen, SearchBoxScreen } from '../../Components';
 import { useScreenSize } from '../../hooks';
 import { SliderScreen } from './components';
+import { FormsProvider } from './context/FormsProvider';
 
 function FormScreen() {
   const { width } = useScreenSize();
   const navigate = useNavigate();
 
   return (
-    <>
+    <FormsProvider>
       <HeadScreen title='Gestionar Formularios' />
       <article className='md:ml-40 relative'>
         <div className='w-full h-[4.3125rem] bg-[#E9ECFC] absolute -top-5 left-0 rounded-b-2xl md:hidden -z-20' />
@@ -29,7 +30,7 @@ function FormScreen() {
           </button>
         </div>
       </article>
-    </>
+    </FormsProvider>
   );
 }
 

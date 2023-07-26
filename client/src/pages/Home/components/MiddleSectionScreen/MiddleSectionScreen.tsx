@@ -1,8 +1,8 @@
 function MiddleSectionScreen() {
   return (
     <article
-      className={`flex flex-col md:flex-row justify-center items-center w-full h-[440px] md:h-[736px] mt-6 
-      md:mt-20 md:gap-48 bg-[#185D81]`}
+      className={`flex flex-col md:flex-row justify-center items-center w-full h-[47.5rem] md:h-[736px] mt-6 
+      md:mt-20 gap-8 md:gap-48 bg-[#185D81]`}
     >
       <div className='flex flex-col justify-center items-center w-full md:w-min'>
         <h2
@@ -15,7 +15,7 @@ function MiddleSectionScreen() {
           src='/home5.png'
           alt='programación'
           loading='lazy'
-          className='w-44 h-44 hidden md:flex mt-4 self-start object-cover md:w-[25.5rem] md:h-[25.5rem] md:mt-8'
+          className='w-[12.38844rem] h-[13.06469rem] md:flex mt-10 md:self-start object-contain md:w-[25.5rem] md:h-[25.5rem] md:mt-8'
         />
       </div>
       <div className='flex justify-center items-center mt-6 md:mt-[78px] gap-7 md:gap-14'>

@@ -1,52 +1,39 @@
 export interface Forms {
-  id: number;
-  role: string;
-  name: string;
+  _id: string;
+  rolesAllowed: [string];
+  title: string;
   description: string;
-  author: string;
+  createdBy: string;
 }
 
-export const cards: Forms[] = [
+export const EmptyForms: Forms[] = [
   {
-    id: 1,
-    role: 'Rol 1',
-    name: 'Nombre Form 1',
-    description: 'Descripción',
-    author: 'Autor:',
-  },
-  {
-    id: 2,
-    role: 'Rol 2',
-    name: 'Nombre Form 2',
-    description: 'Descripción',
-    author: 'Autor:',
-  },
-  {
-    id: 3,
-    role: 'Rol 3',
-    name: 'Nombre Form 3',
-    description: 'Descripción',
-    author: 'Autor:',
-  },
-  {
-    id: 4,
-    role: 'Rol 4',
-    name: 'Nombre Form 4',
-    description: 'Descripción',
-    author: 'Autor:',
-  },
-  {
-    id: 5,
-    role: 'Rol 5',
-    name: 'Nombre Form 5',
-    description: 'Descripción',
-    author: 'Autor:',
-  },
-  {
-    id: 6,
-    role: 'Rol 6',
-    name: 'Nombre Form 6',
-    description: 'Descripción',
-    author: 'Autor:',
+    _id: '',
+    rolesAllowed: [''],
+    title: '',
+    description: '',
+    createdBy: '',
   },
 ];
+
+export interface FormsContextInterface {
+  isLoading: boolean;
+  setIsLoading: (value: boolean) => void;
+  data: Forms[];
+  handleDeleteForm: (id: string) => void;
+  handleFilterForm: (value: string) => void;
+}
+
+export const EmptyFormContext: FormsContextInterface = {
+  isLoading: false,
+  setIsLoading: (value: boolean) => {
+    value;
+  },
+  data: EmptyForms,
+  handleDeleteForm: (id: string) => {
+    console.log(id);
+  },
+  handleFilterForm: (value: string) => {
+    console.log(value);
+  },
+};

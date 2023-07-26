@@ -1,60 +1,39 @@
-interface TextActions {
-  id: number;
-  title: string;
-  text: string;
-  image: string;
-}
-
-const textActions: TextActions[] = [
-  {
-    id: 1,
-    title: 'Plataforma personalizada:',
-    text: `Ajustada a tu empresa, adaptable y flexible a desafíos.`,
-    image: '/home7.png',
-  },
-  {
-    id: 2,
-    title: 'Participación activa de empleado:',
-    text: `Ideas, sugerencias y preocupaciones valoradas.`,
-    image: '/home7.png',
-  },
-  {
-    id: 3,
-    title: 'Potentes herramientas de análisis:',
-    text: `Para decisiones informadas 
-    y métricas valiosas.`,
-    image: '/home7.png',
-  },
-  {
-    id: 4,
-    title: 'Comunicación abierta y transparente:',
-    text: `Fomentando confianza y colaboración.`,
-    image: '/home7.png',
-  },
-];
+import { ReasonsScreen } from '..';
 
 function WhyUsSection() {
   return (
     <article
-      className={`flex flex-col justify-center items-center w-full h-[809px] md:h-[1376px] bg-white`}
+      className={`flex flex-col justify-center items-center w-full h-[114.5rem] md:h-[1376px] bg-white`}
     >
       <div
-        className={`flex flex-col justify-center items-center w-[336px] md:w-[1152px] h-[296px] md:h-[368px] rounded-[1.875rem] border-[2px]
-          border-[#2D3648] border-solid`}
+        className={`flex flex-col justify-center items-center w-[336px] md:w-[1152px] h-[20.75rem] md:h-[24.75rem] rounded-[1.875rem] border-[2px]
+          border-[#D3D9F8] border-solid`}
       >
-        <div className='flex flex-col justify-center items-center w-full h-32 md:h-[220px] border-b-2 border-black relative'>
-          <div className='w-full h-full rounded-t-[1.875rem] bg-[#185D81]' />
-          <h2 className='absolute md:top-[9.37rem] text-white text-base md:text-3xl font-semibold'>
+        <div className='flex flex-col justify-center items-center w-full h-[13.75rem] relative'>
+          <div
+            className='absolute top-0 left-0 w-full h-full rounded-t-[1.875rem] z-10 md:w-[40.13rem]'
+            style={{
+              background:
+                'linear-gradient(90deg, #2085B0 14.58%, rgba(32, 133, 176, 0.00) 100%)',
+            }}
+          />
+          <img
+            className='w-full h-full rounded-t-[1.875rem] object-contain md:object-cover'
+            src='/home9.jpg'
+            alt='cellphone'
+          />
+          <h2
+            className={`absolute text-white text-2xl md:text-3xl font-semibold leading-[1.95rem] tracking-[-0.033rem]
+            mt-[4.06rem] mr-[5.13rem] mb-[4.13rem] ml-[1.69rem] w-[13.6875rem] z-20 md:top-3 md:left-28 md:leading-[2.8125rem]
+            md:tracking-[-0.04125rem] md:w-80`}
+          >
             Estimule una cultura de feedback positivo
           </h2>
         </div>
-        <div className='flex flex-col justify-center items-center w-full h-[168px] gap-6'>
-          <h3
-            className={`w-[15rem] md:w-[49.625rem] h-8 text-base text-black md:text-[1.375rem] font-normal md:leading-[2.0625rem]
-          md:tracking-[-0.03025rem] text-center`}
-          >
+        <div className='flex flex-col justify-center items-center w-full h-[168px] md:h-44 gap-6'>
+          <p className='hidden md:flex text-black font-semibold text-2xl leading-[2.25rem] tracking-[-0.033rem]'>
             Garantice que todas las opiniones sean escuchadas en su empresa.
-          </h3>
+          </p>
           <button
             className={`w-[143px] h-12 rounded-[1.875rem] bg-[#F0900E] text-xs text-white font-bold md:text-base md:w-[12.75rem]`}
           >
@@ -81,28 +60,7 @@ function WhyUsSection() {
             <span className='text-[#7A8CEB]'>elegir</span> nuestra plataforma
           </h2>
           <div className='flex flex-row flex-wrap justify-center items-center w-full md:w-[530px] md:h-[466px] gap-4'>
-            {textActions.map((textAction: TextActions) => (
-              <div
-                key={textAction.id}
-                className={`flex flex-col justify-center items-center w-40 h-[144px] rounded-lg border-[1.1px] border-black
-              md:w-64 md:h-[224px]`}
-              >
-                <img
-                  src={textAction.image}
-                  alt=' programación'
-                  loading='lazy'
-                  className=' w-full h-[90px] md:h-[116px] rounded-t-lg object-cover'
-                />
-                <div className='flex flex-col justify-center md:justify-start w-full h-[54px] md:h-[108px] rounded-b-lg'>
-                  <p className='text-[9px] md:text-[0.9375rem] text-black font-bold mx-4 md:leading-5 md:mt-4'>
-                    {textAction.title}
-                  </p>
-                  <p className='text-[9px] md:text-[0.9375rem] text-black font-normal mx-4 md:leading-5'>
-                    {textAction.text}
-                  </p>
-                </div>
-              </div>
-            ))}
+            <ReasonsScreen />
           </div>
         </div>
       </div>

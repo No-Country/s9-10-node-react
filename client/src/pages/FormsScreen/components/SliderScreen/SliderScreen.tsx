@@ -3,12 +3,15 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { Card } from '..';
-import { Forms, cards } from '../../models/cards';
+import { Forms } from '../../models/cards';
 import { useScreenSize } from '../../../../hooks';
+import { useForms } from '../../hooks';
+import { Loader } from '../../../../Components';
 
 function SliderScreen() {
   const { width } = useScreenSize();
   const sliderRef = useRef<Slider>(null);
+  const { data, isLoading } = useForms();
 
   const handleNext = () => {
     sliderRef.current?.slickNext();
@@ -16,13 +19,14 @@ function SliderScreen() {
 
   return (
     <>
+      {isLoading && <Loader />}
       {width < 768 ? (
         <div
           className={`flex flex-wrap w-full justify-center items-center gap-[1.88rem]
           overflow-hidden`}
         >
-          {cards.map((card: Forms) => (
-            <Card card={card} />
+          {data?.map((card: Forms) => (
+            <Card key={card?._id} card={card} />
           ))}
         </div>
       ) : (
@@ -39,8 +43,8 @@ function SliderScreen() {
           draggable={false}
           variableWidth={true}
         >
-          {cards.map((card: Forms) => (
-            <Card card={card} />
+          {data?.map((card: Forms) => (
+            <Card key={card?._id} card={card} />
           ))}
         </Slider>
       )}
