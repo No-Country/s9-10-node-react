@@ -38,7 +38,7 @@ const BestTeams: React.FC = () => {
       position: 1,
       name: "Recursos Humanos",
       description: "1 Team Leader",
-      empleados: "4 Empleados",
+      empleados: "7 Empleados",
     },
     {
       id: 2,
@@ -52,7 +52,7 @@ const BestTeams: React.FC = () => {
       position: 3,
       name: "Marketing",
       description: "1 Team Leader",
-      empleados: "4 Empleados",
+      empleados: "5 Empleados",
     },
     {
       id: 4,
@@ -66,14 +66,14 @@ const BestTeams: React.FC = () => {
       position: 5,
       name: "Front end Developers",
       description: "1 Team Leader",
-      empleados: "4 Empleados",
+      empleados: "6 Empleados",
     },
     {
       id: 6,
       position: 6,
       name: "UX/UI Design",
       description: "1 Team Leader",
-      empleados: "4 Empleados",
+      empleados: "3 Empleados",
     },
   ];
 

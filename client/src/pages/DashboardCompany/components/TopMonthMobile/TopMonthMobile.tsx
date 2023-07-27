@@ -23,38 +23,38 @@ const TopMonthMobile: React.FC = () => {
     {
       id: 1,
       position: 1,
-      name: "Apellido, N.",
-      description: "Rol"
+      name: "Owen, Celina.",
+      description: "Diseño UX/UI"
     },
     {
       id: 2,
       position: 2,
-      name: "Apellido, N.",
-      description: "Rol"
+      name: "Marta, Alcáraz Redondo",
+      description: "Backend"
     },
     {
       id: 3,
       position: 3,
-      name: "Apellido, N.",
-      description: "Rol"
+      name: "Diego, Fernadez",
+      description: "Frontend"
     },
     {
       id: 4,
       position: 4,
-      name: "Apellido, N.",
-      description: "Rol"
+      name: "Pablo, quiroz.",
+      description: "Diseño UX/UI"
     },
     {
       id: 5,
       position: 5,
-      name: "Apellido, N.",
-      description: "Rol"
+      name: "Yohan, Bello",
+      description: "Backend"
     },
     {
       id: 6,
       position: 6,
-      name: "Apellido, N.",
-      description: "Rol"
+      name: "Henry, Ramirez",
+      description: "Frontend"
     }
   ];
 
@@ -99,7 +99,7 @@ const TopMonthMobile: React.FC = () => {
                   <p className="font-inter name-mobile">{item.name}</p>
                   <p className="font-inter description-mobile">{item.description}</p>
                 </div>
-                <p className="font-inter score-mobile">Promedio:</p>
+                {/* <p className="font-inter score-mobile">Promedio:</p> */}
               </Card>
             </motion.div>
           ))}

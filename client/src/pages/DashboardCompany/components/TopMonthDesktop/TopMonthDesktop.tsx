@@ -23,38 +23,38 @@ const TopMonthDesktop: React.FC = () => {
     {
       id: 1,
       position: 1,
-      name: "Apellido, N.",
-      description: "Lorem Ipsum"
+      name: "Owen, Celina.",
+      description: "Diseño UX/UI"
     },
     {
       id: 2,
       position: 2,
-      name: "Apellido, N.",
-      description: "Lorem Ipsum"
+      name: "Marta, Alcáraz",
+      description: "Backend"
     },
     {
       id: 3,
       position: 3,
-      name: "Apellido, N.",
-      description: "Lorem Ipsum"
+      name: "Diego, Fernadez",
+      description: "Frontend"
     },
     {
       id: 4,
       position: 4,
-      name: "Apellido, N.",
-      description: "Lorem Ipsum"
+      name: "Pablo, quiroz.",
+      description: "Diseño UX/UI"
     },
     {
       id: 5,
       position: 5,
-      name: "Apellido, N.",
-      description: "Lorem Ipsum"
+      name: "Yohan, Bello",
+      description: "Backend"
     },
     {
       id: 6,
       position: 6,
-      name: "Apellido, N.",
-      description: "Lorem Ipsum"
+      name: "Henry, Ramirez",
+      description: "Frontend"
     }
   ];
 
@@ -100,7 +100,7 @@ const TopMonthDesktop: React.FC = () => {
                   <p className="font-inter name">{item.name}</p>
                   <p className="font-inter description">{item.description}</p>
                 </div>
-                <p className="font-inter score">Promedio:</p>
+                {/* <p className="font-inter score">Promedio:</p> */}
               </Card>
             </motion.div>
           ))}
