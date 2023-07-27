@@ -70,43 +70,91 @@ export interface CreateFormsContextInterface {
   setDescription: (value: string) => void;
   showSuccessModal: boolean;
   setShowSuccessModal: (value: boolean) => void;
+  loading: boolean;
+  setLoading: (value: boolean) => void;
 }
 
 export const EmptyContext: CreateFormsContextInterface = {
   isSelected: 0,
-  setIsSelected: () => {},
+  setIsSelected: (value: number) => {
+    value;
+  },
   question: '',
-  setQuestion: () => {},
-  clearInputQuestion: () => {},
+  setQuestion: (value: string) => {
+    value;
+  },
+  clearInputQuestion: () => {
+    () => console.log('clear');
+  },
   radioButtons: DEFAULT_RADIO_BUTTONS,
-  setRadioButtons: (radioButtons: DefaultRadioButtons) => {},
-  addRadioButtons: () => {},
-  saveOptionsQuestion: () => {},
-  handleOptionInputChange: () => {},
+  setRadioButtons: (radioButtons: DefaultRadioButtons) => {
+    radioButtons;
+  },
+  addRadioButtons: () => {
+    () => console.log('add');
+  },
+  saveOptionsQuestion: () => {
+    () => console.log('save');
+  },
+  handleOptionInputChange: () => {
+    () => console.log('change');
+  },
   maxCharacters: '',
-  setMaxCharacters: () => {},
-  saveOpenQuestion: () => {},
+  setMaxCharacters: (value: string) => {
+    value;
+  },
+  saveOpenQuestion: () => {
+    () => console.log('save');
+  },
   scaleStart: '',
-  setScaleStart: () => {},
+  setScaleStart: (value: string) => {
+    value;
+  },
   scaleEnd: '',
-  setScaleEnd: () => {},
+  setScaleEnd: (value: string) => {
+    value;
+  },
   scaleStep: '',
-  setScaleStep: () => {},
-  saveScaleQuestion: () => {},
-  handleClearLocalStorage: () => {},
-  handleSaveForm: () => {},
+  setScaleStep: (value: string) => {
+    value;
+  },
+  saveScaleQuestion: () => {
+    () => console.log('save');
+  },
+  handleClearLocalStorage: () => {
+    () => console.log('clear');
+  },
+  handleSaveForm: () => {
+    () => console.log('save');
+  },
   showAlert: false,
-  setShowAlert: () => {},
+  setShowAlert: (value: boolean) => {
+    value;
+  },
   showInputsMessage: false,
-  setShowInputsMessage: () => {},
+  setShowInputsMessage: (value: boolean) => {
+    value;
+  },
   rolSelected: '',
-  setRolSelected: () => {},
+  setRolSelected: (value: string) => {
+    value;
+  },
   title: '',
-  setTitle: () => {},
+  setTitle: (value: string) => {
+    value;
+  },
   description: '',
-  setDescription: () => {},
+  setDescription: (value: string) => {
+    value;
+  },
   showSuccessModal: false,
-  setShowSuccessModal: () => {},
+  setShowSuccessModal: (value: boolean) => {
+    value;
+  },
+  loading: false,
+  setLoading: (value: boolean) => {
+    value;
+  },
 };
 
 export const ROLES = [

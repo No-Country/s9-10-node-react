@@ -35,6 +35,7 @@ const CreateFormsProvider = ({ children }: CreateFormsProviderProps) => {
   const [description, setDescription] = useState<string>('');
   const [showSuccessModal, setShowSuccessModal] = useState<boolean>(false);
   const user = userStore((state) => state.user);
+  const [loading, setLoading] = useState<boolean>(false);
 
   // function to reset the state
   function clearInputQuestion() {
@@ -233,6 +234,7 @@ const CreateFormsProvider = ({ children }: CreateFormsProviderProps) => {
 
   //function to save the form in the DB
   async function handleSaveForm() {
+    setLoading(true);
     handleGetLocalStorage();
 
     const rolArray = [];
@@ -259,6 +261,7 @@ const CreateFormsProvider = ({ children }: CreateFormsProviderProps) => {
 
     setShowSuccessModal(true);
     handleClearLocalStorage();
+    setLoading(false);
   }
 
   return (
@@ -298,6 +301,8 @@ const CreateFormsProvider = ({ children }: CreateFormsProviderProps) => {
         setDescription,
         showSuccessModal,
         setShowSuccessModal,
+        loading,
+        setLoading,
       }}
     >
       {contextHolder}
