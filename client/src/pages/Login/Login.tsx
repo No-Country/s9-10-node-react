@@ -53,7 +53,7 @@ const Login = () => {
     addUser(res);
 
     clearForm();
-    navigate('/');
+    navigate('/user');
   };
 
   const clearForm = () => {

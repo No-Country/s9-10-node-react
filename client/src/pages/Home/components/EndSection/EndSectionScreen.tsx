@@ -1,5 +1,5 @@
 import { useScreenSize } from '../../../../hooks';
-
+import { Link} from "react-router-dom";
 function EndSectionScreen() {
   const { width } = useScreenSize();
 
@@ -26,12 +26,14 @@ function EndSectionScreen() {
             Fortalezca la <span className='text-[#73C36F]'>colaboración</span> y
             el logro de objetivos
           </h5>
+          <Link to={"register"}>
           <button
             className={`w-40 h-[2.875rem] rounded-[1.875rem] bg-[#F0900E] text-white font-bold text-lg leading-[1.94863rem]
             tracking-[-0.01125rem]md:h-[73px] z-10 md:w-[12.25rem] md:h-[3.875rem] md:leading-[1.5rem] tracking-[-0.01125rem]`}
           >
             Empieza hoy
           </button>
+          </Link>
         </div>
       </div>
       <div>
