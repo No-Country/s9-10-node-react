@@ -16,6 +16,7 @@ const Logout = () => {
   }, []);
 
   return (
+    
     <div>
       <h2>Logging out...</h2>
     </div>

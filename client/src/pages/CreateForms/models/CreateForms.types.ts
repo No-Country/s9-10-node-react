@@ -79,7 +79,7 @@ export const EmptyContext: CreateFormsContextInterface = {
   setQuestion: () => {},
   clearInputQuestion: () => {},
   radioButtons: DEFAULT_RADIO_BUTTONS,
-  setRadioButtons: (radioButtons: DefaultRadioButtons) => {},
+  setRadioButtons: () => {},
   addRadioButtons: () => {},
   saveOptionsQuestion: () => {},
   handleOptionInputChange: () => {},

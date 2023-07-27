@@ -24,7 +24,9 @@ function CustomButton({
         isSelected === id ? 'bg-[#7A8CEB]' : 'bg-[#E9ECFC]'
       }`}
       onClick={() => {
-        handleClick();
+        if (handleClick) {
+          handleClick();
+        }
         setIsSelected(id);
       }}
       disabled={!isEnabled}
