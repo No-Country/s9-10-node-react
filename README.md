@@ -54,5 +54,5 @@ La FeedBack App es una aplicación web diseñada para brindar a las organizacion
 - Gabriel Iezzi [GitHub](https://github.com/gabiezzi) [Linkedin](https://www.linkedin.com/in/gabriel-iezzi-13a405ba/) 
 
 ## Link deployment
-- [Link]()
+- [Link](https://qualyup.clopezpro.com/)
 
