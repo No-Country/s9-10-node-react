@@ -1,11 +1,10 @@
-import { MouseEvent, useState } from 'react';
+import { MouseEvent, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useScreenSize } from '../../hooks';
 import { MdOutlineDeleteForever } from 'react-icons/md';
 import { BiEditAlt } from 'react-icons/bi';
 import { SearchBoxScreen } from '..';
 import Modal from '../Modal/Modal';
-import popupDeletePerson from '../../../public/popupDeletePerson.png';
 
 interface BestOfMonthProps {
   bestPersons: {
@@ -23,17 +22,21 @@ const BestOfMonth = ({ bestPersons }: BestOfMonthProps) => {
   const { width } = useScreenSize();
   const [selectedRow, setSelectedRow] = useState<number | null>(null);
   const [showModal, setShowModal] = useState(false);
+  const [bestPersonsState, setBestPersonsState] = useState(bestPersons);
   const [selectedUser, setSelectedUser] = useState<{
     name: string;
     email: string;
   } | null>(null);
+  useEffect(() => {
+    setBestPersonsState(bestPersons);
+  }, [bestPersons]);
 
   const [editedEmails, setEditedEmails] = useState<{ [key: number]: string }>(
     {}
   );
 
   const handleOpenModal = (index: number) => {
-    setSelectedUser(bestPersons[index]);
+    setSelectedUser(bestPersonsState[index]);
     setSelectedRow(index);
     setShowModal(true);
   };
@@ -43,7 +46,19 @@ const BestOfMonth = ({ bestPersons }: BestOfMonthProps) => {
   };
 
   const handleAccept = () => {
-    console.log("Se hizo clic en 'Aceptar'");
+    const deletePerson = (index: number) => {
+      const updatedBestPersons = [...bestPersonsState];
+      updatedBestPersons.splice(index, 1);
+      setBestPersonsState(updatedBestPersons);
+    };
+    if (selectedRow !== null) {
+      deletePerson(selectedRow);
+    }
+    setShowModal(false);
+    setSelectedRow(null);
+    setSelectedUser(null);
+    setEditedEmails({});
+
     // Agrega aquí la lógica que deseas ejecutar al hacer clic en 'Aceptar'
   };
 
@@ -61,7 +76,7 @@ const BestOfMonth = ({ bestPersons }: BestOfMonthProps) => {
   const handleEditClick = (index: number) => {
     setEditedEmails((prevEditedEmails) => ({
       ...prevEditedEmails,
-      [index]: bestPersons[index].email,
+      [index]: bestPersonsState[index].email,
     }));
     setSelectedRow(index);
   };
@@ -80,7 +95,7 @@ const BestOfMonth = ({ bestPersons }: BestOfMonthProps) => {
     if (editedEmails[index] !== undefined) {
       // Realizar la lógica para guardar los cambios, ya sea en el estado, en una fuente de datos externa, etc.
       // Por ejemplo, si deseas actualizar el estado bestPersons con los cambios:
-      const updatedBestPersons = [...bestPersons];
+      const updatedBestPersons = [...bestPersonsState];
       updatedBestPersons[index].email = editedEmails[index];
       // Actualizar el estado bestPersons con los cambios
       // setBestPersons(updatedBestPersons);
@@ -109,7 +124,7 @@ const BestOfMonth = ({ bestPersons }: BestOfMonthProps) => {
       <SearchBoxScreen
         label="Editar equipo de Digital Team"
         showButton={true}
-        buttonLabel="Agregar"
+        buttonLabel="Agregar miembro"
         showSelect={false}
         handleSearch={(search: string) => console.log(search)}
       />
@@ -147,7 +162,7 @@ const BestOfMonth = ({ bestPersons }: BestOfMonthProps) => {
             </tr>
           </thead>
           <tbody>
-            {bestPersons.map((person, index) => (
+            {bestPersonsState.map((person, index) => (
               <tr
                 key={person.position}
                 id={`tr-${person.position}`}
@@ -217,16 +232,25 @@ const BestOfMonth = ({ bestPersons }: BestOfMonthProps) => {
           onAccept={handleAccept}
           onCancel={handleCancel}
         >
-          <div className="flex">
-            <img src={popupDeletePerson} alt="" />
-            <div>
-              <h2 className="text-black">
+          <div className="flex justify-around p-4">
+            <img
+              className="w-2/5"
+              src="/popupDeletePerson.png"
+              alt="popupdeleteperson"
+            />
+            <div className="flex flex-col w-2/5 gap-8">
+              <h2 className="text-2xl font-bold text-black">
                 ¿Seguro que deseas eliminar del equipo a {selectedUser?.name}?
               </h2>
-              <p className="text-black">
-                Al eliminar al miembro, no podrá visualizar los formularios
-                correspondientes al equipo. No se podrá deshacer esta acción.
-              </p>
+              <div>
+                <p className="text-black">
+                  Al eliminar al miembro, no podrá visualizar los formularios
+                  correspondientes al equipo.
+                </p>
+                <p className="font-semibold text-black">
+                  No se podrá deshacer esta acción.
+                </p>
+              </div>
             </div>
           </div>
         </Modal>

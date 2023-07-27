@@ -1,4 +1,5 @@
 import React, { useState, useEffect, ReactNode } from 'react';
+import { MdOutlineDeleteForever } from 'react-icons/md';
 
 // Tipos para las propiedades del modal
 interface ModalProps {
@@ -49,20 +50,21 @@ const Modal: React.FC<ModalProps> = ({
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 rounded-lg">
-      <div className="p-6 bg-white rounded-md">
+      <div className="w-3/6 p-6 bg-white rounded-3xl">
         {/* Contenido del modal */}
         {children}
 
         {/* Botones de aceptar y cancelar */}
         <div className="flex justify-end mt-4">
           <button
-            className="px-4 py-2 mr-2 text-white bg-blue-500 rounded"
+            className="px-4 py-2 mr-2 text-[#73C36F] bg-[#EDF7ED] rounded-full border-2 border-[#73C36F] flex items-center gap-2"
             onClick={handleAccept}
           >
+            <MdOutlineDeleteForever className="inline-block w-6 h-6 mr-2" />
             Eliminar miembro
           </button>
           <button
-            className="px-4 py-2 text-white bg-gray-500 rounded"
+            className="px-4 py-2 text-white bg-[#73C36F] rounded-full"
             onClick={handleCancel}
           >
             Cancelar
