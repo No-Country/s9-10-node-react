@@ -36,7 +36,7 @@ function SocialMediaScreen() {
           </div>
         </div>
       )}
-      <div className='flex flex-row w-44 h-11 justify-between items-center'>
+      <div className='flex mx-auto flex-row w-44 h-11 justify-between items-center'>
         <Link
           to='https://www.linkedin.com'
           target='_blank'
@@ -112,7 +112,7 @@ function SocialMediaScreen() {
           </svg>
         </Link>
       </div>
-      <p className='text-[#F5F5F5] text-sm font-normal leading-[1.3125rem] tracking-[-0.01925rem] mt-1'>
+      <p className='text-[#F5F5F5] text-sm font-normal leading-[1.3125rem] tracking-[-0.01925rem] mt-1 text-center'>
         Feedback - Copyright
       </p>
     </>
