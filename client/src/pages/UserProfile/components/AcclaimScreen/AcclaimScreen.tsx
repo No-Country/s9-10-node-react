@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { useScreenSize } from '../../../../hooks';
+//import { useState } from 'react';
+//import { useScreenSize } from '../../../../hooks';
 import { AiFillStar } from 'react-icons/ai';
 
 const acclaims = [
@@ -31,7 +31,7 @@ const acclaims = [
 ];
 
 function AcclaimScreen() {
-  const [progress, setProgress] = useState<number>(50);
+  //const [progress, setProgress] = useState<number>(50);
   // const { width } = useScreenSize();
 
   return (

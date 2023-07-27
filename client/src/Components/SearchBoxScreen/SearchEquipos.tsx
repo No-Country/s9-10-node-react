@@ -13,6 +13,7 @@ import BarraProgreso from "./models/img/Progress.png";
 import Grupo from "./models/img/Group 80.png";
 //import Equipos from "../../pages/AdministrarEquipos/Equipos";
 import axios from "axios";
+//import TeamInformation from "../../pages/AdministrarEquipos/TeamInformation"
 
 function SearchEquipos({
   handleSearch,
@@ -219,7 +220,7 @@ function SearchEquipos({
               Crear equipo
             </button>
           </div>
-          {/* <Equipos /> */}
+          
         </div>
       </Modal>
       <Modal
@@ -313,7 +314,8 @@ function SearchEquipos({
         </div>
 
       </Modal>
-      
+      {/* <TeamInformation />
+      <Equipos /> */}
     </>
   );
 }

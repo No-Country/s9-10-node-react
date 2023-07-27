@@ -1,14 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-
-
 const Equipos: React.FC = () => {
   const [groupName, setGroupName] = useState<string>("");
   const [users, setUsers] = useState<any[]>([]);
   const [memberName, setMemberName] = useState<string>("");
   const [members, setMembers] = useState<any[]>([]);
-  
 
   const handleGroupNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setGroupName(e.target.value);
@@ -19,8 +16,12 @@ const Equipos: React.FC = () => {
   };
 
   const handleAddMember = () => {
+    // Supongamos que el miembro tiene un _id único proporcionado por el backend
+    // Reemplaza 'ID_DEL_MIEMBRO' con el _id real del miembro
+    const newMember = { _id: 'ID_DEL_MIEMBRO', name: memberName };
+
     // Agregar el nuevo miembro a la lista de miembros
-    setMembers([...members, { name: memberName }]);
+    setMembers([...members, newMember]);
 
     // Limpiar el input después de agregar el miembro
     setMemberName("");
@@ -41,7 +42,7 @@ const Equipos: React.FC = () => {
   const handleCreateTeam = async () => {
     try {
       // Agregar el token de acceso a las cabeceras de la solicitud
-      const token = "AQUÍ_EL_TOKEN_DE_ACCESO"; // Reemplazarn esto con tu token de acceso real
+      const token = "AQUÍ_EL_TOKEN_DE_ACCESO"; // Reemplazar esto con tu token de acceso real
       const headers = {
         Authorization: `Bearer ${token}`,
       };
@@ -103,4 +104,5 @@ const Equipos: React.FC = () => {
 };
 
 export default Equipos;
+
 
