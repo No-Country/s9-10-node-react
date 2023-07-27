@@ -12,11 +12,12 @@ import Flecha from "./models/img/vectorFlecha.png";
 import BarraProgreso from "./models/img/Progress.png";
 import Grupo from "./models/img/Group 80.png";
 //import Equipos from "../../pages/AdministrarEquipos/Equipos";
-import axios from "axios";
+//import axios from "axios";
 //import TeamInformation from "../../pages/AdministrarEquipos/TeamInformation"
 
 function SearchEquipos({
   handleSearch,
+ 
   showSelect,
   showButton,
 }: SearchBoxProps) {
@@ -91,24 +92,24 @@ function SearchEquipos({
 
  
 
-  const handleCreateTeam = async () => {
-    try {
-      // Realizar la petición al backend para crear el equipo
-      const response = await axios.post("http://localhost:8000/api/admin/equip", { name: groupName });
+  // const handleCreateTeam = async () => {
+  //   try {
+  //     // Realizar la petición al backend para crear el equipo
+  //     const response = await axios.post("http://localhost:8000/api/admin/equip", { name: groupName });
 
-      // Obtener el nombre del equipo creado desde la respuesta del backend
-      const { name } = response.data;
+  //     // Obtener el nombre del equipo creado desde la respuesta del backend
+  //     const { name } = response.data;
 
-      // Mostrar el segundo modal para añadir miembros al equipo
-      showSuccessModal();
+  //     // Mostrar el segundo modal para añadir miembros al equipo
+  //     showSuccessModal();
 
-      // Guardar el nombre del equipo en el estado del componente
-      setGroupName(name);
-    } catch (error) {
-      console.error("Error al crear el equipo:", error);
-      // Aquí podrías mostrar un mensaje de error o hacer alguna otra acción en caso de error
-    }
-  };
+  //     // Guardar el nombre del equipo en el estado del componente
+  //     setGroupName(name);
+  //   } catch (error) {
+  //     console.error("Error al crear el equipo:", error);
+  //     // Aquí podrías mostrar un mensaje de error o hacer alguna otra acción en caso de error
+  //   }
+  // };
 
   return (
     <>
@@ -216,7 +217,7 @@ function SearchEquipos({
             <button onClick={hideModal} className="btn-cancel">
               Cancelar
             </button>
-            <button onClick={handleCreateTeam} className="btn-crear">
+            <button onClick={showSuccessModal} className="btn-crear">
               Crear equipo
             </button>
           </div>
@@ -310,7 +311,7 @@ function SearchEquipos({
         <h2 className="modal-title-equipo">Equipo <span className="title-naranja">{groupName}</span></h2>
         <p className="modal-parra-equipo">Creado exitosamente</p>
         <img src={Grupo} alt="Grupo" />
-        <Link to="/user"><button className="btn-crear">Ir al equipo</button></Link>
+        <Link to="/user/ranking-rol"><button className="btn-crear">Ir al equipo</button></Link>
         </div>
 
       </Modal>
