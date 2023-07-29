@@ -1,7 +1,7 @@
-# FeedBack App
+# QualyUp
 
 Este proyecto consiste en una aplicación web que permite a los usuarios de una organización poder puntuar a sus compañeros de equipo en habilidades blandas y técnicas, proporcionando estadísticas y datos sobre éstos. 
-La FeedBack App es una aplicación web diseñada para brindar a las organizaciones una forma efectiva de conocer y evaluar las habilidades blandas y técnicas de sus equipos. Esta plataforma proporciona una herramienta completa que permite a los usuarios dentro de la organización brindar feedback sobre sus compañeros, y a los administradores recopilar información y datos estadísticos. 
+QualyUp es una aplicación web diseñada para brindar a las organizaciones una forma efectiva de conocer y evaluar las habilidades blandas y técnicas de sus equipos. Esta plataforma proporciona una herramienta completa que permite a los usuarios dentro de la organización brindar feedback sobre sus compañeros, y a los administradores recopilar información y datos estadísticos. 
 
 ## Tech Stack
 **Cliente:** React, Vite, Tailwind
