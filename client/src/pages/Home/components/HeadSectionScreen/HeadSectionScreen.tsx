@@ -30,6 +30,7 @@ function HeadSectionScreen() {
           >
             Hablar con un asesor
           </button>
+
           <Link target='_blank' to={'https://www.youtube.com/watch?v=n38teUBV3ug&feature=youtu.be'}
             className={`flex w-[158px] md:w-[14.3125rem] h-12 md:h-[3.9375rem] rounded-[1.875rem] bg-[#EDF7ED] items-center justify-center 
           gap-2 border-[2px] border-solid border-[#73C36F]`}
@@ -55,6 +56,7 @@ function HeadSectionScreen() {
               />
             </svg>
           </Link>
+          
         </div>
       </div>
     </article>
