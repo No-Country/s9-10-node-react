@@ -1,5 +1,6 @@
 import { Suspense, lazy } from 'react';
 import { Route, BrowserRouter, Routes } from 'react-router-dom';
+
 import { FooterScreen, Loader } from './Components';
 import CrearEquiposDesktop from './pages/AdministrarEquipos/Components/CrearEquipos/CrearEquiposDesktop';
 
@@ -36,6 +37,8 @@ const App = () => {
             <Route path='forms/create' element={<CreateForms />} />
             <Route path='crear-equipos' element={<CrearEquiposDesktop />} />
           </Route>
+          {/* <Route path='admin' element={<AdminPanel/>} /> */}
+
         </Routes>
         <FooterScreen />
       </BrowserRouter>
